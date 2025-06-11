@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Products - Gem Syndicate</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <img src="images/logo.png" alt="Gem Syndicate Logo" class="logo" />
+    <h1>Our Products</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="products.html">Products</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+  <main>
+    <section id="product-list"></section>
+  </main>
+  <footer>
+    <p>&copy; 2025 Gem Syndicate</p>
+  </footer>
+  <script>
+    fetch('products.json')
+      .then(res => res.json())
+      .then(data => {
+        const container = document.getElementById('product-list');
+        data.forEach(item => {
+          container.innerHTML += `
+            <div class="product">
+              <img src="${item.image}" alt="${item.name}">
+              <h3>${item.name}</h3>
+              <p>${item.description}</p>
+              <strong>${item.price}</strong>
+            </div>`;
+        });
+      });
+  </script>
+</body>
+</html>
