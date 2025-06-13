@@ -3,30 +3,32 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Gem Syndicate</title>
   <style>
     body {
       font-family: 'Segoe UI', sans-serif;
-      background-color: #fdfaf5;
+      background-color: #fdf6f0;
       margin: 0;
       padding: 0;
-      color: #222;
+      color: #2c1a12;
     }
     header {
       text-align: center;
       padding: 2rem;
-      background: #fff8ec;
-      border-bottom: 1px solid #eee;
+      background: linear-gradient(90deg, #7b1113, #b68b00);
+      color: white;
     }
     header img {
       max-width: 150px;
+      margin-bottom: 0.5rem;
     }
     .products {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
       gap: 1.5rem;
       padding: 2rem;
+      background: #ffffff;
     }
     .product-card {
       background: #fff;
@@ -34,10 +36,7 @@
       box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
       padding: 1rem;
       text-align: center;
-      transition: transform 0.2s ease;
-    }
-    .product-card:hover {
-      transform: scale(1.02);
+      cursor: pointer;
     }
     .product-card img {
       width: 100%;
@@ -49,11 +48,39 @@
       font-size: 1.2rem;
       margin: 0.8rem 0 0.3rem;
       font-weight: 600;
+      color: #7b1113;
     }
     .product-price {
       color: #b68b00;
       font-weight: 500;
+    }
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0; top: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.7);
+      align-items: center;
+      justify-content: center;
+    }
+    .modal-content {
+      background: #fff;
+      border-radius: 10px;
+      padding: 1rem;
+      max-width: 90%;
+      max-height: 90%;
+      overflow: auto;
+    }
+    .modal-content img {
+      max-width: 100%;
+      border-radius: 10px;
       margin-bottom: 1rem;
+    }
+    .close {
+      float: right;
+      font-size: 1.5rem;
+      cursor: pointer;
     }
     .enquire-button {
       display: inline-block;
@@ -77,26 +104,52 @@
   </header>
 
   <section class="products">
-    <div class="product-card">
-      <img src="https://images.unsplash.com/photo-1587815071070-4cfa59f0a5d7" alt="Gemstone 1">
-      <div class="product-name">Ruby Stone</div>
+    <div class="product-card" onclick="showModal('Ruby', 'Natural Burmese Ruby, 3.2 carat, vivid red hue with excellent clarity. Ideal for rings and pendants.', 'https://images.unsplash.com/photo-1587815071070-4cfa59f0a5d7')">
+      <img src="https://images.unsplash.com/photo-1587815071070-4cfa59f0a5d7" alt="Ruby">
+      <div class="product-name">Ruby</div>
       <div class="product-price">₹15,000</div>
-      <a class="enquire-button" href="https://wa.me/918921238284?text=I'm%20interested%20in%20the%20Ruby%20Stone%20product" target="_blank">Enquire via WhatsApp</a>
     </div>
 
-    <div class="product-card">
-      <img src="https://images.unsplash.com/photo-1587049352843-7b2a94e5dcbc" alt="Gemstone 2">
-      <div class="product-name">Emerald Pendant</div>
+    <div class="product-card" onclick="showModal('Emerald', 'Colombian Emerald, 2.5 carat, deep green tone, minor inclusions. Perfect for statement jewellery.', 'https://images.unsplash.com/photo-1587049352843-7b2a94e5dcbc')">
+      <img src="https://images.unsplash.com/photo-1587049352843-7b2a94e5dcbc" alt="Emerald">
+      <div class="product-name">Emerald</div>
       <div class="product-price">₹9,500</div>
-      <a class="enquire-button" href="https://wa.me/918921238284?text=I'm%20interested%20in%20the%20Emerald%20Pendant%20product" target="_blank">Enquire via WhatsApp</a>
     </div>
 
-    <div class="product-card">
-      <img src="https://images.unsplash.com/photo-1604754742629-3b65f462a4d2" alt="Gemstone 3">
-      <div class="product-name">Blue Sapphire Ring</div>
+    <div class="product-card" onclick="showModal('Sapphire', 'Kashmir Blue Sapphire, 3 carat, velvety blue with superior luster. A collector’s choice.', 'https://images.unsplash.com/photo-1604754742629-3b65f462a4d2')">
+      <img src="https://images.unsplash.com/photo-1604754742629-3b65f462a4d2" alt="Sapphire">
+      <div class="product-name">Sapphire</div>
       <div class="product-price">₹12,000</div>
-      <a class="enquire-button" href="https://wa.me/918921238284?text=I'm%20interested%20in%20the%20Blue%20Sapphire%20Ring%20product" target="_blank">Enquire via WhatsApp</a>
+    </div>
+
+    <div class="product-card" onclick="showModal('Diamond', 'Natural Diamond, 1.5 carat, VVS1 clarity, D color. Certified by reputed labs.', 'https://images.unsplash.com/photo-1611425141538-3aa3f64a933c')">
+      <img src="https://images.unsplash.com/photo-1611425141538-3aa3f64a933c" alt="Diamond">
+      <div class="product-name">Diamond</div>
+      <div class="product-price">₹25,000</div>
     </div>
   </section>
+
+  <div class="modal" id="productModal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal()">&times;</span>
+      <img id="modalImage" src="" alt="">
+      <h2 id="modalName"></h2>
+      <p id="modalDesc"></p>
+      <a id="whatsappLink" class="enquire-button" href="#" target="_blank">Enquire via WhatsApp</a>
+    </div>
+  </div>
+
+  <script>
+    function showModal(name, desc, imgSrc) {
+      document.getElementById('modalName').innerText = name;
+      document.getElementById('modalDesc').innerText = desc;
+      document.getElementById('modalImage').src = imgSrc;
+      document.getElementById('whatsappLink').href = 'https://wa.me/918921238284?text=I'm%20interested%20in%20' + encodeURIComponent(name);
+      document.getElementById('productModal').style.display = 'flex';
+    }
+    function closeModal() {
+      document.getElementById('productModal').style.display = 'none';
+    }
+  </script>
 </body>
 </html>
