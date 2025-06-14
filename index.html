@@ -1,60 +1,109 @@
-
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html><html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Gem Syndicate</title>
-  <link rel="stylesheet" href="style.css" />
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #fefefe;
+      color: #3B7C6E; /* Logo's green tone */
+    }
+    header {
+      background-color: #3B7C6E;
+      color: white;
+      padding: 1rem;
+      text-align: center;
+    }
+    header img {
+      max-width: 100px;
+    }
+    nav {
+      text-align: center;
+      background-color: #eee;
+      padding: 0.5rem;
+    }
+    nav a {
+      color: #3B7C6E;
+      margin: 0 1rem;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .products {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1rem;
+      padding: 1rem;
+    }
+    .product {
+      border: 1px solid #ddd;
+      padding: 1rem;
+      text-align: center;
+      border-radius: 8px;
+    }
+    .product img {
+      max-width: 100%;
+      height: auto;
+    }
+    .whatsapp-button {
+      background-color: #25D366;
+      color: white;
+      padding: 0.5rem 1rem;
+      border: none;
+      border-radius: 4px;
+      text-decoration: none;
+      display: inline-block;
+      margin-top: 0.5rem;
+    }
+    footer {
+      text-align: center;
+      padding: 1rem;
+      background-color: #3B7C6E;
+      color: white;
+    }
+  </style>
 </head>
 <body>
   <header>
-    <h1>GEM SYNDICATE</h1>
-    <nav>
-      <a href="#about">About</a>
-      <a href="#contact">Contact</a>
-      <a href="https://instagram.com/_gem_syndicate_" target="_blank">Instagram</a>
-    </nav>
+    <img src="images/logo.png" alt="Gem Syndicate Logo">
+    <h1>Gem Syndicate</h1>
+    <p>"Where Timeless Beauty Meets Precious Perfection"</p>
   </header>
-
-  <main>
-    <section class="product">
-      <img src="images/ruby.jpg" alt="Ruby Gemstone" />
-      <h2>Ruby</h2>
-      <p>Premium quality ruby gemstone with rich color and brilliance.</p>
-      <a class="whatsapp" href="https://wa.me/918921238284" target="_blank">Enquire on WhatsApp</a>
-    </section>
-
-    <section class="product">
-      <img src="images/emerald.jpg" alt="Emerald Gemstone" />
-      <h2>Emerald</h2>
-      <p>Natural emerald gemstone with vibrant green hue.</p>
-      <a class="whatsapp" href="https://wa.me/918921238284" target="_blank">Enquire on WhatsApp</a>
-    </section>
-
-    <section class="product">
-      <img src="images/sapphire.jpg" alt="Sapphire Gemstone" />
-      <h2>Sapphire</h2>
-      <p>Beautiful deep blue sapphire, perfect for special occasions.</p>
-      <a class="whatsapp" href="https://wa.me/918921238284" target="_blank">Enquire on WhatsApp</a>
-    </section>
-  </main>
-
-  <section id="about">
+  <nav>
+    <a href="#about">About</a>
+    <a href="#products">Products</a>
+    <a href="#contact">Contact</a>
+  </nav>  <section id="about" style="padding: 1rem;">
     <h2>About Us</h2>
-    <p>Gem Syndicate is committed to providing premium quality gemstones to customers around the globe. 
-    With a focus on authenticity, brilliance, and craftsmanship, we ensure every gem tells a story of beauty and elegance. 
-    Our curated selection includes ruby, emerald, sapphire, and more — all ethically sourced and certified.</p>
-  </section>
-
-  <section id="contact">
-    <h2>Contact</h2>
-    <p>Phone: +91-8921238284</p>
-    <p>Instagram: <a href="https://instagram.com/_gem_syndicate_" target="_blank">@_gem_syndicate_</a></p>
-  </section>
-
-  <footer>
-    <p>&copy; 2025 Gem Syndicate</p>
+    <p>Gem Syndicate is dedicated to offering the finest quality gemstones — ethically sourced, expertly cut, and beautifully polished. Our passion is to bring nature's treasures to you, with authenticity and elegance at the heart of everything we do.</p>
+  </section>  <section id="products" class="products">
+    <div class="product">
+      <img src="images/ruby.png" alt="Ruby">
+      <h3>Ruby</h3>
+      <p>Premium ruby with deep red brilliance.</p>
+      <a class="whatsapp-button" href="https://wa.me/918921238284">Enquire on WhatsApp</a>
+    </div>
+    <div class="product">
+      <img src="images/emerald.png" alt="Emerald">
+      <h3>Emerald</h3>
+      <p>Natural emerald with vibrant green hue.</p>
+      <a class="whatsapp-button" href="https://wa.me/918921238284">Enquire on WhatsApp</a>
+    </div>
+    <div class="product">
+      <img src="images/sapphire.png" alt="Sapphire">
+      <h3>Sapphire</h3>
+      <p>Elegant blue sapphire perfect for occasions.</p>
+      <a class="whatsapp-button" href="https://wa.me/918921238284">Enquire on WhatsApp</a>
+    </div>
+    <div class="product">
+      <img src="images/diamond.png" alt="Diamond">
+      <h3>Diamond</h3>
+      <p>Brilliant cut diamond with unmatched sparkle.</p>
+      <a class="whatsapp-button" href="https://wa.me/918921238284">Enquire on WhatsApp</a>
+    </div>
+  </section>  <footer>
+    <p>Contact: +91-8921238284 | Instagram: @gem_syndicate</p>
   </footer>
 </body>
 </html>
