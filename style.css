@@ -1,156 +1,96 @@
-/* Base styles */
+/* Reset & body style */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
-    font-family: 'Roboto', sans-serif;
-    background-color: #ffffff; /* white background */
-    color: #333;
-    margin: 0;
-    padding: 0;
-    line-height: 1.6;
+  font-family: Arial, sans-serif;
+  background: #ffffff;
+  color: #004d40;
 }
 
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px;
+/* Hamburger button */
+.hamburger {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  width: 50px;
+  height: 50px;
+  background: #e0f2f1;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 1001;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
 }
 
-/* Header */
-.main-header {
-    background-color: #315147; /* logo primary color */
-    color: #fff;
-    padding: 20px 0;
+.hamburger div {
+  width: 25px;
+  height: 2px;
+  background: #2e2e3a;
+  margin: 4px 0;
+  transition: 0.4s;
 }
 
-.main-header .container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+.hamburger.active div:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
 }
 
-.logo h1 {
-    margin: 0;
-    font-size: 28px;
-    font-weight: 700;
+.hamburger.active div:nth-child(2) {
+  opacity: 0;
 }
 
-.main-nav ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
+.hamburger.active div:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
 }
 
-.main-nav ul li {
-    margin-left: 20px;
+/* Side nav */
+.side-nav {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: #004d40; /* Teal like your logo */
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+  z-index: 1000;
 }
 
-.main-nav ul li a {
-    color: #fff;
-    text-decoration: none;
-    font-weight: 500;
+.side-nav a {
+  padding: 12px 30px;
+  text-decoration: none;
+  font-size: 20px;
+  color: #ffffff;
+  display: block;
+  transition: 0.3s;
 }
 
-.main-nav ul li a:hover {
-    text-decoration: underline;
+.side-nav a:hover {
+  background: rgba(255, 255, 255, 0.1);
 }
 
-/* Product Categories */
-.product-category {
-    margin: 40px 0;
+/* Main content */
+.main {
+  padding: 80px 20px;
 }
 
-.product-category h2 {
-    color: #315147;
-    font-size: 26px;
-    margin-bottom: 15px;
-    border-bottom: 2px solid #315147;
-    display: inline-block;
-    padding-bottom: 5px;
+.main h1 {
+  font-size: 2em;
+  margin-bottom: 10px;
 }
 
-/* Varieties grid */
-.varieties {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
+.main p {
+  font-size: 1em;
 }
 
-.variety-card {
-    background-color: #fff;
-    border: 1px solid #eee;
-    border-radius: 8px;
-    padding: 15px;
-    text-align: center;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-}
-
-.variety-card img {
-    width: 100%;
-    height: 180px;
-    object-fit: contain;
-    margin-bottom: 10px;
-}
-
-.variety-card h3 {
-    margin: 10px 0 5px;
-    color: #315147;
-}
-
-.variety-card p {
-    font-size: 14px;
-    color: #555;
-}
-
-.price {
-    color: #000;
-    font-weight: 700;
-    margin: 5px 0;
-}
-
-.whatsapp-button {
-    display: inline-block;
-    background-color: #25d366;
-    color: #fff;
-    padding: 10px 15px;
-    border-radius: 5px;
-    text-decoration: none;
-    font-weight: 600;
-    transition: background-color 0.3s;
-}
-
-.whatsapp-button:hover {
-    background-color: #1da851;
-}
-
-/* About + Contact */
-.about, .contact {
-    background-color: #f9f9f9;
-    padding: 30px 20px;
-    margin-top: 40px;
-    text-align: center;
-}
-
-.about h2, .contact h2 {
-    color: #315147;
-    margin-bottom: 10px;
-}
-
-.about p, .contact p {
-    font-size: 16px;
-}
-
-/* Responsive tweaks */
-@media (max-width: 768px) {
-    .main-header .container {
-        flex-direction: column;
-    }
-
-    .main-nav ul {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .main-nav ul li {
-        margin: 10px 0;
-    }
+@media (max-width: 600px) {
+  .main h1 {
+    font-size: 1.5em;
+  }
 }
