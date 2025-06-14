@@ -2,72 +2,72 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Gem Syndicate</title>
-  <style>
-    body { font-family: Arial, sans-serif; background: #f9f9f9; margin: 0; color: #333; }
-    header { background: #800000; color: #fff; padding: 1rem; display: flex; align-items: center; justify-content: space-between; }
-    header img { height: 50px; }
-    nav a { color: #fff; text-decoration: none; margin-left: 1rem; }
-    .products { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; padding: 1rem; background: #fff; }
-    .product { border: 1px solid #ccc; border-radius: 8px; padding: 1rem; text-align: center; }
-    .product img { max-width: 100%; border-radius: 8px; cursor: pointer; }
-    footer { background: #800000; color: #fff; padding: 1rem; text-align: center; }
-    .zoom { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background: rgba(0,0,0,0.8); display: none; align-items: center; justify-content: center; }
-    .zoom img { max-width: 90%; max-height: 90%; }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gem Syndicate</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-  <header>
-    <img src="images/logo.png" alt="Gem Syndicate Logo">
-    <nav>
-      <a href="#about">About</a>
-      <a href="#contact">Contact</a>
-      <a href="https://www.instagram.com/_gem_syndicate_/" target="_blank">Instagram</a>
-    </nav>
-  </header>
-  <div class="products">
-    <div class="product">
-      <h3>Ruby</h3>
-      <img src="images/ruby.jpg" alt="Ruby" onclick="zoomImage(this.src)">
-      <p>Premium quality ruby gemstone with rich red color.</p>
-      <a href="https://wa.me/yourwhatsapplink?text=I%20am%20interested%20in%20Ruby" target="_blank">Enquire on WhatsApp</a>
-    </div>
-    <div class="product">
-      <h3>Emerald</h3>
-      <img src="images/emerald.jpg" alt="Emerald" onclick="zoomImage(this.src)">
-      <p>Natural emerald gemstone with vibrant green tone.</p>
-      <a href="https://wa.me/yourwhatsapplink?text=I%20am%20interested%20in%20Emerald" target="_blank">Enquire on WhatsApp</a>
-    </div>
-    <div class="product">
-      <h3>Sapphire</h3>
-      <img src="images/sapphire.jpg" alt="Sapphire" onclick="zoomImage(this.src)">
-      <p>Beautiful deep blue sapphire for special occasions.</p>
-      <a href="https://wa.me/yourwhatsapplink?text=I%20am%20interested%20in%20Sapphire" target="_blank">Enquire on WhatsApp</a>
-    </div>
-    <div class="product">
-      <h3>Diamond</h3>
-      <img src="images/diamond.jpg" alt="Diamond" onclick="zoomImage(this.src)">
-      <p>Brilliant cut diamond with unmatched clarity.</p>
-      <a href="https://wa.me/yourwhatsapplink?text=I%20am%20interested%20in%20Diamond" target="_blank">Enquire on WhatsApp</a>
-    </div>
-  </div>
-  <footer id="about">
-    <p>About: Gem Syndicate is your trusted partner for precious gemstones.</p>
-    <p id="contact">Contact: +91-XXXXXXXXXX | _gem_syndicate_</p>
-  </footer>
-  <div class="zoom" id="zoomBox" onclick="hideZoom()">
-    <img id="zoomImg" src="" alt="Zoomed Product Image">
-  </div>
-  <script>
-    function zoomImage(src) {
-      document.getElementById('zoomImg').src = src;
-      document.getElementById('zoomBox').style.display = 'flex';
-    }
-    function hideZoom() {
-      document.getElementById('zoomBox').style.display = 'none';
-    }
-  </script>
+
+    <header class="main-header">
+        <div class="container">
+            <div class="logo">
+                <h1>GEM SYNDICATE</h1>
+            </div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Contact</a></li>
+                    <li><a href="#">Instagram</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="gemstone-showcase">
+            <div class="container">
+                <div class="gemstone-card">
+                    <img src="https://via.placeholder.com/150x150/FF0000/FFFFFF?text=Ruby" alt="Ruby Gemstone">
+                    <h2>Ruby</h2>
+                    <p>Premium quality ruby gemstone with rich color and brilliance.</p>
+                    <a href="https://wa.me/918921238284?text=I'm%20interested%20in%20your%20Ruby." target="_blank" class="whatsapp-button">Enquire on WhatsApp</a>
+                </div>
+
+                <div class="gemstone-card">
+                    <img src="https://via.placeholder.com/150x150/008000/FFFFFF?text=Emerald" alt="Emerald Gemstone">
+                    <h2>Emerald</h2>
+                    <p>Natural emerald gemstone with vibrant green hue.</p>
+                    <a href="https://wa.me/918921238284?text=I'm%20interested%20in%20your%20Emerald." target="_blank" class="whatsapp-button">Enquire on WhatsApp</a>
+                </div>
+
+                <div class="gemstone-card">
+                    <img src="https://via.placeholder.com/150x150/0000FF/FFFFFF?text=Sapphire" alt="Sapphire Gemstone">
+                    <h2>Sapphire</h2>
+                    <p>Beautiful deep blue sapphire, perfect for special occasions.</p>
+                    <a href="https://wa.me/918921238284?text=I'm%20interested%20in%20your%20Sapphire." target="_blank" class="whatsapp-button">Enquire on WhatsApp</a>
+                </div>
+
+                <div class="gemstone-card">
+                    <img src="https://via.placeholder.com/150x150/CCCCCC/000000?text=Diamond" alt="Diamond Gemstone">
+                    <h2>Diamond</h2>
+                    <p>Brilliant cut diamond with exceptional clarity and shine.</p>
+                    <a href="https://wa.me/918921238284?text=I'm%20interested%20in%20your%20Diamond." target="_blank" class="whatsapp-button">Enquire on WhatsApp</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="about-section">
+            <div class="container">
+                <h2>About Gem Syndicate</h2>
+                <p>Gem Syndicate is your trusted partner for precious gemstones.</p>
+                <p>Contact: <span class="contact-number">+91-8921238284</span> | Instagram: <span class="instagram-handle">@_gemsyndicate</span></p>
+            </div>
+        </section>
+    </main>
+
 </body>
 </html>
