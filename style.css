@@ -56,9 +56,23 @@ header {
 }
 
 .logo-container {
-    width: 120px; /* Adjust as needed */
-    height: 120px; /* Adjust as needed */
-    /* ... other styles ... */
+    /* New styles for your logo container */
+    max-width: 200px; /* Adjust this value to control the overall width of your logo */
+    margin: 0 auto; /* Centers the logo container horizontally */
+    padding-bottom: 20px; /* Space between logo and "Welcome to Gem Syndicate" */
+    display: flex; /* Use flexbox to center content vertically/horizontally */
+    justify-content: center; /* Center horizontally within the container */
+    align-items: center; /* Center vertically within the container */
+    /* Remove fixed width/height if present, let content dictate or use max-width */
+    /* width: auto; */
+    /* height: auto; */
+}
+
+/* If your logo is an <img> tag INSIDE .logo-container */
+.logo-container img {
+    max-width: 100%; /* Ensures the image doesn't overflow its container */
+    height: auto;     /* Maintains the aspect ratio */
+    display: block;   /* Removes extra space below the image */
 }
 
 
@@ -71,19 +85,87 @@ header {
     text-transform: uppercase;
 }
 
-.hero-section h2 {
-    font-family: 'Playfair Display', serif; /* Elegant font for "Welcome to Gem Syndicate" */
-    font-size: 2.8em;
-    color: #222;
-    margin-bottom: 20px;
+/* ... rest of your CSS code ... */
+
+/* Basic Responsiveness - Adjust as needed for specific breakpoints */
+@media (max-width: 992px) {
+    .product-card {
+        width: 45%; /* Two cards per row on medium screens */
+    }
+    .hero-section h2 {
+        font-size: 2.5em;
+    }
+    .content-section h2 {
+        font-size: 2.2em;
+    }
+    .logo-container {
+        max-width: 180px; /* Slightly smaller on medium screens */
+    }
 }
 
-.hero-section p {
-    font-size: 1.2em;
-    color: #555;
-    max-width: 600px;
-    margin: 0 auto;
+@media (max-width: 768px) {
+    .nav-links a {
+        margin-left: 20px;
+        font-size: 1em;
+    }
+
+    .hero-section h2 {
+        font-size: 2em;
+    }
+
+    .product-card {
+        width: 80%; /* One card per row on smaller screens */
+    }
+    .content-section h2 {
+        font-size: 2em;
+    }
+    .content-section p {
+        font-size: 1em;
+    }
+    .logo-container {
+        max-width: 150px; /* Smaller on tablets */
+    }
 }
+
+@media (max-width: 576px) {
+    .navbar {
+        justify-content: center; /* Center nav links on very small screens */
+    }
+    .nav-links {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .nav-links a {
+        margin: 5px 0;
+    }
+
+    .hero-section h1 {
+        font-size: 1.5em;
+        letter-spacing: 3px;
+    }
+
+    .hero-section h2 {
+        font-size: 1.8em;
+    }
+
+    .hero-section p {
+        font-size: 1em;
+    }
+
+    .product-card {
+        width: 95%; /* Make cards almost full width on very small screens */
+        padding: 20px;
+    }
+    .product-card img {
+        height: 150px; /* Slightly smaller images on small screens */
+    }
+    .logo-container {
+        max-width: 120px; /* Smallest on mobile */
+        padding-bottom: 15px; /* Adjust spacing */
+    }
+}
+
 
 /* Generic Content Sections (About Us, Contact Us) */
 .content-section {
