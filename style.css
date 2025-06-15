@@ -2,16 +2,16 @@ body {
   margin: 0;
   font-family: Arial, sans-serif;
   background: #fff;
-  color: #003d33;
+  color: #333;
 }
 
 header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px 20px;
   background: #00695c;
   color: #fff;
+  padding: 10px 20px;
   position: sticky;
   top: 0;
 }
@@ -26,18 +26,12 @@ header {
   margin-right: 8px;
 }
 
-nav ul {
-  list-style: none;
+nav {
   display: flex;
-  margin: 0;
-  padding: 0;
+  gap: 15px;
 }
 
-nav ul li {
-  margin-left: 15px;
-}
-
-nav ul li a {
+nav a {
   color: #fff;
   text-decoration: none;
 }
@@ -48,66 +42,38 @@ nav ul li a {
   cursor: pointer;
 }
 
-.hamburger div {
+.hamburger span {
   width: 25px;
   height: 3px;
   background: #fff;
   margin: 4px 0;
 }
 
-.hero {
-  text-align: center;
-  padding: 50px 20px;
-}
-
-h1, h2, h3 {
-  color: #00695c;
-}
-
-.product-category {
-  margin: 20px;
-  padding: 10px;
-  border: 1px solid #00695c;
-  border-radius: 8px;
-}
-
-.product-category ul {
-  list-style: none;
-  padding: 0;
-}
-
-.product-category li {
-  margin: 5px 0;
-}
-
-.product-category a {
-  background: #00695c;
-  color: #fff;
-  padding: 5px 10px;
-  text-decoration: none;
-  border-radius: 4px;
+section {
+  padding: 20px;
 }
 
 footer {
-  text-align: center;
-  padding: 10px;
   background: #004d40;
   color: #fff;
+  text-align: center;
+  padding: 10px;
 }
 
-/* Mobile Styles */
+/* Mobile */
 @media (max-width: 768px) {
-  nav ul {
+  nav {
     display: none;
     flex-direction: column;
-    background: #004d40;
     position: absolute;
+    right: 20px;
     top: 60px;
-    right: 0;
-    width: 200px;
+    background: #004d40;
+    padding: 10px;
+    border-radius: 5px;
   }
 
-  nav ul.show {
+  nav.active {
     display: flex;
   }
 
