@@ -1,4 +1,4 @@
-/* Basic Reset & Global Styles */
+/* Global Styles & Reset */
 * {
     margin: 0;
     padding: 0;
@@ -10,6 +10,8 @@ body {
     line-height: 1.6;
     color: #333;
     background-color: #f8f8f8;
+    /* Smooth scrolling for anchor links */
+    scroll-behavior: smooth;
 }
 
 /* Header & Navigation */
@@ -18,6 +20,10 @@ header {
     color: #fff;
     padding: 15px 0;
     text-align: right; /* To align links to the right as in the image */
+    position: sticky; /* Makes header stick to the top */
+    top: 0;
+    z-index: 1000; /* Ensures header stays on top of other content */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
 }
 
 .navbar {
@@ -42,7 +48,7 @@ header {
     color: #e0e0e0;
 }
 
-/* Hero Section */
+/* Hero Section (Home Section) */
 .hero-section {
     text-align: center;
     padding: 60px 20px 40px;
@@ -68,7 +74,6 @@ header {
     color: #50a0a2; /* Color for GS text */
 }
 
-
 .hero-section h1 {
     font-family: 'Montserrat', sans-serif; /* Keeping Montserrat for this heading */
     font-size: 1.8em;
@@ -92,6 +97,54 @@ header {
     margin: 0 auto;
 }
 
+/* Generic Content Sections (About Us, Contact Us) */
+.content-section {
+    padding: 80px 20px; /* Increased padding for more vertical space */
+    text-align: center;
+}
+
+.content-section:nth-of-type(even) { /* Alternate background color for better separation */
+    background-color: #ffffff;
+}
+.content-section:nth-of-type(odd) {
+    background-color: #f8f8f8;
+}
+
+
+.content-section .container {
+    max-width: 900px; /* Slightly wider container */
+    margin: 0 auto;
+}
+
+.content-section h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5em;
+    color: #222;
+    margin-bottom: 30px; /* More space below heading */
+}
+
+.content-section p {
+    font-size: 1.15em; /* Slightly larger text */
+    color: #555;
+    margin-bottom: 15px;
+    line-height: 1.8;
+}
+
+.content-section p:last-child {
+    margin-bottom: 0;
+}
+
+.content-section a {
+    color: #0c4d4f; /* Match the header/button color */
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.content-section a:hover {
+    text-decoration: underline;
+}
+
+
 /* Products Section */
 .products-section {
     display: flex;
@@ -99,12 +152,13 @@ header {
     flex-wrap: wrap; /* Allows cards to wrap on smaller screens */
     gap: 30px; /* Space between cards */
     padding: 60px 20px;
+    background-color: #fff; /* White background for product section */
 }
 
 .product-card {
     background-color: #fff;
     border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Slightly more prominent shadow */
     padding: 30px;
     text-align: center;
     width: 320px; /* Fixed width for each card */
@@ -112,6 +166,12 @@ header {
     flex-direction: column;
     justify-content: space-between; /* Distributes space */
     align-items: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth hover effect */
+}
+
+.product-card:hover {
+    transform: translateY(-5px); /* Lift card slightly on hover */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15); /* Darker shadow on hover */
 }
 
 .product-card img {
@@ -150,21 +210,27 @@ header {
     background-color: #0a3a3b;
 }
 
-/* Optional: Footer styling */
-/*
+/* Footer styling */
 footer {
-    background-color: #333;
+    background-color: #0c4d4f; /* Match header color */
     color: #fff;
     text-align: center;
     padding: 20px 0;
-    margin-top: 50px;
+    margin-top: 50px; /* Space above footer */
+    font-size: 0.9em;
 }
-*/
+
 
 /* Basic Responsiveness - Adjust as needed for specific breakpoints */
 @media (max-width: 992px) {
     .product-card {
         width: 45%; /* Two cards per row on medium screens */
+    }
+    .hero-section h2 {
+        font-size: 2.5em;
+    }
+    .content-section h2 {
+        font-size: 2.2em;
     }
 }
 
@@ -175,11 +241,17 @@ footer {
     }
 
     .hero-section h2 {
-        font-size: 2.2em;
+        font-size: 2em;
     }
 
     .product-card {
         width: 80%; /* One card per row on smaller screens */
+    }
+    .content-section h2 {
+        font-size: 2em;
+    }
+    .content-section p {
+        font-size: 1em;
     }
 }
 
@@ -207,5 +279,13 @@ footer {
 
     .hero-section p {
         font-size: 1em;
+    }
+
+    .product-card {
+        width: 95%; /* Make cards almost full width on very small screens */
+        padding: 20px;
+    }
+    .product-card img {
+        height: 150px; /* Slightly smaller images on small screens */
     }
 }
