@@ -1,96 +1,63 @@
-/* Reset & body style */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
 
 body {
   font-family: Arial, sans-serif;
+  margin: 0;
   background: #ffffff;
   color: #004d40;
 }
 
-/* Hamburger button */
 .hamburger {
   position: fixed;
-  top: 20px;
-  left: 20px;
-  width: 50px;
-  height: 50px;
-  background: #e0f2f1;
-  border-radius: 50%;
+  top: 15px;
+  left: 15px;
+  width: 40px;
+  height: 30px;
   display: flex;
-  align-items: center;
-  justify-content: center;
+  flex-direction: column;
+  justify-content: space-between;
   cursor: pointer;
   z-index: 1001;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
 }
 
 .hamburger div {
-  width: 25px;
-  height: 2px;
+  height: 4px;
   background: #2e2e3a;
-  margin: 4px 0;
-  transition: 0.4s;
+  border-radius: 2px;
 }
 
-.hamburger.active div:nth-child(1) {
-  transform: rotate(45deg) translate(5px, 5px);
-}
-
-.hamburger.active div:nth-child(2) {
-  opacity: 0;
-}
-
-.hamburger.active div:nth-child(3) {
-  transform: rotate(-45deg) translate(5px, -5px);
-}
-
-/* Side nav */
 .side-nav {
   height: 100%;
   width: 0;
   position: fixed;
   top: 0;
   left: 0;
-  background-color: #004d40; /* Teal like your logo */
+  background-color: #004d40;
   overflow-x: hidden;
-  transition: 0.5s;
+  transition: 0.3s;
   padding-top: 60px;
   z-index: 1000;
 }
 
 .side-nav a {
-  padding: 12px 30px;
+  padding: 10px 30px;
   text-decoration: none;
   font-size: 20px;
-  color: #ffffff;
+  color: #fff;
   display: block;
-  transition: 0.3s;
 }
 
 .side-nav a:hover {
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(255,255,255,0.1);
 }
 
-/* Main content */
 .main {
-  padding: 80px 20px;
+  padding: 60px 20px;
 }
 
-.main h1 {
+h1 {
   font-size: 2em;
-  margin-bottom: 10px;
 }
 
-.main p {
+p {
   font-size: 1em;
-}
-
-@media (max-width: 600px) {
-  .main h1 {
-    font-size: 1.5em;
-  }
 }
