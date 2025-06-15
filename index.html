@@ -3,9 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Gem Syndicate - Exquisite gemstones with unmatched quality and brilliance." />
   <title>Gem Syndicate</title>
-  <link href="styles.css" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
   <header>
@@ -21,7 +20,9 @@
         <li><a href="#contact">Contact</a></li>
       </ul>
       <div class="hamburger" onclick="toggleMenu()">
-        <div></div><div></div><div></div>
+        <div></div>
+        <div></div>
+        <div></div>
       </div>
     </nav>
   </header>
@@ -33,7 +34,7 @@
 
   <section id="about">
     <h2>About Us</h2>
-    <p>At Gem Syndicate, we bring you premium gemstones sourced from trusted origins. Our collection blends tradition and modernity, crafted to meet your desires for beauty and value.</p>
+    <p>We bring you premium gemstones sourced from trusted origins. Our collection blends tradition and modernity, crafted to meet your desires for beauty and value.</p>
   </section>
 
   <section id="products">
@@ -74,8 +75,8 @@
 
   <section id="contact">
     <h2>Contact</h2>
-    <p>Phone: +91-8921238284</p>
-    <p>Instagram: <a href="https://www.instagram.com/_gem_syndicate_/" target="_blank">@_gem_syndicate_</a></p>
+    <p>WhatsApp: <a href="https://wa.me/918921238284">+91-8921238284</a></p>
+    <p>Instagram: <a href="https://www.instagram.com/_gem_syndicate_/">@_gem_syndicate_</a></p>
   </section>
 
   <footer>
@@ -84,8 +85,7 @@
 
   <script>
     function toggleMenu() {
-      const links = document.getElementById("nav-links");
-      links.classList.toggle("show");
+      document.getElementById("nav-links").classList.toggle("show");
     }
   </script>
 </body>
