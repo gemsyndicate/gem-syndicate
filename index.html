@@ -1,42 +1,92 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Gem Syndicate - Exquisite gemstones with unmatched quality and brilliance." />
   <title>Gem Syndicate</title>
-  <link rel="stylesheet" href="style.css" />
+  <link href="styles.css" rel="stylesheet" />
 </head>
 <body>
+  <header>
+    <div class="logo">
+      <img src="logo.png" alt="Gem Syndicate Logo" />
+      <span>Gem Syndicate</span>
+    </div>
+    <nav>
+      <ul id="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#products">Products</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <div class="hamburger" onclick="toggleMenu()">
+        <div></div><div></div><div></div>
+      </div>
+    </nav>
+  </header>
 
-  <div class="hamburger" onclick="toggleNav()">
-    <div></div>
-    <div></div>
-    <div></div>
-  </div>
-
-  <div id="mySidenav" class="side-nav">
-    <a href="#home">Home</a>
-    <a href="#about">About</a>
-    <a href="#products">Products</a>
-    <a href="#contact">Contact</a>
-  </div>
-
-  <div class="main">
+  <section id="home" class="hero">
     <h1>Welcome to Gem Syndicate</h1>
     <p>Discover exquisite gemstones with unmatched quality and brilliance.</p>
-  </div>
+  </section>
+
+  <section id="about">
+    <h2>About Us</h2>
+    <p>At Gem Syndicate, we bring you premium gemstones sourced from trusted origins. Our collection blends tradition and modernity, crafted to meet your desires for beauty and value.</p>
+  </section>
+
+  <section id="products">
+    <h2>Our Products</h2>
+    
+    <div class="product-category">
+      <h3>Ruby</h3>
+      <ul>
+        <li>Premium Red Ruby - ₹50,000 <a href="https://wa.me/918921238284">Enquire</a></li>
+        <li>Pinkish Ruby - ₹35,000 <a href="https://wa.me/918921238284">Enquire</a></li>
+      </ul>
+    </div>
+    
+    <div class="product-category">
+      <h3>Emerald</h3>
+      <ul>
+        <li>Vibrant Green Emerald - ₹60,000 <a href="https://wa.me/918921238284">Enquire</a></li>
+        <li>Colombian Emerald - ₹80,000 <a href="https://wa.me/918921238284">Enquire</a></li>
+      </ul>
+    </div>
+    
+    <div class="product-category">
+      <h3>Sapphire</h3>
+      <ul>
+        <li>Deep Blue Sapphire - ₹70,000 <a href="https://wa.me/918921238284">Enquire</a></li>
+        <li>Light Blue Sapphire - ₹45,000 <a href="https://wa.me/918921238284">Enquire</a></li>
+      </ul>
+    </div>
+    
+    <div class="product-category">
+      <h3>Diamond</h3>
+      <ul>
+        <li>Brilliant Cut Diamond - ₹1,00,000 <a href="https://wa.me/918921238284">Enquire</a></li>
+        <li>Princess Cut Diamond - ₹90,000 <a href="https://wa.me/918921238284">Enquire</a></li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2>Contact</h2>
+    <p>Phone: +91-8921238284</p>
+    <p>Instagram: <a href="https://www.instagram.com/_gem_syndicate_/" target="_blank">@_gem_syndicate_</a></p>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Gem Syndicate. All rights reserved.</p>
+  </footer>
 
   <script>
-    function toggleNav() {
-      const nav = document.getElementById("mySidenav");
-      if (nav.style.width === "250px") {
-        nav.style.width = "0";
-      } else {
-        nav.style.width = "250px";
-      }
+    function toggleMenu() {
+      const links = document.getElementById("nav-links");
+      links.classList.toggle("show");
     }
   </script>
-
 </body>
 </html>
