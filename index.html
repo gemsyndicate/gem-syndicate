@@ -1,0 +1,42 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gem Syndicate</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <div class="hamburger" onclick="toggleNav()">
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
+
+  <div id="mySidenav" class="side-nav">
+    <a href="#home">Home</a>
+    <a href="#about">About</a>
+    <a href="#products">Products</a>
+    <a href="#contact">Contact</a>
+  </div>
+
+  <div class="main">
+    <h1>Welcome to Gem Syndicate</h1>
+    <p>Discover exquisite gemstones with unmatched quality and brilliance.</p>
+  </div>
+
+  <script>
+    function toggleNav() {
+      const nav = document.getElementById("mySidenav");
+      if (nav.style.width === "250px") {
+        nav.style.width = "0";
+      } else {
+        nav.style.width = "250px";
+      }
+    }
+  </script>
+
+</body>
+</html>

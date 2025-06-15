@@ -1,0 +1,63 @@
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  background: #ffffff;
+  color: #004d40;
+}
+
+.hamburger {
+  position: fixed;
+  top: 15px;
+  left: 15px;
+  width: 40px;
+  height: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  cursor: pointer;
+  z-index: 1001;
+}
+
+.hamburger div {
+  height: 4px;
+  background: #2e2e3a;
+  border-radius: 2px;
+}
+
+.side-nav {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: #004d40;
+  overflow-x: hidden;
+  transition: 0.3s;
+  padding-top: 60px;
+  z-index: 1000;
+}
+
+.side-nav a {
+  padding: 10px 30px;
+  text-decoration: none;
+  font-size: 20px;
+  color: #fff;
+  display: block;
+}
+
+.side-nav a:hover {
+  background: rgba(255,255,255,0.1);
+}
+
+.main {
+  padding: 60px 20px;
+}
+
+h1 {
+  font-size: 2em;
+}
+
+p {
+  font-size: 1em;
+}
