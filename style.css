@@ -1,63 +1,113 @@
-
 body {
-  font-family: Arial, sans-serif;
   margin: 0;
-  background: #ffffff;
-  color: #004d40;
+  font-family: 'Arial', sans-serif;
+  background: #fff;
+  color: #003d33;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background: #00695c;
+  color: #fff;
+}
+
+.logo img {
+  height: 40px;
+  margin-right: 10px;
+}
+
+.logo span {
+  font-weight: bold;
+  font-size: 1.2em;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  margin: 0;
+  padding: 0;
+}
+
+nav ul li {
+  margin-left: 15px;
+}
+
+nav ul li a {
+  color: #fff;
+  text-decoration: none;
 }
 
 .hamburger {
-  position: fixed;
-  top: 15px;
-  left: 15px;
-  width: 40px;
-  height: 30px;
-  display: flex;
+  display: none;
   flex-direction: column;
-  justify-content: space-between;
   cursor: pointer;
-  z-index: 1001;
 }
 
 .hamburger div {
-  height: 4px;
-  background: #2e2e3a;
-  border-radius: 2px;
+  width: 25px;
+  height: 3px;
+  background: #fff;
+  margin: 4px 0;
 }
 
-.side-nav {
-  height: 100%;
-  width: 0;
-  position: fixed;
-  top: 0;
-  left: 0;
-  background-color: #004d40;
-  overflow-x: hidden;
-  transition: 0.3s;
-  padding-top: 60px;
-  z-index: 1000;
+.hero {
+  text-align: center;
+  padding: 50px 20px;
 }
 
-.side-nav a {
-  padding: 10px 30px;
-  text-decoration: none;
-  font-size: 20px;
+h1, h2, h3 {
+  color: #00695c;
+}
+
+.product-category {
+  margin: 20px;
+  padding: 10px;
+  border: 1px solid #00695c;
+  border-radius: 8px;
+}
+
+.product-category ul {
+  list-style: none;
+  padding: 0;
+}
+
+.product-category li {
+  margin: 5px 0;
+}
+
+.product-category a {
+  background: #00695c;
   color: #fff;
-  display: block;
+  padding: 5px 10px;
+  text-decoration: none;
+  border-radius: 4px;
 }
 
-.side-nav a:hover {
-  background: rgba(255,255,255,0.1);
+footer {
+  text-align: center;
+  padding: 10px;
+  background: #004d40;
+  color: #fff;
 }
 
-.main {
-  padding: 60px 20px;
-}
-
-h1 {
-  font-size: 2em;
-}
-
-p {
-  font-size: 1em;
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  nav ul {
+    display: none;
+    flex-direction: column;
+    background: #004d40;
+    position: absolute;
+    top: 60px;
+    right: 0;
+    width: 200px;
+  }
+  nav ul.show {
+    display: flex;
+  }
+  .hamburger {
+    display: flex;
+  }
 }
