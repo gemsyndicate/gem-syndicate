@@ -1,42 +1,64 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Gem Syndicate</title>
-  <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gem Syndicate</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400,500,600,700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
 </head>
 <body>
+    <header>
+        <nav class="navbar">
+            <div class="nav-links">
+                <a href="#home">Home</a>
+                <a href="#about">About</a>
+                <a href="#products">Products</a>
+                <a href="#contact">Contact</a>
+            </div>
+        </nav>
+    </header>
 
-  <div class="hamburger" onclick="toggleNav()">
-    <div></div>
-    <div></div>
-    <div></div>
-  </div>
+    <main>
+        <section class="hero-section">
+            <div class="logo-container">
+                <div class="logo-inner">GS</div>
+            </div>
+            <h1>GEM SYNDICATE</h1>
+            <h2>Welcome to Gem Syndicate</h2>
+            <p>Discover exquisite jewelry with unmatched quality and brilliance.</p>
+        </section>
 
-  <div id="mySidenav" class="side-nav">
-    <a href="#home">Home</a>
-    <a href="#about">About</a>
-    <a href="#products">Products</a>
-    <a href="#contact">Contact</a>
-  </div>
+        <section class="products-section">
+            <div class="product-card">
+                <img src="YOUR_EMERALD_EARRINGS_IMAGE.jpg" alt="Emerald Stud Earrings">
+                <h3>Emerald</h3>
+                <p>Emerald Stud Earrings</p>
+                <p>₹55,000</p>
+                <a href="https://wa.me/918921238284" class="whatsapp-button">Enquire on WhatsApp</a>
+            </div>
 
-  <div class="main">
-    <h1>Welcome to Gem Syndicate</h1>
-    <p>Discover exquisite gemstones with unmatched quality and brilliance.</p>
-  </div>
+            <div class="product-card">
+                <img src="YOUR_SAPPHIRE_RING_IMAGE.jpg" alt="Sapphire Ring">
+                <h3>Sapphire</h3>
+                <p>Sapphire Ring</p>
+                <p>₹70,000</p>
+                <p>Sapphire Necklace</p>
+                <p>₹60,000</p>
+                <a href="https://wa.me/918921238284" class="whatsapp-button">Enquire on WhatsApp</a>
+            </div>
 
-  <script>
-    function toggleNav() {
-      const nav = document.getElementById("mySidenav");
-      if (nav.style.width === "250px") {
-        nav.style.width = "0";
-      } else {
-        nav.style.width = "250px";
-      }
-    }
-  </script>
+            <div class="product-card">
+                <img src="YOUR_DIAMOND_BRACELET_IMAGE.jpg" alt="Diamond Bracelet">
+                <h3>Diamond</h3>
+                <p>Diamond Bracelet</p>
+                <p>₹1,20,000</p>
+                <p>Diamond Stud Earrings</p>
+                <p>₹95,000</p>
+                <a href="https://wa.me/918921238284" class="whatsapp-button">Enquire on WhatsApp</a>
+            </div>
+        </section>
+    </main>
 
-</body>
+    </body>
 </html>
