@@ -56,23 +56,11 @@ header {
 }
 
 .logo-container {
-    width: 80px; /* Adjust size as needed */
-    height: 80px; /* Adjust size as needed */
-    border: 2px solid #50a0a2; /* Border color from the logo */
-    border-radius: 50%; /* Makes it circular */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 0 auto 20px;
-    background-color: #f0f0f0; /* Light background for the logo circle */
+    width: 120px; /* Adjust as needed */
+    height: 120px; /* Adjust as needed */
+    /* ... other styles ... */
 }
 
-.logo-inner {
-    font-family: 'Playfair Display', serif; /* A more elegant font for GS */
-    font-size: 3em; /* Adjust size as needed */
-    font-weight: 700;
-    color: #50a0a2; /* Color for GS text */
-}
 
 .hero-section h1 {
     font-family: 'Montserrat', sans-serif; /* Keeping Montserrat for this heading */
