@@ -1,6 +1,6 @@
 body {
   margin: 0;
-  font-family: 'Arial', sans-serif;
+  font-family: Arial, sans-serif;
   background: #fff;
   color: #003d33;
 }
@@ -12,16 +12,18 @@ header {
   padding: 10px 20px;
   background: #00695c;
   color: #fff;
+  position: sticky;
+  top: 0;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
 }
 
 .logo img {
   height: 40px;
-  margin-right: 10px;
-}
-
-.logo span {
-  font-weight: bold;
-  font-size: 1.2em;
+  margin-right: 8px;
 }
 
 nav ul {
@@ -93,7 +95,7 @@ footer {
   color: #fff;
 }
 
-/* Mobile Responsive */
+/* Mobile Styles */
 @media (max-width: 768px) {
   nav ul {
     display: none;
@@ -104,9 +106,11 @@ footer {
     right: 0;
     width: 200px;
   }
+
   nav ul.show {
     display: flex;
   }
+
   .hamburger {
     display: flex;
   }
