@@ -1,63 +1,211 @@
+/* Basic Reset & Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
 body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  background: #ffffff;
-  color: #004d40;
+    font-family: 'Montserrat', sans-serif; /* Primary font for most text */
+    line-height: 1.6;
+    color: #333;
+    background-color: #f8f8f8;
 }
 
-.hamburger {
-  position: fixed;
-  top: 15px;
-  left: 15px;
-  width: 40px;
-  height: 30px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  cursor: pointer;
-  z-index: 1001;
+/* Header & Navigation */
+header {
+    background-color: #0c4d4f; /* Dark teal/green from the image */
+    color: #fff;
+    padding: 15px 0;
+    text-align: right; /* To align links to the right as in the image */
 }
 
-.hamburger div {
-  height: 4px;
-  background: #2e2e3a;
-  border-radius: 2px;
+.navbar {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: flex-end; /* Aligns items to the right */
+    align-items: center;
 }
 
-.side-nav {
-  height: 100%;
-  width: 0;
-  position: fixed;
-  top: 0;
-  left: 0;
-  background-color: #004d40;
-  overflow-x: hidden;
-  transition: 0.3s;
-  padding-top: 60px;
-  z-index: 1000;
+.nav-links a {
+    color: #fff;
+    text-decoration: none;
+    margin-left: 30px;
+    font-weight: 500;
+    font-size: 1.1em;
+    transition: color 0.3s ease;
 }
 
-.side-nav a {
-  padding: 10px 30px;
-  text-decoration: none;
-  font-size: 20px;
-  color: #fff;
-  display: block;
+.nav-links a:hover {
+    color: #e0e0e0;
 }
 
-.side-nav a:hover {
-  background: rgba(255,255,255,0.1);
+/* Hero Section */
+.hero-section {
+    text-align: center;
+    padding: 60px 20px 40px;
+    background-color: #fff; /* White background for the hero section */
 }
 
-.main {
-  padding: 60px 20px;
+.logo-container {
+    width: 80px; /* Adjust size as needed */
+    height: 80px; /* Adjust size as needed */
+    border: 2px solid #50a0a2; /* Border color from the logo */
+    border-radius: 50%; /* Makes it circular */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto 20px;
+    background-color: #f0f0f0; /* Light background for the logo circle */
 }
 
-h1 {
-  font-size: 2em;
+.logo-inner {
+    font-family: 'Playfair Display', serif; /* A more elegant font for GS */
+    font-size: 3em; /* Adjust size as needed */
+    font-weight: 700;
+    color: #50a0a2; /* Color for GS text */
 }
 
-p {
-  font-size: 1em;
+
+.hero-section h1 {
+    font-family: 'Montserrat', sans-serif; /* Keeping Montserrat for this heading */
+    font-size: 1.8em;
+    letter-spacing: 5px; /* Spacing for GEM SYNDICATE */
+    color: #444;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
+
+.hero-section h2 {
+    font-family: 'Playfair Display', serif; /* Elegant font for "Welcome to Gem Syndicate" */
+    font-size: 2.8em;
+    color: #222;
+    margin-bottom: 20px;
+}
+
+.hero-section p {
+    font-size: 1.2em;
+    color: #555;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* Products Section */
+.products-section {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap; /* Allows cards to wrap on smaller screens */
+    gap: 30px; /* Space between cards */
+    padding: 60px 20px;
+}
+
+.product-card {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    text-align: center;
+    width: 320px; /* Fixed width for each card */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Distributes space */
+    align-items: center;
+}
+
+.product-card img {
+    max-width: 100%;
+    height: 180px; /* Fixed height for consistency */
+    object-fit: contain; /* Ensures image fits within bounds without cropping */
+    margin-bottom: 20px;
+}
+
+.product-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8em;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.product-card p {
+    font-size: 1.1em;
+    color: #666;
+    margin-bottom: 8px;
+}
+
+.whatsapp-button {
+    display: inline-block;
+    background-color: #0c4d4f; /* Dark teal/green for the button */
+    color: #fff;
+    padding: 12px 25px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: 600;
+    margin-top: 20px;
+    transition: background-color 0.3s ease;
+}
+
+.whatsapp-button:hover {
+    background-color: #0a3a3b;
+}
+
+/* Optional: Footer styling */
+/*
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 50px;
+}
+*/
+
+/* Basic Responsiveness - Adjust as needed for specific breakpoints */
+@media (max-width: 992px) {
+    .product-card {
+        width: 45%; /* Two cards per row on medium screens */
+    }
+}
+
+@media (max-width: 768px) {
+    .nav-links a {
+        margin-left: 20px;
+        font-size: 1em;
+    }
+
+    .hero-section h2 {
+        font-size: 2.2em;
+    }
+
+    .product-card {
+        width: 80%; /* One card per row on smaller screens */
+    }
+}
+
+@media (max-width: 576px) {
+    .navbar {
+        justify-content: center; /* Center nav links on very small screens */
+    }
+    .nav-links {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .nav-links a {
+        margin: 5px 0;
+    }
+
+    .hero-section h1 {
+        font-size: 1.5em;
+        letter-spacing: 3px;
+    }
+
+    .hero-section h2 {
+        font-size: 1.8em;
+    }
+
+    .hero-section p {
+        font-size: 1em;
+    }
 }
