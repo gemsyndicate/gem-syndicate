@@ -1,74 +1,238 @@
+/* Basic Reset & Global Styles */
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 body {
-  font-family: Arial, sans-serif;
-  background: #fff;
-  color: #333;
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #f4f4f4; /* Light grey background */
+    color: #333;
 }
 
+a {
+    text-decoration: none;
+    color: inherit; /* Inherit color from parent by default */
+}
+
+ul {
+    list-style: none;
+}
+
+/* Header & Navigation */
 header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 20px;
-  background: #222;
+    background: #333; /* Dark header */
+    color: #fff;
+    padding: 1rem 0;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
 }
 
-.logo img {
-  height: 50px;
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
 }
 
-nav ul {
-  list-style: none;
-  display: flex;
-  gap: 20px;
+.logo a {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #fff;
 }
 
-nav ul li a {
-  color: #fff;
-  text-decoration: none;
-  font-weight: bold;
+.nav-links {
+    display: flex;
 }
 
-nav ul li a:hover {
-  text-decoration: underline;
+.nav-links li {
+    margin-left: 25px;
 }
 
-section {
-  padding: 40px 20px;
-  max-width: 1000px;
-  margin: auto;
+.nav-links a {
+    color: #fff;
+    font-weight: bold;
+    transition: color 0.3s ease;
 }
 
-h2 {
-  margin-bottom: 20px;
-  color: #444;
+.nav-links a:hover {
+    color: #ffd700; /* Gold color on hover */
 }
 
-.product-list {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-  gap: 20px;
+/* Homepage Specific Styles */
+.homepage-main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: calc(100vh - 150px); /* Adjust height based on header/footer */
+    text-align: center;
+    padding: 20px;
 }
 
-.product-item {
-  text-align: center;
+.hero-section {
+    max-width: 800px;
+    background: #fff;
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
 }
 
-.product-item img {
-  width: 100%;
-  max-width: 150px;
-  border: 1px solid #ccc;
-  border-radius: 8px;
+.hero-section h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    color: #222;
 }
 
+.hero-section p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    color: #555;
+}
+
+.button-primary {
+    display: inline-block;
+    background: #007bff; /* Blue button */
+    color: #fff;
+    padding: 15px 30px;
+    border-radius: 5px;
+    font-size: 1.1rem;
+    transition: background 0.3s ease;
+}
+
+.button-primary:hover {
+    background: #0056b3;
+}
+
+/* Shop Page Specific Styles (Gemstone Grid) */
+.shop-main {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+}
+
+.gemstone-gallery h1 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+    color: #222;
+}
+
+.gemstone-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Responsive grid */
+    gap: 30px;
+    justify-content: center;
+}
+
+.gemstone-card {
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    padding: 20px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.gemstone-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+}
+
+.gemstone-card img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+
+.gemstone-card p {
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: #444;
+}
+
+/* Footer Styles */
 footer {
-  text-align: center;
-  padding: 10px;
-  background: #222;
-  color: #fff;
+    background: #222; /* Darker footer */
+    color: #eee;
+    padding: 40px 0;
+    margin-top: 50px;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.footer-section {
+    flex: 1;
+    min-width: 250px;
+    margin: 20px;
+}
+
+.footer-section h3 {
+    color: #ffd700; /* Gold for headings */
+    margin-bottom: 15px;
+}
+
+.footer-section p, .footer-section ul {
+    margin-bottom: 10px;
+}
+
+.footer-section a {
+    color: #eee;
+    transition: color 0.3s ease;
+}
+
+.footer-section a:hover {
+    color: #fff;
+}
+
+.footer-section ul li {
+    margin-bottom: 8px;
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 20px;
+    border-top: 1px solid #444;
+    margin-top: 30px;
+    color: #aaa;
+}
+
+/* Basic Responsiveness (for smaller screens) */
+@media (max-width: 768px) {
+    nav {
+        flex-direction: column;
+        text-align: center;
+    }
+    .nav-links {
+        margin-top: 15px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .nav-links li {
+        margin: 0 10px 10px 10px;
+    }
+    .hero-section h1 {
+        font-size: 2.2rem;
+    }
+    .hero-section p {
+        font-size: 1rem;
+    }
+    .footer-content {
+        flex-direction: column;
+        align-items: center;
+    }
+    .footer-section {
+        text-align: center;
+        margin: 15px 0;
+    }
 }
