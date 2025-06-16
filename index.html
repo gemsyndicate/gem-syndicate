@@ -1,46 +1,44 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>GEM SYNDICATE</title>
-  <style>
-    body { font-family: Arial, sans-serif; margin: 0; }
-    nav { background: #003333; color: white; padding: 10px; position: sticky; top: 0; }
-    nav a { color: white; margin: 0 15px; text-decoration: none; }
-    section { padding: 50px 20px; }
-    #about, #contact { background: #f0f0f0; }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gem Syndicate</title>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
- <nav>
-  <img src="images/logo.jpg" alt="Gem Syndicate Logo" style="height:40px; vertical-align: middle;">
-  <a href="#home">Home</a>
-  <a href="#shop">Products</a>
-  <a href="#about">About Us</a>
-  <a href="#contact">Contact Us</a>
-</nav>
-
-  <section id="home">
-    <h1>Welcome to GEM SYNDICATE</h1>
-    <button onclick="location.href='#shop'">Shop Now</button>
-  </section>
-
-  <section id="shop">
-    <h2>Shop Our Gems</h2>
-    <a href="emerald.html">Emerald</a> | 
-    <a href="ruby.html">Ruby</a> | 
-    <a href="diamond.html">Diamond</a>
-  </section>
-
-  <section id="about">
-    <h2>About Us</h2>
-    <p>Gem Syndicate specializes in premium quality gemstones. Our mission is to deliver authentic and certified gems to our customers worldwide.</p>
-  </section>
-
-  <section id="contact">
-    <h2>Contact Us</h2>
-    <p>WhatsApp: <a href="https://wa.me/918921238284" target="_blank">+91 8921238284</a></p>
-    <p>Email: youremail@example.com</p>
-  </section>
+    <header>
+        <img src="images/logo.png" alt="Gem Syndicate Logo" class="logo">
+        <nav>
+            <a href="#products">Products</a>
+            <a href="#about">About Us</a>
+            <a href="#contact">Contact Us</a>
+        </nav>
+    </header>
+    <section id="products">
+        <h2>Our Products</h2>
+        <div class="product">
+            <img src="images/sample1.jpg" alt="Emerald Sample">
+            <p>Emerald 2 Carat</p>
+            <button onclick="window.location.href='https://wa.me/918921238284?text=Interested in Emerald 2 Carat'">Buy Now</button>
+            <button>Add to Cart</button>
+        </div>
+        <div class="product">
+            <img src="images/sample2.jpg" alt="Ruby Sample">
+            <p>Ruby 3 Carat</p>
+            <button onclick="window.location.href='https://wa.me/918921238284?text=Interested in Ruby 3 Carat'">Buy Now</button>
+            <button>Add to Cart</button>
+        </div>
+    </section>
+    <section id="about">
+        <h2>About Us</h2>
+        <p>We provide premium quality gemstones with authenticity guaranteed.</p>
+    </section>
+    <section id="contact">
+        <h2>Contact Us</h2>
+        <p>WhatsApp: +91 8921238284</p>
+        <p>Email: info@gemsyndicate.com</p>
+    </section>
 </body>
 </html>
