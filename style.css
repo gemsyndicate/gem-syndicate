@@ -60,3 +60,11 @@ button {
 button:hover {
   background-color: #005555;
 }
+nav {
+  display: flex;
+  align-items: center;
+}
+
+nav img {
+  margin-right: 15px;
+}
