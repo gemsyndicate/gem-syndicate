@@ -38,11 +38,11 @@ nav {
     padding: 0 20px;
 }
 
-.logo a {
-    font-size: 1.8rem;
-    font-weight: bold;
-    color: #fff; /* Logo text remains white for contrast */
+.logo img {
+    max-height: 50px; /* Adjust as needed */
+    /* If your logo is too wide, add max-width: 150px; or similar */
 }
+
 
 .nav-links {
     display: flex;
