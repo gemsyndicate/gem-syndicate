@@ -3,91 +3,111 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shop Gemstones - Gem Syndicate</title>
+    <title>GEM SYNDICATE - Shop</title>
     <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
     <header>
-        <nav>
+        <div class="container">
             <div class="logo">
-    <a href="index.html">
-        <img src="images/logo.jpg" alt="Gem Syndicate Logo">
-    </a>
-</div>
-
-            <ul class="nav-links">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="shop.html">Shop</a></li>
-                <li><a href="about.html">About Us</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-        </nav>
+                <img src="images/logo.png" alt="GEM SYNDICATE Logo">
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li> <li><a href="shop.html">Shop</a></li>   <li><a href="index.html#about">About Us</a></li> <li><a href="index.html#contact">Contact</a></li> </ul>
+            </nav>
+        </div>
     </header>
 
-    <main class="shop-main">
-        <section class="gemstone-gallery">
-            <h1>Our Exquisite Gemstone Collection</h1>
+    <main>
+        <section class="shop-page-hero">
+            <div class="container">
+                <h1>Our Exquisite Gem Collection</h1>
+                <p>Explore a world of natural beauty and timeless elegance.</p>
+            </div>
+        </section>
 
-            <div class="gemstone-grid">
-                <a href="emerald.html" class="gemstone-card">
-                    <img src="images/emerald.png" alt="Emerald Gemstone">
-                    <p>Emerald</p>
-                </a>
-                <a href="ruby.html" class="gemstone-card">
-                    <img src="images/ruby.png" alt="Ruby Gemstone">
-                    <p>Ruby</p>
-                </a>
-                <a href="diamond.html" class="gemstone-card">
-                    <img src="images/diamond.png" alt="Diamond Gemstone">
-                    <p>Diamond</p>
-                </a>
-                <a href="sapphire.html" class="gemstone-card">
-                    <img src="images/sapphire.png" alt="Sapphire Gemstone">
-                    <p>Sapphire</p>
-                </a>
-                <a href="yellow-sapphire.html" class="gemstone-card">
-                    <img src="images/yellow_sapphire.png" alt="Yellow Sapphire Gemstone">
-                    <p>Yellow Sapphire</p>
-                </a>
-                <a href="amethyst.html" class="gemstone-card">
-                    <img src="images/amethyst.png" alt="Amethyst Gemstone">
-                    <p>Amethyst</p>
-                </a>
-                <a href="yetou-sapphire.html" class="gemstone-card">
-                    <img src="images/yetou_sapphire.png" alt="Yetou Sapphire Gemstone">
-                    <p>Yetou Sapphire</p>
-                </a>
-                <a href="aquamarine.html" class="gemstone-card">
-                    <img src="images/aquamarine.png" alt="Aquamarine Gemstone">
-                    <p>Aquamarine</p>
-                </a>
-                </div>
+        <section class="controls-bar">
+            <div class="container">
+                <div class="search-filter-sort">
+                    <div class="search-box">
+                        <input type="text" placeholder="Search gemstones" class="search-input">
+                        <span class="search-icon">&#128269;</span> </div>
+                    </div>
+            </div>
+        </section>
+
+        <section class="products-grid">
+            <div class="container">
+                <h2>All Gemstones</h2>
+                <div class="product-grid-items">
+                    <div class="product-item">
+                        <img src="images/emerald.png" alt="Emerald">
+                        <h3>Emerald</h3>
+                        <p>$1,200</p>
+                        <button class="btn">View Details</button>
+                    </div>
+                    <div class="product-item">
+                        <img src="images/ruby.png" alt="Ruby">
+                        <h3>Ruby</h3>
+                        <p>$950</p>
+                        <button class="btn">View Details</button>
+                    </div>
+                    <div class="product-item">
+                        <img src="images/sapphire.png" alt="Sapphire">
+                        <h3>Sapphire</h3>
+                        <p>$1,500</p>
+                        <button class="btn">View Details</button>
+                    </div>
+                    <div class="product-item">
+                        <img src="images/diamond.png" alt="Diamond">
+                        <h3>Diamond</h3>
+                        <p>$5,000</p>
+                        <button class="btn">View Details</button>
+                    </div>
+                    <div class="product-item">
+                        <img src="images/yellow_sapphire.png" alt="Yellow Sapphire">
+                        <h3>Yellow Sapphire</h3>
+                        <p>$800</p>
+                        <button class="btn">View Details</button>
+                    </div>
+                    <div class="product-item">
+                        <img src="images/amethyst.png" alt="Amethyst">
+                        <h3>Amethyst</h3>
+                        <p>$250</p>
+                        <button class="btn">View Details</button>
+                    </div>
+                    <div class="product-item">
+                        <img src="images/aquamarine.png" alt="Aquamarine">
+                        <h3>Aquamarine</h3>
+                        <p>$600</p>
+                        <button class="btn">View Details</button>
+                    </div>
+                    <div class="product-item">
+                        <img src="images/topaz.png" alt="Topaz">
+                        <h3>Topaz</h3>
+                        <p>$300</p>
+                        <button class="btn">View Details</button>
+                    </div>
+                    <div class="product-item">
+                        <img src="images/peridot.png" alt="Peridot">
+                        <h3>Peridot</h3>
+                        <p>$200</p>
+                        <button class="btn">View Details</button>
+                    </div>
+                    </div>
+            </div>
         </section>
     </main>
 
     <footer>
-        <div class="footer-content">
-            <div class="footer-section contact-info">
-                <h3>Contact Us</h3>
-                <p>Instagram: <a href="https://www.instagram.com/_gem_syndicate_" target="_blank">@_gem_syndicate_</a></p>
-                <p>Phone: <a href="tel:+918921238284">+91-8921238284</a></p>
-                <p>Email: <a href="mailto:info.gemsyndicate@gmail.com">info.gemsyndicate@gmail.com</a></p>
-            </div>
-            <div class="footer-section navigation-footer">
-                <h3>Quick Links</h3>
-                <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="shop.html">Shop</a></li>
-                    <li><a href="about.html">About Us</a></li>
-                    <li><a href="contact.html">Contact</a></li>
-                </ul>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>&copy; 2025 Gem Syndicate. All rights reserved.</p>
+        <div class="container">
+            <p>&copy; 2025 GEM SYNDICATE. All rights reserved.</p>
         </div>
     </footer>
 
+    <script src="js/script.js"></script>
 </body>
 </html>
