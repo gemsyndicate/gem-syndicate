@@ -302,7 +302,7 @@ footer a:hover {
     flex-wrap: wrap;
     gap: 15px;
     align-items: center;
-    justify-content: center;
+    justify-content: center; /* Centered the search bar now */
     max-width: 1200px;
     margin: 0 auto;
 }
@@ -362,7 +362,6 @@ footer a:hover {
     display: flex;
     flex-direction: column;
     align-items: center; /* Center content horizontally */
-    /* Removed justify-content: space-between as price/button are gone */
 }
 
 .product-item:hover {
@@ -382,9 +381,6 @@ footer a:hover {
     color: #0F3A3B;
     margin: 10px 0;
 }
-
-/* Removed .product-item p and .product-item .btn styles as they are no longer in HTML */
-
 
 /* Responsive Design */
 @media (max-width: 768px) {
