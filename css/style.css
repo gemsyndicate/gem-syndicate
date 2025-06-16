@@ -4,10 +4,10 @@ body {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    color: #333; /* Dark text color */
+    color: #333;
     line-height: 1.6;
-    scroll-behavior: smooth; /* Enables smooth scrolling for anchor links */
-    background-color: #f7f7f7; /* Very light grey for main page background */
+    scroll-behavior: smooth;
+    background-color: #f7f7f7;
 }
 
 .container {
@@ -18,7 +18,7 @@ body {
 
 /* Header */
 header {
-    background-color: #0F3A3B; /* Dark green from the image */
+    background-color: #0F3A3B;
     color: #fff;
     padding: 15px 0;
     position: sticky;
@@ -35,14 +35,14 @@ header .container {
 
 /* Logo - Now for the image */
 .logo {
-    display: flex; /* Ensures image is treated as flex item for alignment */
-    align-items: center; /* Vertically centers the logo image */
+    display: flex;
+    align-items: center;
 }
 
 .logo img {
-    max-height: 40px; /* Adjust this value to control the logo's height */
-    max-width: 100%; /* Ensures the image doesn't overflow its container */
-    height: auto; /* Maintains aspect ratio */
+    max-height: 40px;
+    max-width: 100%;
+    height: auto;
 }
 
 nav ul {
@@ -64,15 +64,14 @@ nav ul li a {
 }
 
 nav ul li a:hover {
-    color: #a0d8e8; /* Lighter shade for hover */
+    color: #a0d8e8;
 }
 
 /* Hero Section */
 .hero {
-    background-color: #F8F8F8; /* Light background */
+    background-color: #F8F8F8;
     text-align: center;
     padding: 100px 20px;
-    /* background-image: url('images/hero-bg.jpg'); /* Optional: Add a subtle background image */
     background-size: cover;
     background-position: center;
     color: #333;
@@ -83,7 +82,7 @@ nav ul li a:hover {
     font-size: 56px;
     font-weight: 700;
     margin-bottom: 20px;
-    color: #0F3A3B; /* Dark green for heading */
+    color: #0F3A3B;
 }
 
 .hero p {
@@ -96,7 +95,7 @@ nav ul li a:hover {
 
 .btn {
     display: inline-block;
-    background-color: #0F3A3B; /* Dark green button */
+    background-color: #0F3A3B;
     color: #fff;
     padding: 15px 30px;
     text-decoration: none;
@@ -106,17 +105,17 @@ nav ul li a:hover {
 }
 
 .btn:hover {
-    background-color: #1a5e5e; /* Slightly lighter dark green on hover */
+    background-color: #1a5e5e;
 }
 
 /* Section Headings */
 .collection-section h2,
 .about-us-section h2,
 .contact-us-section h2,
-.products-grid h2 { /* Added for shop.html */
+.products-grid h2 {
     font-family: 'Playfair Display', serif;
     font-size: 40px;
-    color: #0F3A3B; /* Dark green for headings */
+    color: #0F3A3B;
     margin-bottom: 50px;
     position: relative;
     display: inline-block;
@@ -125,7 +124,7 @@ nav ul li a:hover {
 .collection-section h2::after,
 .about-us-section h2::after,
 .contact-us-section h2::after,
-.products-grid h2::after { /* Added for shop.html */
+.products-grid h2::after {
     content: '';
     position: absolute;
     left: 50%;
@@ -133,26 +132,26 @@ nav ul li a:hover {
     bottom: -10px;
     width: 60px;
     height: 3px;
-    background-color: #0F3A3B; /* Underline for headings */
+    background-color: #0F3A3B;
 }
 
 /* Collection Section (Home Page) */
 .collection-section {
     padding: 80px 20px;
     text-align: center;
-    background-color: #fff; /* White background for this section */
+    background-color: #fff;
 }
 
 .gem-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 30px;
-    max-width: 1000px; /* Adjusted for smaller grid on home */
+    max-width: 1000px;
     margin: 0 auto;
 }
 
 .gem-item {
-    background-color: #fff; /* Pure white background for gem items */
+    background-color: #fff;
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 4px 10px rgba(0,0,0,0.05);
@@ -173,14 +172,14 @@ nav ul li a:hover {
 .gem-item h3 {
     font-family: 'Playfair Display', serif;
     font-size: 24px;
-    color: #0F3A3B; /* Dark green for gem names */
+    color: #0F3A3B;
     margin: 0;
 }
 
 /* About Us Section */
 .about-us-section {
     padding: 80px 20px;
-    background-color: #f7f7f7; /* Very light grey for About Us to provide subtle contrast */
+    background-color: #f7f7f7;
     text-align: center;
 }
 
@@ -193,7 +192,7 @@ nav ul li a:hover {
 /* Contact Us Section */
 .contact-us-section {
     padding: 80px 20px;
-    background-color: #fff; /* White background for this section */
+    background-color: #fff;
     text-align: center;
 }
 
@@ -215,7 +214,7 @@ nav ul li a:hover {
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-    background-color: #fff; /* Pure white background for contact form */
+    background-color: #fff;
 }
 
 .contact-form input,
@@ -246,27 +245,27 @@ nav ul li a:hover {
 
 /* Footer */
 footer {
-    background-color: #0F3A3B; /* Dark green footer */
+    background-color: #0F3A3B;
     color: #fff;
     text-align: center;
     padding: 20px 0;
     font-size: 14px;
 }
 
-footer a { /* Style for links within the footer */
-    color: #fff; /* Make footer links white */
+footer a {
+    color: #fff;
     text-decoration: none;
     transition: color 0.3s ease;
 }
 
 footer a:hover {
-    color: #a0d8e8; /* Lighter shade on hover for footer links */
+    color: #a0d8e8;
 }
 
 
 /* Shop Page Specific Styles */
 .shop-page-hero {
-    background-color: #F8F8F8; /* Light background */
+    background-color: #F8F8F8;
     text-align: center;
     padding: 80px 20px;
     color: #333;
@@ -293,9 +292,9 @@ footer a:hover {
 
 /* Shop Page Controls Bar (Search Only) */
 .controls-bar {
-    background-color: #f7f7f7; /* Match body background */
-    padding: 30px 20px 20px; /* Adjust padding as needed */
-    border-bottom: 1px solid #eee; /* Subtle separator */
+    background-color: #f7f7f7;
+    padding: 30px 20px 20px;
+    border-bottom: 1px solid #eee;
 }
 
 .search-filter-sort {
@@ -303,25 +302,25 @@ footer a:hover {
     flex-wrap: wrap;
     gap: 15px;
     align-items: center;
-    justify-content: center; /* Centered the search bar now */
+    justify-content: center;
     max-width: 1200px;
     margin: 0 auto;
 }
 
 .search-box {
     position: relative;
-    max-width: 400px; /* Limit max width for search */
-    width: 100%; /* Ensures it takes full width up to max-width */
+    max-width: 400px;
+    width: 100%;
 }
 
 .search-input {
     width: 100%;
-    padding: 12px 15px 12px 40px; /* Left padding for icon */
+    padding: 12px 15px 12px 40px;
     border: 1px solid #ddd;
     border-radius: 5px;
     font-size: 16px;
-    box-sizing: border-box; /* Include padding and border in width */
-    background-color: #fff; /* White background for input */
+    box-sizing: border-box;
+    background-color: #fff;
 }
 
 .search-input::placeholder {
@@ -346,11 +345,11 @@ footer a:hover {
 /* Product Grid Items on Shop Page */
 .product-grid-items {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Adjust minmax for item size */
-    gap: 30px; /* Space between items */
-    max-width: 1200px; /* Match container width */
-    margin: 0 auto; /* Center the grid */
-    padding-top: 20px; /* Space from heading */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding-top: 20px;
 }
 
 .product-item {
@@ -360,9 +359,10 @@ footer a:hover {
     box-shadow: 0 4px 10px rgba(0,0,0,0.05);
     text-align: center;
     transition: transform 0.3s ease;
-    display: flex; /* Use flexbox for layout */
-    flex-direction: column; /* Stack content vertically */
-    justify-content: space-between; /* Pushes button to bottom */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center content horizontally */
+    /* Removed justify-content: space-between as price/button are gone */
 }
 
 .product-item:hover {
@@ -383,19 +383,7 @@ footer a:hover {
     margin: 10px 0;
 }
 
-.product-item p {
-    font-size: 18px;
-    color: #555;
-    margin-bottom: 20px;
-    font-weight: bold;
-}
-
-.product-item .btn {
-    margin-top: auto; /* Pushes the button to the bottom when using flex column */
-    width: 100%; /* Make button full width within the card */
-    padding: 10px 15px; /* Adjust padding for smaller button */
-    font-size: 16px;
-}
+/* Removed .product-item p and .product-item .btn styles as they are no longer in HTML */
 
 
 /* Responsive Design */
@@ -422,26 +410,25 @@ footer a:hover {
     .collection-section h2,
     .about-us-section h2,
     .contact-us-section h2,
-    .products-grid h2 { /* Added for shop.html */
+    .products-grid h2 {
         font-size: 32px;
     }
 
     .gem-grid,
-    .product-grid-items { /* Apply to both home and shop grids */
-        grid-template-columns: 1fr; /* Stack items on small screens */
+    .product-grid-items {
+        grid-template-columns: 1fr;
     }
 
     .contact-form {
         padding: 15px;
     }
 
-    /* Responsive adjustments for controls bar (search only) */
     .search-filter-sort {
-        justify-content: center; /* Keep centered */
+        justify-content: center;
     }
 
     .search-box {
-        max-width: 100%; /* Allows search to take full width on small screens */
+        max-width: 100%;
     }
 }
 
