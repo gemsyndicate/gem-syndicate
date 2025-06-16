@@ -236,3 +236,108 @@ footer {
         margin: 15px 0;
     }
 }
+/* Product Page Specific Styles */
+.product-page-main {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+}
+
+.gemstone-detail h1 {
+    text-align: center;
+    font-size: 3rem;
+    color: #1a5e1a; /* A nice green for Emeralds */
+    margin-bottom: 20px;
+}
+
+.gemstone-description {
+    text-align: center;
+    font-size: 1.1rem;
+    color: #555;
+    max-width: 800px;
+    margin: 0 auto 50px auto;
+    line-height: 1.8;
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Adjust card width as needed */
+    gap: 30px;
+    justify-content: center;
+}
+
+.product-card {
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    padding: 25px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+.product-card img {
+    max-width: 100%;
+    height: 250px; /* Fixed height for image consistency */
+    object-fit: contain; /* Ensures image fits without cropping, maintaining aspect ratio */
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+.product-card h2 {
+    font-size: 1.8rem;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.carat-info {
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: #666;
+    margin-bottom: 15px;
+}
+
+.product-description {
+    font-size: 0.95rem;
+    color: #777;
+    margin-bottom: 25px;
+    line-height: 1.6;
+}
+
+.button-whatsapp {
+    display: inline-block;
+    background: #25d366; /* WhatsApp green */
+    color: #fff;
+    padding: 12px 25px;
+    border-radius: 5px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.button-whatsapp:hover {
+    background: #1da851;
+    transform: translateY(-2px);
+}
+
+/* Responsive adjustments for product page */
+@media (max-width: 768px) {
+    .gemstone-detail h1 {
+        font-size: 2.2rem;
+    }
+    .gemstone-description {
+        font-size: 1rem;
+        margin-bottom: 30px;
+    }
+    .product-grid {
+        grid-template-columns: 1fr; /* Single column on small screens */
+    }
+    .product-card img {
+        height: 200px; /* Smaller image height on mobile */
+    }
+}
