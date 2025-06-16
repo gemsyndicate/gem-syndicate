@@ -286,7 +286,7 @@ footer a:hover {
 }
 
 .products-grid {
-    padding: 80px 20px 80px; /* Adjusted padding-top from 40px to 80px for consistency */
+    padding: 80px 20px 80px;
     text-align: center;
     background-color: #fff;
 }
@@ -437,7 +437,6 @@ footer a:hover {
 
     /* Responsive adjustments for controls bar (search only) */
     .search-filter-sort {
-        /* No need for column or stretch, it's just one item now */
         justify-content: center; /* Keep centered */
     }
 
