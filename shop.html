@@ -1,29 +1,86 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Shop</title>
-    <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop Gemstones - Gem Syndicate</title>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+
     <header>
-        <h1>GEM SYNDICATE</h1>
         <nav>
-            <a href="index.html">Home</a>
-            <a href="shop.html">Shop</a>
-            <a href="about.html">About Us</a>
-            <a href="contact.html">Contact Us</a>
+            <div class="logo">
+                <a href="index.html">Gem Syndicate</a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="shop.html">Shop</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
         </nav>
     </header>
-    <main>
-        <h2>Shop by Category</h2>
-        <ul>
-            <li><a href="emerald.html">Emerald</a></li>
-            <li><a href="ruby.html">Ruby</a></li>
-            <li><a href="diamond.html">Diamond</a></li>
-        </ul>
+
+    <main class="shop-main">
+        <section class="gemstone-gallery">
+            <h1>Our Exquisite Gemstone Collection</h1>
+
+            <div class="gemstone-grid">
+                <a href="emerald.html" class="gemstone-card">
+                    <img src="images/emerald.png" alt="Emerald Gemstone">
+                    <p>Emerald</p>
+                </a>
+                <a href="ruby.html" class="gemstone-card">
+                    <img src="images/ruby.png" alt="Ruby Gemstone">
+                    <p>Ruby</p>
+                </a>
+                <a href="yellow-sapphire.html" class="gemstone-card">
+                    <img src="images/yellow_sapphire.png" alt="Yellow Sapphire Gemstone">
+                    <p>Yellow Sapphire</p>
+                </a>
+                <a href="amethyst.html" class="gemstone-card">
+                    <img src="images/amethyst.png" alt="Amethyst Gemstone">
+                    <p>Amethyst</p>
+                </a>
+                <a href="yetou-sapphire.html" class="gemstone-card">
+                    <img src="images/yetou_sapphire.png" alt="Yetou Sapphire Gemstone">
+                    <p>Yetou Sapphire</p>
+                </a>
+                <a href="aquamarine.html" class="gemstone-card">
+                    <img src="images/aquamarine.png" alt="Aquamarine Gemstone">
+                    <p>Aquamarine</p>
+                </a>
+                <a href="diamond.html" class="gemstone-card">
+                    <img src="images/diamond.png" alt="Diamond Gemstone">
+                    <p>Diamond</p>
+                </a>
+            </div>
+        </section>
     </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section contact-info">
+                <h3>Contact Us</h3>
+                <p>Instagram: <a href="https://www.instagram.com/_gem_syndicate_" target="_blank">@_gem_syndicate_</a></p>
+                <p>Phone: <a href="tel:+918921238284">+91-8921238284</a></p>
+                <p>Email: <a href="mailto:info.gemsyndicate@gmail.com">info.gemsyndicate@gmail.com</a></p>
+            </div>
+            <div class="footer-section navigation-footer">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="shop.html">Shop</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Gem Syndicate. All rights reserved.</p>
+        </div>
+    </footer>
+
 </body>
 </html>
