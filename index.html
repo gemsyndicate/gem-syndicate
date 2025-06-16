@@ -1,68 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Gem Syndicate</title>
+  <meta charset="UTF-8">
+  <title>GEM SYNDICATE</title>
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-    }
-    header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 10px 20px;
-      background-color: #222;
-      color: #fff;
-    }
-    header img {
-      height: 50px;
-    }
-    nav a {
-      color: #fff;
-      margin: 0 10px;
-      text-decoration: none;
-    }
-    nav a:hover {
-      text-decoration: underline;
-    }
-    .search-bar {
-      margin-left: auto;
-    }
-    .search-bar input {
-      padding: 5px;
-    }
-    main {
-      padding: 20px;
-    }
+    body { font-family: Arial, sans-serif; margin: 0; }
+    nav { background: #003333; color: white; padding: 10px; position: sticky; top: 0; }
+    nav a { color: white; margin: 0 15px; text-decoration: none; }
+    section { padding: 50px 20px; }
+    #about, #contact { background: #f0f0f0; }
   </style>
 </head>
 <body>
-  <header>
-    <!-- LOGO -->
-    <img src="images/logo.png" alt="Gem Syndicate Logo" />
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#shop">Shop</a>
+    <a href="#about">About Us</a>
+    <a href="#contact">Contact Us</a>
+  </nav>
 
-    <!-- NAVIGATION -->
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="products.html">Products</a>
-      <a href="about.html">About Us</a>
-      <a href="contact.html">Contact Us</a>
-    </nav>
+  <section id="home">
+    <h1>Welcome to GEM SYNDICATE</h1>
+    <button onclick="location.href='#shop'">Shop Now</button>
+  </section>
 
-    <!-- SEARCH BAR -->
-    <div class="search-bar">
-      <input type="text" placeholder="Search products..." />
-    </div>
-  </header>
+  <section id="shop">
+    <h2>Shop Our Gems</h2>
+    <a href="emerald.html">Emerald</a> | 
+    <a href="ruby.html">Ruby</a> | 
+    <a href="diamond.html">Diamond</a>
+  </section>
 
-  <main>
-    <h1>Welcome to Gem Syndicate</h1>
-    <p>Explore our exclusive collection of gems and jewelry.</p>
-    <!-- Add more content here -->
-  </main>
+  <section id="about">
+    <h2>About Us</h2>
+    <p>Gem Syndicate specializes in premium quality gemstones. Our mission is to deliver authentic and certified gems to our customers worldwide.</p>
+  </section>
+
+  <section id="contact">
+    <h2>Contact Us</h2>
+    <p>WhatsApp: <a href="https://wa.me/918921238284" target="_blank">+91 8921238284</a></p>
+    <p>Email: youremail@example.com</p>
+  </section>
 </body>
 </html>
