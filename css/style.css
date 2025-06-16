@@ -112,7 +112,8 @@ nav ul li a:hover {
 /* Section Headings */
 .collection-section h2,
 .about-us-section h2,
-.contact-us-section h2 {
+.contact-us-section h2,
+.products-grid h2 { /* Added for shop.html */
     font-family: 'Playfair Display', serif;
     font-size: 40px;
     color: #0F3A3B; /* Dark green for headings */
@@ -123,7 +124,8 @@ nav ul li a:hover {
 
 .collection-section h2::after,
 .about-us-section h2::after,
-.contact-us-section h2::after {
+.contact-us-section h2::after,
+.products-grid h2::after { /* Added for shop.html */
     content: '';
     position: absolute;
     left: 50%;
@@ -134,7 +136,7 @@ nav ul li a:hover {
     background-color: #0F3A3B; /* Underline for headings */
 }
 
-/* Collection Section */
+/* Collection Section (Home Page) */
 .collection-section {
     padding: 80px 20px;
     text-align: center;
@@ -145,7 +147,7 @@ nav ul li a:hover {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 30px;
-    max-width: 1000px;
+    max-width: 1000px; /* Adjusted for smaller grid on home */
     margin: 0 auto;
 }
 
@@ -251,6 +253,151 @@ footer {
     font-size: 14px;
 }
 
+footer a { /* Style for links within the footer */
+    color: #fff; /* Make footer links white */
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+footer a:hover {
+    color: #a0d8e8; /* Lighter shade on hover for footer links */
+}
+
+
+/* Shop Page Specific Styles */
+.shop-page-hero {
+    background-color: #F8F8F8; /* Light background */
+    text-align: center;
+    padding: 80px 20px;
+    color: #333;
+}
+
+.shop-page-hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 48px;
+    color: #0F3A3B;
+    margin-bottom: 15px;
+}
+
+.shop-page-hero p {
+    font-size: 18px;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.products-grid {
+    padding: 80px 20px 80px; /* Adjusted padding-top from 40px to 80px for consistency */
+    text-align: center;
+    background-color: #fff;
+}
+
+/* Shop Page Controls Bar (Search Only) */
+.controls-bar {
+    background-color: #f7f7f7; /* Match body background */
+    padding: 30px 20px 20px; /* Adjust padding as needed */
+    border-bottom: 1px solid #eee; /* Subtle separator */
+}
+
+.search-filter-sort {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    align-items: center;
+    justify-content: center; /* Centered the search bar now */
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.search-box {
+    position: relative;
+    max-width: 400px; /* Limit max width for search */
+    width: 100%; /* Ensures it takes full width up to max-width */
+}
+
+.search-input {
+    width: 100%;
+    padding: 12px 15px 12px 40px; /* Left padding for icon */
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+    box-sizing: border-box; /* Include padding and border in width */
+    background-color: #fff; /* White background for input */
+}
+
+.search-input::placeholder {
+    color: #888;
+}
+
+.search-input:focus {
+    outline: none;
+    border-color: #0F3A3B;
+    box-shadow: 0 0 5px rgba(15, 58, 59, 0.2);
+}
+
+.search-icon {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #888;
+    font-size: 18px;
+}
+
+/* Product Grid Items on Shop Page */
+.product-grid-items {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Adjust minmax for item size */
+    gap: 30px; /* Space between items */
+    max-width: 1200px; /* Match container width */
+    margin: 0 auto; /* Center the grid */
+    padding-top: 20px; /* Space from heading */
+}
+
+.product-item {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    text-align: center;
+    transition: transform 0.3s ease;
+    display: flex; /* Use flexbox for layout */
+    flex-direction: column; /* Stack content vertically */
+    justify-content: space-between; /* Pushes button to bottom */
+}
+
+.product-item:hover {
+    transform: translateY(-5px);
+}
+
+.product-item img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 15px;
+    border-radius: 4px;
+}
+
+.product-item h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 24px;
+    color: #0F3A3B;
+    margin: 10px 0;
+}
+
+.product-item p {
+    font-size: 18px;
+    color: #555;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+.product-item .btn {
+    margin-top: auto; /* Pushes the button to the bottom when using flex column */
+    width: 100%; /* Make button full width within the card */
+    padding: 10px 15px; /* Adjust padding for smaller button */
+    font-size: 16px;
+}
+
+
 /* Responsive Design */
 @media (max-width: 768px) {
     header .container {
@@ -274,16 +421,28 @@ footer {
 
     .collection-section h2,
     .about-us-section h2,
-    .contact-us-section h2 {
+    .contact-us-section h2,
+    .products-grid h2 { /* Added for shop.html */
         font-size: 32px;
     }
 
-    .gem-grid {
+    .gem-grid,
+    .product-grid-items { /* Apply to both home and shop grids */
         grid-template-columns: 1fr; /* Stack items on small screens */
     }
 
     .contact-form {
         padding: 15px;
+    }
+
+    /* Responsive adjustments for controls bar (search only) */
+    .search-filter-sort {
+        /* No need for column or stretch, it's just one item now */
+        justify-content: center; /* Keep centered */
+    }
+
+    .search-box {
+        max-width: 100%; /* Allows search to take full width on small screens */
     }
 }
 
