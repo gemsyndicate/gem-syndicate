@@ -1,34 +1,24 @@
-/* Reset and body */
+/* General styles */
 body {
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
-  background: #8B4513;
-  color: #333;
+  scroll-behavior: smooth; /* enables smooth scrolling */
 }
 
-/* Header styling */
-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  background-color: #222;
-  padding: 10px 20px;
-  color: #fff;
-}
-
-header img {
-  height: 50px;
-}
-
+/* Navigation bar */
 nav {
-  display: flex;
-  align-items: center;
+  background-color: #003333; /* dark green - change as needed */
+  color: white;
+  padding: 10px 20px;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
 }
 
 nav a {
-  color: #fff;
-  margin: 0 10px;
+  color: white;
+  margin: 0 15px;
   text-decoration: none;
   font-weight: bold;
 }
@@ -37,32 +27,36 @@ nav a:hover {
   text-decoration: underline;
 }
 
-.search-bar {
-  margin-left: 20px;
+/* Section styles */
+section {
+  padding: 50px 20px;
 }
 
-.search-bar input {
-  padding: 5px 10px;
+#about, #contact {
+  background-color: #f0f0f0; /* light gray background for About and Contact */
+}
+
+#home {
+  background-color: #ffffff;
+}
+
+#shop {
+  background-color: #fafafa;
+}
+
+h1, h2 {
+  color: #003333; /* matches the navbar color */
+}
+
+/* Button */
+button {
+  background-color: #003333;
+  color: white;
+  padding: 10px 20px;
   border: none;
-  border-radius: 4px;
+  cursor: pointer;
 }
 
-/* Main content */
-main {
-  padding: 20px;
-}
-
-h1 {
-  color: #222;
-}
-
-/* Footer (optional, if added) */
-footer {
-  background-color: #222;
-  color: #fff;
-  text-align: center;
-  padding: 10px;
-  position: fixed;
-  bottom: 0;
-  width: 100%;
+button:hover {
+  background-color: #005555;
 }
