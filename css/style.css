@@ -106,7 +106,7 @@ nav ul li a:hover {
     color: #000;
 }
 
-/* Section Styling (About Us, Contact) */
+/* Section Styling (About Us, Contact, and also general for 'Our Collection' on home) */
 section {
     padding: 60px 0;
     text-align: center;
@@ -156,7 +156,7 @@ section h2 {
     color: #777;
 }
 
-/* Products Grid */
+/* Products Grid (Used for shop pages and 'Our Collection' on home) */
 .products-grid .container {
     padding-top: 40px;
     padding-bottom: 40px;
@@ -169,7 +169,8 @@ section h2 {
     margin-top: 30px;
 }
 
-/* --- Product Item and Carousel Specific Styles --- */
+/* --- Product Item General Styles --- */
+/* This styling applies to both carousel items (on gem pages) and single-image items (on home page) */
 .product-item {
     background-color: #fff;
     border: 1px solid #ddd;
@@ -178,7 +179,7 @@ section h2 {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     padding: 15px; /* Padding around the content inside the card */
     position: relative; /* Essential for positioning children absolutely like buttons */
-    overflow: hidden; /* Ensures carousel content stays within bounds */
+    overflow: hidden; /* Ensures content stays within bounds */
     display: flex; /* Ensures content flows correctly */
     flex-direction: column; /* Stacks image/carousel above text */
     text-align: center; /* Center text content */
@@ -197,6 +198,16 @@ section h2 {
     height: 100%; /* Ensure link covers the whole product item */
 }
 
+/* Styling for single images within product items (like on index.html) */
+.product-item img {
+    width: 100%;
+    height: auto; /* Maintain aspect ratio */
+    display: block;
+    border-radius: 5px;
+    margin-bottom: 15px; /* Space between image and title */
+}
+
+/* --- Carousel Specific Styles (Only applies when .carousel-container is present in HTML) --- */
 .carousel-container {
     width: 100%;
     position: relative;
@@ -271,9 +282,9 @@ section h2 {
     }
 }
 
-/* Adjust the placement of product title and price below the carousel */
+/* Adjust the placement of product title and price below the carousel/image */
 .product-item h3 {
-    margin-top: 15px; /* Space below the carousel image */
+    margin-top: 0; /* Adjusted from 15px since single img has its own margin */
     margin-bottom: 5px;
     font-family: 'Playfair Display', serif;
     font-size: 1.3em;
@@ -300,6 +311,76 @@ footer p {
     margin: 0;
     font-size: 0.9em;
 }
+
+/* Contact Form Styling - NEWLY ADDED */
+.contact-form {
+    max-width: 600px; /* Max width for the form itself */
+    margin: 40px auto 0; /* Center the form below the text */
+    padding: 25px;
+    background-color: #fff; /* White background for the form area */
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-wrap: wrap; /* Allows items to wrap to the next line */
+    gap: 20px; /* Space between form groups */
+    justify-content: space-between; /* Distribute items */
+}
+
+.contact-form .form-group {
+    flex: 1 1 calc(50% - 10px); /* Two columns: takes about 50% width minus half of the gap */
+    min-width: 250px; /* Ensures fields don't get too narrow on smaller screens */
+}
+
+.contact-form .form-group-full {
+    flex: 1 1 100%; /* Takes full width for the textarea */
+}
+
+.contact-form input[type="text"],
+.contact-form input[type="email"],
+.contact-form textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1em;
+    font-family: 'Lato', sans-serif; /* Keep consistent font */
+    box-sizing: border-box; /* Include padding and border in the element's total width and height */
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.contact-form input[type="text"]:focus,
+.contact-form input[type="email"]:focus,
+.contact-form textarea:focus {
+    border-color: #ffd700; /* Gold border on focus */
+    outline: none;
+    box-shadow: 0 0 8px rgba(255, 215, 0, 0.4);
+}
+
+.contact-form textarea {
+    resize: vertical; /* Allow vertical resizing */
+}
+
+.contact-form .btn {
+    width: 100%; /* Make the button full width within the form */
+    margin-top: 10px; /* Space above the button */
+    padding: 15px 25px; /* Larger button padding */
+    font-size: 1.1em;
+    cursor: pointer;
+}
+
+/* Visually hide labels but keep them for screen readers */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+}
+
 
 /* Media Queries for Responsiveness */
 @media (max-width: 768px) {
@@ -330,6 +411,23 @@ footer p {
 
     .product-grid-items {
         grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    }
+
+    /* Adjust button visibility for carousels on smaller screens */
+    .product-item .carousel-btn {
+        opacity: 0.8; /* Always visible on mobile for tap interaction */
+        pointer-events: auto;
+        padding: 6px 10px; /* Adjust padding for smaller touch targets */
+        font-size: 1.1em;
+        height: 28px;
+        width: 28px;
+    }
+}
+
+@media (max-width: 650px) {
+    .contact-form .form-group {
+        flex: 1 1 100%; /* Stack inputs vertically on smaller screens */
+        min-width: unset; /* Remove min-width constraint */
     }
 }
 
