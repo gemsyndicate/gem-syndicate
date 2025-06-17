@@ -1,13 +1,15 @@
-/* General Body and Container */
+/* General Body and HTML Styling */
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     font-family: 'Lato', sans-serif;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
+    background-color: #f8f8f8;
     color: #333;
     line-height: 1.6;
-    scroll-behavior: smooth;
-    background-color: #f7f7f7;
 }
 
 .container {
@@ -16,15 +18,12 @@ body {
     padding: 0 20px;
 }
 
-/* Header */
+/* Header Styling */
 header {
-    background-color: #0F3A3B;
+    background-color: #000;
     color: #fff;
     padding: 15px 0;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
 header .container {
@@ -33,16 +32,8 @@ header .container {
     align-items: center;
 }
 
-/* Logo - Now for the image */
-.logo {
-    display: flex;
-    align-items: center;
-}
-
 .logo img {
-    max-height: 40px;
-    max-width: 100%;
-    height: auto;
+    height: 50px; /* Adjust as needed */
 }
 
 nav ul {
@@ -59,278 +50,102 @@ nav ul li {
 nav ul li a {
     color: #fff;
     text-decoration: none;
-    font-weight: 400;
+    font-weight: 700;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1em;
     transition: color 0.3s ease;
 }
 
 nav ul li a:hover {
-    color: #a0d8e8;
+    color: #ffd700; /* Gold color for hover */
 }
 
-/* Hero Section */
-.hero {
-    background-color: #F8F8F8;
+/* Hero Section Styling (Homepage & Shop Page) */
+.hero, .shop-page-hero {
+    background-color: #333;
+    color: #fff;
     text-align: center;
-    padding: 100px 20px;
+    padding: 80px 0;
     background-size: cover;
     background-position: center;
-    color: #333;
+    position: relative;
+    overflow: hidden;
 }
 
-.hero h1 {
+.hero {
+    background-image: url('../images/hero-bg.jpg'); /* Example background image */
+}
+
+.hero h1, .shop-page-hero h1 {
     font-family: 'Playfair Display', serif;
-    font-size: 56px;
-    font-weight: 700;
+    font-size: 3.5em;
     margin-bottom: 20px;
-    color: #0F3A3B;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
-.hero p {
-    font-size: 18px;
-    margin-bottom: 40px;
-    max-width: 600px;
-    margin-left: auto;
-    margin-right: auto;
+.hero p, .shop-page-hero p {
+    font-size: 1.2em;
+    max-width: 800px;
+    margin: 0 auto 30px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
 }
 
 .btn {
     display: inline-block;
-    background-color: #0F3A3B;
-    color: #fff;
-    padding: 15px 30px;
+    background-color: #ffd700; /* Gold */
+    color: #333;
+    padding: 12px 25px;
     text-decoration: none;
     border-radius: 5px;
     font-weight: 700;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .btn:hover {
-    background-color: #1a5e5e;
+    background-color: #e0b800; /* Darker gold */
+    color: #000;
 }
 
-/* Section Headings */
-.collection-section h2,
-.about-us-section h2,
-.contact-us-section h2,
-.products-grid h2 {
+/* Section Styling (About Us, Contact) */
+section {
+    padding: 60px 0;
+    text-align: center;
+}
+
+section h2 {
     font-family: 'Playfair Display', serif;
-    font-size: 40px;
-    color: #0F3A3B;
-    margin-bottom: 50px;
-    position: relative;
-    display: inline-block;
-}
-
-.collection-section h2::after,
-.about-us-section h2::after,
-.contact-us-section h2::after,
-.products-grid h2::after {
-    content: '';
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    bottom: -10px;
-    width: 60px;
-    height: 3px;
-    background-color: #0F3A3B;
-}
-
-/* Collection Section (Home Page) */
-.collection-section {
-    padding: 80px 20px;
-    text-align: center;
-    background-color: #fff;
-}
-
-.gem-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 30px;
-    max-width: 1000px;
-    margin: 0 auto;
-}
-
-.gem-item {
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-    transition: transform 0.3s ease;
-}
-
-.gem-item:hover {
-    transform: translateY(-5px);
-}
-
-.gem-item img {
-    max-width: 100%;
-    height: auto;
-    margin-bottom: 15px;
-    border-radius: 4px;
-}
-
-.gem-item h3 {
-    font-family: 'Playfair Display', serif;
-    font-size: 24px;
-    color: #0F3A3B;
-    margin: 0;
-}
-
-/* About Us Section */
-.about-us-section {
-    padding: 80px 20px;
-    background-color: #f7f7f7;
-    text-align: center;
-}
-
-.about-us-section p {
-    max-width: 800px;
-    margin: 0 auto 20px auto;
-    font-size: 17px;
-}
-
-/* Contact Us Section */
-.contact-us-section {
-    padding: 80px 20px;
-    background-color: #fff;
-    text-align: center;
-}
-
-.contact-info {
+    font-size: 2.5em;
     margin-bottom: 40px;
-    font-size: 17px;
-}
-
-.contact-info p {
-    margin: 10px 0;
-}
-
-.contact-form {
-    max-width: 600px;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-    background-color: #fff;
-}
-
-.contact-form input,
-.contact-form textarea {
-    width: calc(100% - 20px);
-    padding: 12px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    font-family: 'Lato', sans-serif;
-    font-size: 16px;
-    resize: vertical;
-}
-
-.contact-form input:focus,
-.contact-form textarea:focus {
-    outline: none;
-    border-color: #0F3A3B;
-    box-shadow: 0 0 5px rgba(15, 58, 59, 0.2);
-}
-
-.contact-form .btn {
-    width: 100%;
-    padding: 15px;
-    font-size: 18px;
-    cursor: pointer;
-    border: none;
-}
-
-/* Footer */
-footer {
-    background-color: #0F3A3B;
-    color: #fff;
-    text-align: center;
-    padding: 20px 0;
-    font-size: 14px;
-}
-
-footer a {
-    color: #fff;
-    text-decoration: none;
-    transition: color 0.3s ease;
-}
-
-footer a:hover {
-    color: #a0d8e8;
-}
-
-
-/* Shop Page Specific Styles */
-.shop-page-hero {
-    background-color: #F8F8F8;
-    text-align: center;
-    padding: 80px 20px;
     color: #333;
 }
 
-.shop-page-hero h1 {
-    font-family: 'Playfair Display', serif;
-    font-size: 48px;
-    color: #0F3A3B;
-    margin-bottom: 15px;
-}
-
-.shop-page-hero p {
-    font-size: 18px;
-    max-width: 700px;
-    margin: 0 auto;
-}
-
-.products-grid {
-    padding: 80px 20px 80px;
-    text-align: center;
-    background-color: #fff;
-}
-
-/* Shop Page Controls Bar (Search Only) */
+/* Shop Page Specific Styles */
 .controls-bar {
-    background-color: #f7f7f7;
-    padding: 30px 20px 20px;
-    border-bottom: 1px solid #eee;
+    background-color: #eee;
+    padding: 15px 0;
+    border-bottom: 1px solid #ddd;
 }
 
 .search-filter-sort {
     display: flex;
-    flex-wrap: wrap;
-    gap: 15px;
+    justify-content: center; /* Center the search box */
     align-items: center;
-    justify-content: center; /* Centered the search bar now */
-    max-width: 1200px;
-    margin: 0 auto;
+    gap: 20px; /* Space between items */
 }
 
 .search-box {
     position: relative;
-    max-width: 400px;
     width: 100%;
+    max-width: 400px; /* Limit search box width */
 }
 
 .search-input {
     width: 100%;
-    padding: 12px 15px 12px 40px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    font-size: 16px;
-    box-sizing: border-box;
-    background-color: #fff;
-}
-
-.search-input::placeholder {
-    color: #888;
-}
-
-.search-input:focus {
-    outline: none;
-    border-color: #0F3A3B;
-    box-shadow: 0 0 5px rgba(15, 58, 59, 0.2);
+    padding: 10px 15px;
+    padding-left: 40px; /* Space for icon */
+    border: 1px solid #ccc;
+    border-radius: 25px;
+    font-size: 1em;
 }
 
 .search-icon {
@@ -338,185 +153,96 @@ footer a:hover {
     left: 15px;
     top: 50%;
     transform: translateY(-50%);
-    color: #888;
-    font-size: 18px;
+    color: #777;
 }
 
-/* Product Grid Items on Shop Page & Emerald Listing Page */
+/* Products Grid */
+.products-grid .container {
+    padding-top: 40px;
+    padding-bottom: 40px;
+}
+
 .product-grid-items {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 30px;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding-top: 20px;
+    margin-top: 30px;
 }
 
+/* --- Product Item and Carousel Specific Styles --- */
 .product-item {
     background-color: #fff;
-    padding: 20px;
+    border: 1px solid #ddd;
     border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-    transition: transform 0.3s ease;
-    display: flex;
-    flex-direction: column;
-    align-items: center; /* Center content horizontally */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    padding: 15px; /* Padding around the content inside the card */
+    position: relative; /* Essential for positioning children absolutely like buttons */
+    overflow: hidden; /* Ensures carousel content stays within bounds */
+    display: flex; /* Ensures content flows correctly */
+    flex-direction: column; /* Stacks image/carousel above text */
+    text-align: center; /* Center text content */
 }
 
-/* Style for the product item links */
-.product-item a {
-    text-decoration: none; /* Remove underline from links */
-    color: inherit; /* Inherit text color from parent (h3) */
-    display: flex; /* Make the link a flex container */
-    flex-direction: column; /* Stack image and text vertically */
-    align-items: center; /* Center them horizontally */
-    width: 100%; /* Make the link fill the product-item */
-    height: 100%; /* Make the link fill the product-item */
-    justify-content: center; /* Center content vertically within the link */
-}
-
-/* Optional: Add a subtle hover effect to the link itself */
-.product-item a:hover {
-    transform: translateY(-3px); /* Slightly lift on hover */
-    box-shadow: 0 6px 15px rgba(0,0,0,0.1); /* Slightly stronger shadow */
-}
-
-/* Ensure the product-item itself still has the original hover effect */
 .product-item:hover {
-    transform: translateY(-5px); /* Keep the main lift on product item hover */
-    box-shadow: 0 4px 10px rgba(0,0,0,0.05); /* Restore original box shadow on item */
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
-.product-item img {
-    max-width: 100%;
-    height: auto;
-    margin-bottom: 15px;
-    border-radius: 4px;
-}
-
-.product-item h3 {
-    font-family: 'Playfair Display', serif;
-    font-size: 24px;
-    color: #0F3A3B;
-    margin: 10px 0;
-}
-
-/* Price style for product items on detailed listing pages like emerald.html */
-.product-item .product-price {
-    font-family: 'Lato', sans-serif;
-    font-size: 20px;
-    font-weight: 700;
-    color: #0F3A3B;
-    margin-top: 10px;
-    margin-bottom: 5px; /* Adjust margin as needed */
-}
-
-
-/* Responsive Design */
-@media (max-width: 768px) {
-    header .container {
-        flex-direction: column;
-        text-align: center;
-    }
-
-    nav ul {
-        margin-top: 15px;
-        flex-wrap: wrap;
-        justify-content: center;
-    }
-
-    nav ul li {
-        margin: 0 15px 10px;
-    }
-
-    .hero h1 {
-        font-size: 40px;
-    }
-
-    .collection-section h2,
-    .about-us-section h2,
-    .contact-us-section h2,
-    .products-grid h2 {
-        font-size: 32px;
-    }
-
-    .gem-grid,
-    .product-grid-items {
-        grid-template-columns: 1fr;
-    }
-
-    .contact-form {
-        padding: 15px;
-    }
-
-    .search-filter-sort {
-        justify-content: center;
-    }
-
-    .search-box {
-        max-width: 100%;
-    }
-}
-
-@media (max-width: 480px) {
-    .hero h1 {
-        font-size: 30px;
-    }
-
-    .hero p {
-        font-size: 16px;
-    }
-
-    .btn {
-        padding: 12px 25px;
-        font-size: 16px;
-    }
-}
-/* --- Carousel Specific Styles --- */
-.product-item {
-    position: relative; /* Needed for absolute positioning of carousel buttons */
-    overflow: hidden; /* Hide overflowing images */
+.product-link {
+    display: flex; /* Make the anchor fill its parent space */
+    flex-direction: column; /* Stack elements within the link */
+    text-decoration: none;
+    color: inherit;
+    height: 100%; /* Ensure link covers the whole product item */
 }
 
 .carousel-container {
     width: 100%;
     position: relative;
-    overflow: hidden; /* Important: Hides images that are not currently active */
-    border-radius: 8px; /* Match product item border-radius */
+    overflow: hidden; /* Hides images that are not currently active */
+    padding-top: 100%; /* Creates a square aspect ratio for the image container (1:1 aspect ratio) */
+    flex-shrink: 0; /* Prevent container from shrinking */
 }
 
 .carousel-images {
     display: flex; /* Arrange images in a row */
+    position: absolute; /* Position relative to carousel-container */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%; /* Fill the square container */
     transition: transform 0.5s ease-in-out; /* Smooth sliding transition */
-    width: 100%; /* Ensure the container stretches */
 }
 
 .carousel-images img {
     width: 100%; /* Make each image fill the container */
+    height: 100%; /* Make each image fill the container */
     display: block; /* Remove extra space below image */
     flex-shrink: 0; /* Prevent images from shrinking */
     object-fit: cover; /* Cover the area without distortion */
-    height: auto; /* Maintain aspect ratio */
 }
 
 .carousel-btn {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black */
     color: white;
     border: none;
-    padding: 10px 15px;
+    padding: 8px 12px; /* Adjust padding for button size */
     cursor: pointer;
-    font-size: 1.5em;
+    font-size: 1.2em; /* Adjust font size for arrows */
     z-index: 10; /* Ensure buttons are above images */
-    border-radius: 4px;
-    opacity: 0.8;
+    border-radius: 50%; /* Make buttons circular */
+    opacity: 0; /* Hidden by default, shown on hover */
     transition: opacity 0.3s ease;
-}
-
-.carousel-btn:hover {
-    opacity: 1;
+    display: flex; /* Use flex for centering arrow */
+    align-items: center;
+    justify-content: center;
+    height: 30px; /* Fixed height for consistent circle */
+    width: 30px; /* Fixed width for consistent circle */
+    text-shadow: 0 0 5px rgba(0,0,0,0.7); /* Adds slight shadow for better visibility */
 }
 
 .prev-btn {
@@ -527,23 +253,100 @@ footer a:hover {
     right: 10px;
 }
 
-/* Hide navigation buttons by default, show on hover for product item */
-.product-item .carousel-btn {
-    opacity: 0;
-    pointer-events: none; /* Disable clicks when hidden */
-}
-
+/* Show buttons on hover for product item (desktop) */
 .product-item:hover .carousel-btn {
-    opacity: 0.8;
-    pointer-events: auto; /* Enable clicks on hover */
+    opacity: 1; /* Fully visible on hover */
+    pointer-events: auto; /* Enable clicks */
 }
 
-/* For smaller screens, always show arrows or consider tap-to-cycle JS */
+/* Force buttons visible on mobile and smaller */
 @media (max-width: 768px) {
     .product-item .carousel-btn {
-        opacity: 0.8; /* Always visible on mobile */
+        opacity: 0.8; /* Always visible on mobile for tap interaction */
         pointer-events: auto;
-        padding: 5px 8px; /* Smaller buttons */
-        font-size: 1.2em;
+        padding: 6px 10px; /* Adjust padding for smaller touch targets */
+        font-size: 1.1em;
+        height: 28px;
+        width: 28px;
+    }
+}
+
+/* Adjust the placement of product title and price below the carousel */
+.product-item h3 {
+    margin-top: 15px; /* Space below the carousel image */
+    margin-bottom: 5px;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3em;
+    color: #333;
+}
+
+.product-item .product-price {
+    font-size: 1.1em;
+    font-weight: 700;
+    color: #666;
+    margin-bottom: 10px;
+}
+
+/* Footer Styling */
+footer {
+    background-color: #000;
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 40px;
+}
+
+footer p {
+    margin: 0;
+    font-size: 0.9em;
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+    header .container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    nav ul {
+        margin-top: 15px;
+    }
+
+    nav ul li {
+        margin: 0 15px;
+    }
+
+    .hero h1, .shop-page-hero h1 {
+        font-size: 2.5em;
+    }
+
+    .hero p, .shop-page-hero p {
+        font-size: 1em;
+    }
+
+    section h2 {
+        font-size: 2em;
+    }
+
+    .product-grid-items {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    }
+}
+
+@media (max-width: 480px) {
+    .logo img {
+        height: 40px;
+    }
+
+    nav ul li {
+        margin: 0 10px;
+    }
+
+    .hero h1, .shop-page-hero h1 {
+        font-size: 2em;
+    }
+
+    .product-grid-items {
+        grid-template-columns: 1fr; /* Single column on very small screens */
     }
 }
