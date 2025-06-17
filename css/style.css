@@ -342,7 +342,7 @@ footer a:hover {
     font-size: 18px;
 }
 
-/* Product Grid Items on Shop Page */
+/* Product Grid Items on Shop Page & Emerald Listing Page */
 .product-grid-items {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -387,77 +387,28 @@ footer a:hover {
     box-shadow: 0 4px 10px rgba(0,0,0,0.05); /* Restore original box shadow on item */
 }
 
-
-/* Gem Detail Page Styles */
-.gem-detail-page {
-    padding: 80px 20px;
-    background-color: #fff;
-}
-
-.gem-detail-content {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 40px;
-    align-items: flex-start;
-    justify-content: center;
-    max-width: 1000px;
-    margin: 0 auto;
-}
-
-.gem-detail-image {
-    flex: 1 1 400px; /* Allows image to grow/shrink, with a base of 400px */
-    text-align: center;
-}
-
-.gem-detail-image img {
+.product-item img {
     max-width: 100%;
     height: auto;
-    border-radius: 8px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-}
-
-.gem-detail-info {
-    flex: 1 1 400px; /* Allows info to grow/shrink, with a base of 400px */
-}
-
-.gem-detail-info h1 {
-    font-family: 'Playfair Display', serif;
-    font-size: 48px;
-    color: #0F3A3B;
-    margin-top: 0;
     margin-bottom: 15px;
+    border-radius: 4px;
 }
 
-.gem-detail-info .gem-price {
-    font-size: 28px;
-    font-weight: bold;
-    color: #555;
-    margin-bottom: 25px;
-}
-
-.gem-detail-info p {
-    font-size: 17px;
-    margin-bottom: 20px;
-}
-
-.gem-detail-info ul {
-    list-style: none;
-    padding: 0;
-    margin-bottom: 30px;
-}
-
-.gem-detail-info ul li {
-    font-size: 16px;
-    margin-bottom: 10px;
-    line-height: 1.5;
-}
-
-.gem-detail-info ul li strong {
+.product-item h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 24px;
     color: #0F3A3B;
+    margin: 10px 0;
 }
 
-.back-to-shop {
-    margin-top: 20px;
+/* Price style for product items on detailed listing pages like emerald.html */
+.product-item .product-price {
+    font-family: 'Lato', sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    color: #0F3A3B;
+    margin-top: 10px;
+    margin-bottom: 5px; /* Adjust margin as needed */
 }
 
 
@@ -504,21 +455,6 @@ footer a:hover {
 
     .search-box {
         max-width: 100%;
-    }
-
-    /* Gem Detail Page responsive */
-    .gem-detail-content {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .gem-detail-info h1 {
-        font-size: 38px;
-        text-align: center;
-    }
-
-    .gem-detail-info .gem-price {
-        text-align: center;
     }
 }
 
