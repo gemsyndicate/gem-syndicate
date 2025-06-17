@@ -3,96 +3,94 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Diamonds - Gem Syndicate</title>
+    <title>GEM SYNDICATE - Diamond Collection</title>
     <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
     <header>
-        <nav>
+        <div class="container">
             <div class="logo">
-    <a href="index.html">
-        <img src="images/logo.jpg" alt="Gem Syndicate Logo">
-    </a>
-</div>
-
-            <ul class="nav-links">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="shop.html">Shop</a></li>
-                <li><a href="about.html">About Us</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-        </nav>
+                <img src="images/logo.png" alt="GEM SYNDICATE Logo">
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="shop.html">Shop</a></li>
+                    <li><a href="index.html#about">About Us</a></li>
+                    <li><a href="index.html#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
     </header>
 
-    <main class="product-page-main">
-        <section class="gemstone-detail">
-            <h1>Brilliant Diamonds</h1>
-            <p class="gemstone-description">
-                Diamonds, renowned for their unparalleled brilliance and exceptional hardness, are the ultimate symbol of eternal love and commitment.
-                Each diamond in our collection is carefully selected for its cut, color, clarity, and carat weight (the 4Cs), ensuring
-                you receive a stone of exquisite beauty and quality. Explore our range of classic and contemporary cuts.
-            </p>
+    <main>
+        <section class="shop-page-hero">
+            <div class="container">
+                <h1>Our Diamond Collection</h1>
+                <p>Discover the timeless brilliance and unparalleled fire of our exquisite diamond selection.</p>
+            </div>
+        </section>
 
-            <div class="product-grid">
-                <div class="product-card">
-                    <img src="images/diamond_round_1.png" alt="Diamond - Round Brilliant Cut 1.0 Carats">
-                    <h2>Round Brilliant Diamond</h2>
-                    <p class="carat-info">Approx. 1.0 Carats</p>
-                    <p class="product-description">The most popular diamond shape, designed for maximum sparkle and brilliance. A timeless choice for engagement rings.</p>
-                    <a href="https://wa.me/918921238284?text=I%27m%20interested%20in%20the%20Round%20Brilliant%20Diamond%20(1.0%20Carats)%20I%20saw%20on%20your%20website." class="button-whatsapp" target="_blank">Buy on WhatsApp</a>
-                </div>
-
-                <div class="product-card">
-                    <img src="images/diamond_princess_1.png" alt="Diamond - Princess Cut 0.75 Carats">
-                    <h2>Princess Cut Diamond</h2>
-                    <p class="carat-info">Approx. 0.75 Carats</p>
-                    <p class="product-description">A contemporary and fiery square shape, ideal for modern and elegant jewelry designs. Offers great brilliance.</p>
-                    <a href="https://wa.me/918921238284?text=I%27m%20interested%20in%20the%20Princess%20Cut%20Diamond%20(0.75%20Carats)%20I%20saw%20on%20your%20website." class="button-whatsapp" target="_blank">Buy on WhatsApp</a>
-                </div>
-
-                <div class="product-card">
-                    <img src="images/diamond_emerald_1.png" alt="Diamond - Emerald Cut 1.5 Carats">
-                    <h2>Emerald Cut Diamond</h2>
-                    <p class="carat-info">Approx. 1.5 Carats</p>
-                    <p class="product-description">Known for its sophisticated rectangular shape and unique step-cut facets that produce a "hall of mirrors" effect.</p>
-                    <a href="https://wa.me/918921238284?text=I%27m%20interested%20in%20the%20Emerald%20Cut%20Diamond%20(1.5%20Carats)%20I%20saw%20on%20your%20website." class="button-whatsapp" target="_blank">Buy on WhatsApp</a>
-                </div>
-
-                <div class="product-card">
-                    <img src="images/diamond_oval_1.png" alt="Diamond - Oval Cut 1.2 Carats">
-                    <h2>Oval Cut Diamond</h2>
-                    <p class="carat-info">Approx. 1.2 Carats</p>
-                    <p class="product-description">An elegant and elongated shape that often appears larger than its actual carat weight. A beautiful and flattering choice.</p>
-                    <a href="https://wa.me/918921238284?text=I%27m%20interested%20in%20the%20Oval%20Cut%20Diamond%20(1.2%20Carats)%20I%20saw%20on%20your%20website." class="button-whatsapp" target="_blank">Buy on WhatsApp</a>
-                </div>
-
-                </div>
+        <section class="products-grid">
+            <div class="container">
+                <h2>Featured Diamonds</h2>
+                <div class="product-grid-items">
+                    <div class="product-item">
+                        <a href="diamond.html#round-brilliant">
+                            <img src="images/diamond.png" alt="Round Brilliant Diamond 1.0ct">
+                            <h3>Round Brilliant 1.0ct</h3>
+                            <p class="product-price">$5,000</p>
+                        </a>
+                    </div>
+                    <div class="product-item">
+                        <a href="diamond.html#princess-cut">
+                            <img src="images/diamond.png" alt="Princess Cut Diamond 0.75ct">
+                            <h3>Princess Cut 0.75ct</h3>
+                            <p class="product-price">$3,200</p>
+                        </a>
+                    </div>
+                    <div class="product-item">
+                        <a href="diamond.html#oval-cut">
+                            <img src="images/diamond.png" alt="Oval Cut Diamond 1.2ct">
+                            <h3>Oval Cut 1.2ct</h3>
+                            <p class="product-price">$6,500</p>
+                        </a>
+                    </div>
+                    <div class="product-item">
+                        <a href="diamond.html#emerald-cut">
+                            <img src="images/diamond.png" alt="Emerald Cut Diamond 0.9ct">
+                            <h3>Emerald Cut 0.9ct</h3>
+                            <p class="product-price">$4,800</p>
+                        </a>
+                    </div>
+                    <div class="product-item">
+                        <a href="diamond.html#cushion-cut">
+                            <img src="images/diamond.png" alt="Cushion Cut Diamond 1.5ct">
+                            <h3>Cushion Cut 1.5ct</h3>
+                            <p class="product-price">$8,000</p>
+                        </a>
+                    </div>
+                    <div class="product-item">
+                        <a href="diamond.html#pear-cut">
+                            <img src="images/diamond.png" alt="Pear Cut Diamond 0.8ct">
+                            <h3>Pear Cut 0.8ct</h3>
+                            <p class="product-price">$3,900</p>
+                        </a>
+                    </div>
+                    </div>
+                <a href="shop.html" class="btn back-to-shop">Back to All Gems</a>
+            </div>
         </section>
     </main>
 
     <footer>
-        <div class="footer-content">
-            <div class="footer-section contact-info">
-                <h3>Contact Us</h3>
-                <p>Instagram: <a href="https://www.instagram.com/_gem_syndicate_" target="_blank">@_gem_syndicate_</a></p>
-                <p>Phone: <a href="tel:+918921238284">+91-8921238284</a></p>
-                <p>Email: <a href="mailto:info.gemsyndicate@gmail.com">info.gemsyndicate@gmail.com</a></p>
-            </div>
-            <div class="footer-section navigation-footer">
-                <h3>Quick Links</h3>
-                <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="shop.html">Shop</a></li>
-                    <li><a href="about.html">About Us</a></li>
-                    <li><a href="contact.html">Contact</a></li>
-                </ul>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>&copy; 2025 Gem Syndicate. All rights reserved.</p>
+        <div class="container">
+            <p>&copy; 2025 GEM SYNDICATE. All rights reserved.</p>
         </div>
     </footer>
 
+    <script src="js/script.js"></script>
 </body>
 </html>
