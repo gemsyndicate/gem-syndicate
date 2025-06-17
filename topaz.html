@@ -1,28 +1,89 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Emerald</title>
-    <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GEM SYNDICATE - Topaz Collection</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
+
     <header>
-        <h1>GEM SYNDICATE</h1>
-        <nav>
-            <a href="index.html">Home</a>
-            <a href="shop.html">Shop</a>
-            <a href="about.html">About Us</a>
-            <a href="contact.html">Contact Us</a>
-        </nav>
+        <div class="container">
+            <div class="logo">
+                <img src="images/logo.png" alt="GEM SYNDICATE Logo">
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="shop.html">Shop</a></li>
+                    <li><a href="index.html#about">About Us</a></li>
+                    <li><a href="index.html#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
     </header>
+
     <main>
-        <h2>Emerald Collection</h2>
-        <table>
-            <tr><th>Shape</th><th>Size</th><th>Weight</th><th>Price</th><th>Actions</th></tr>
-            <tr><td>Oval</td><td>10x8 mm</td><td>2.5 ct</td><td>₹4,099</td><td><a href="https://wa.me/918921238284?text=I'm%20interested%20in%20Emerald%20Oval%202.5ct" class="button">Buy Now</a></td></tr>
-        </table>
+        <section class="shop-page-hero">
+            <div class="container">
+                <h1>Our Topaz Collection</h1>
+                <p>Discover the dazzling brilliance and diverse colors of our exquisite topaz gemstones.</p>
+            </div>
+        </section>
+
+        <section class="products-grid">
+            <div class="container">
+                <h2>Featured Topaz</h2>
+                <div class="product-grid-items">
+                    <div class="product-item">
+                        <a href="topaz.html#swiss-blue-topaz">
+                            <img src="images/topaz_blue.png" alt="Swiss Blue Topaz Oval 5.0ct">
+                            <h3>Swiss Blue Topaz Oval 5.0ct</h3>
+                            <p class="product-price">$80</p>
+                        </a>
+                    </div>
+                    <div class="product-item">
+                        <a href="topaz.html#london-blue-topaz">
+                            <img src="images/topaz_blue.png" alt="London Blue Topaz Emerald Cut 7.0ct">
+                            <h3>London Blue Topaz Emerald Cut 7.0ct</h3>
+                            <p class="product-price">$120</p>
+                        </a>
+                    </div>
+                    <div class="product-item">
+                        <a href="topaz.html#white-topaz">
+                            <img src="images/topaz.png" alt="White Topaz Round 3.0ct">
+                            <h3>White Topaz Round 3.0ct</h3>
+                            <p class="product-price">$45</p>
+                        </a>
+                    </div>
+                    <div class="product-item">
+                        <a href="topaz.html#imperial-topaz">
+                            <img src="images/topaz.png" alt="Imperial Topaz Pear 1.5ct">
+                            <h3>Imperial Topaz Pear 1.5ct</h3>
+                            <p class="product-price">$300</p>
+                        </a>
+                    </div>
+                    <div class="product-item">
+                        <a href="topaz.html#sky-blue-topaz">
+                            <img src="images/topaz_blue.png" alt="Sky Blue Topaz Cushion 6.0ct">
+                            <h3>Sky Blue Topaz Cushion 6.0ct</h3>
+                            <p class="product-price">$70</p>
+                        </a>
+                    </div>
+                    </div>
+                <a href="shop.html" class="btn back-to-shop">Back to All Gems</a>
+            </div>
+        </section>
     </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 GEM SYNDICATE. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
 </body>
 </html>
