@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GEM SYNDICATE - Apatite Cat's Eye Collection</title>
+    <title>Apatite Cat's Eye - GEM SYNDICATE</title>
     <link rel="stylesheet" href="css/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
 </head>
@@ -12,103 +12,125 @@
     <header>
         <div class="container">
             <div class="logo">
-                <img src="images/logo.png" alt="GEM SYNDICATE Logo">
-            </div>
+                <img src="images/logo.jpg" alt="GEM SYNDICATE Logo"> </div>
             <nav>
                 <ul>
                     <li><a href="index.html">Home</a></li>
                     <li><a href="shop.html">Shop</a></li>
-                    <li><a href="index.html#about">About Us</a></li>
-                    <li><a href="index.html#contact">Contact</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="cart.html">Cart (<span id="cart-item-count">0</span>)</a></li>
+                    <li><a href="#contact">Contact</a></li>
                 </ul>
             </nav>
         </div>
     </header>
 
     <main>
-        <section class="shop-page-hero">
-            <div class="container">
-                <h1>Our Apatite Cat's Eye Collection</h1>
-                <p>Discover the unique chatoyancy and striking colors of our rare apatite cat's eye gemstones.</p>
-            </div>
-        </section>
-
         <section class="products-grid">
             <div class="container">
-                <h2>Featured Apatite Cat's Eyes</h2>
+                <h2>Our Apatite Cat's Eye Collection</h2>
                 <div class="product-grid-items">
+
                     <div class="product-item">
-                        <a href="appatite cats eye.html#blue-green-apatite-catseye" class="product-link">
-                            <div class="carousel-container">
-                                <div class="carousel-images">
-                                    <img src="images/apatite_cats_eye.png" alt="Blue-Green Apatite Cat's Eye 5.0ct - View 1" class="active">
-                                    <img src="images/apatite_cats_eye_2.png" alt="Blue-Green Apatite Cat's Eye 5.0ct - View 2 (Placeholder)">
-                                </div>
-                                <button class="carousel-btn prev-btn">&lt;</button>
-                                <button class="carousel-btn next-btn">&gt;</button>
+                        <div class="carousel-container">
+                            <div class="carousel-images" data-current-index="0">
+                                <img src="images/apatite_cats_eye_1.jpg" alt="Apatite Cat's Eye Image 1">
+                                <img src="images/apatite_cats_eye_2.jpg" alt="Apatite Cat's Eye Image 2">
                             </div>
-                            <h3>Blue-Green Apatite Cat's Eye 5.0ct</h3>
-                            <p class="product-price">$250</p>
-                        </a>
+                            <button class="carousel-btn prev-btn">&lt;</button>
+                            <button class="carousel-btn next-btn">&gt;</button>
+                        </div>
+                        <h3>Apatite Cat's Eye - Green Oval</h3>
+                        <p class="product-price" data-price-value="600">$600</p>
+                        <button class="btn buy-now-btn" data-product-name="Apatite Cat's Eye - Green Oval" data-product-price="600">Buy Now</button>
+                        <button class="btn add-to-cart-btn"
+                                data-product-id="apatite-cats-eye-oval-1"
+                                data-product-name="Apatite Cat's Eye - Green Oval"
+                                data-product-price="600"
+                                data-product-image="images/apatite_cats_eye_1.jpg">
+                            Add to Cart
+                        </button>
+                        <div class="share-options">
+                            <p>Share this product:</p>
+                            <a href="#" class="share-btn whatsapp-share" target="_blank" title="Share on WhatsApp">
+                                <img src="images/whatsapp-icon.jpg" alt="WhatsApp">
+                            </a>
+                            <a href="#" class="share-btn facebook-share" target="_blank" title="Share on Facebook">
+                                <img src="images/facebook-icon.jpg" alt="Facebook">
+                            </a>
+                            <a href="#" class="share-btn twitter-share" target="_blank" title="Share on X">
+                                <img src="images/twitter-icon.jpg" alt="X (Twitter)">
+                            </a>
+                        </div>
                     </div>
+
                     <div class="product-item">
-                        <a href="appatite cats eye.html#yellow-apatite-catseye" class="product-link">
-                            <div class="carousel-container">
-                                <div class="carousel-images">
-                                    <img src="images/apatite_cats_eye.png" alt="Yellow Apatite Cat's Eye 4.5ct - View 1" class="active">
-                                    <img src="images/apatite_cats_eye_2.png" alt="Yellow Apatite Cat's Eye 4.5ct - View 2 (Placeholder)">
-                                </div>
-                                <button class="carousel-btn prev-btn">&lt;</button>
-                                <button class="carousel-btn next-btn">&gt;</button>
+                        <div class="carousel-container">
+                            <div class="carousel-images" data-current-index="0">
+                                <img src="images/apatite_cats_eye_3.jpg" alt="Apatite Cat's Eye Image 3">
+                                <img src="images/apatite_cats_eye_4.jpg" alt="Apatite Cat's Eye Image 4">
                             </div>
-                            <h3>Yellow Apatite Cat's Eye 4.5ct</h3>
-                            <p class="product-price">$180</p>
-                        </a>
+                            <button class="carousel-btn prev-btn">&lt;</button>
+                            <button class="carousel-btn next-btn">&gt;</button>
+                        </div>
+                        <h3>Apatite Cat's Eye - Blue Round</h3>
+                        <p class="product-price" data-price-value="550">$550</p>
+                        <button class="btn buy-now-btn" data-product-name="Apatite Cat's Eye - Blue Round" data-product-price="550">Buy Now</button>
+                        <button class="btn add-to-cart-btn"
+                                data-product-id="apatite-cats-eye-round-2"
+                                data-product-name="Apatite Cat's Eye - Blue Round"
+                                data-product-price="550"
+                                data-product-image="images/apatite_cats_eye_3.jpg">
+                            Add to Cart
+                        </button>
+                        <div class="share-options">
+                            <p>Share this product:</p>
+                            <a href="#" class="share-btn whatsapp-share" target="_blank" title="Share on WhatsApp">
+                                <img src="images/whatsapp-icon.jpg" alt="WhatsApp">
+                            </a>
+                            <a href="#" class="share-btn facebook-share" target="_blank" title="Share on Facebook">
+                                <img src="images/facebook-icon.jpg" alt="Facebook">
+                            </a>
+                            <a href="#" class="share-btn twitter-share" target="_blank" title="Share on X">
+                                <img src="images/twitter-icon.jpg" alt="X (Twitter)">
+                            </a>
+                        </div>
                     </div>
+
                     <div class="product-item">
-                        <a href="appatite cats eye.html#green-apatite-catseye" class="product-link">
-                            <div class="carousel-container">
-                                <div class="carousel-images">
-                                    <img src="images/apatite_cats_eye.png" alt="Green Apatite Cat's Eye 6.0ct - View 1" class="active">
-                                    <img src="images/apatite_cats_eye_2.png" alt="Green Apatite Cat's Eye 6.0ct - View 2 (Placeholder)">
-                                </div>
-                                <button class="carousel-btn prev-btn">&lt;</button>
-                                <button class="carousel-btn next-btn">&gt;</button>
+                        <div class="carousel-container">
+                            <div class="carousel-images" data-current-index="0">
+                                <img src="images/apatite_cats_eye_5.jpg" alt="Apatite Cat's Eye Image 5">
+                                <img src="images/apatite_cats_eye_6.jpg" alt="Apatite Cat's Eye Image 6">
                             </div>
-                            <h3>Green Apatite Cat's Eye 6.0ct</h3>
-                            <p class="product-price">$220</p>
-                        </a>
+                            <button class="carousel-btn prev-btn">&lt;</button>
+                            <button class="carousel-btn next-btn">&gt;</button>
+                        </div>
+                        <h3>Apatite Cat's Eye - Yellow Cabochon</h3>
+                        <p class="product-price" data-price-value="700">$700</p>
+                        <button class="btn buy-now-btn" data-product-name="Apatite Cat's Eye - Yellow Cabochon" data-product-price="700">Buy Now</button>
+                        <button class="btn add-to-cart-btn"
+                                data-product-id="apatite-cats-eye-yellow-3"
+                                data-product-name="Apatite Cat's Eye - Yellow Cabochon"
+                                data-product-price="700"
+                                data-product-image="images/apatite_cats_eye_5.jpg">
+                            Add to Cart
+                        </button>
+                        <div class="share-options">
+                            <p>Share this product:</p>
+                            <a href="#" class="share-btn whatsapp-share" target="_blank" title="Share on WhatsApp">
+                                <img src="images/whatsapp-icon.jpg" alt="WhatsApp">
+                            </a>
+                            <a href="#" class="share-btn facebook-share" target="_blank" title="Share on Facebook">
+                                <img src="images/facebook-icon.jpg" alt="Facebook">
+                            </a>
+                            <a href="#" class="share-btn twitter-share" target="_blank" title="Share on X">
+                                <img src="images/twitter-icon.jpg" alt="X (Twitter)">
+                            </a>
+                        </div>
                     </div>
-                    <div class="product-item">
-                        <a href="appatite cats eye.html#large-apatite-catseye" class="product-link">
-                            <div class="carousel-container">
-                                <div class="carousel-images">
-                                    <img src="images/apatite_cats_eye.png" alt="Large Apatite Cat's Eye 8.0ct - View 1" class="active">
-                                    <img src="images/apatite_cats_eye_2.png" alt="Large Apatite Cat's Eye 8.0ct - View 2 (Placeholder)">
-                                </div>
-                                <button class="carousel-btn prev-btn">&lt;</button>
-                                <button class="carousel-btn next-btn">&gt;</button>
-                            </div>
-                            <h3>Large Apatite Cat's Eye 8.0ct</h3>
-                            <p class="product-price">$350</p>
-                        </a>
+
                     </div>
-                    <div class="product-item">
-                        <a href="appatite cats eye.html#apatite-catseye-pair" class="product-link">
-                            <div class="carousel-container">
-                                <div class="carousel-images">
-                                    <img src="images/apatite_cats_eye.png" alt="Apatite Cat's Eye Pair 3.0ct each - View 1" class="active">
-                                    <img src="images/apatite_cats_eye_2.png" alt="Apatite Cat's Eye Pair 3.0ct each - View 2 (Placeholder)">
-                                </div>
-                                <button class="carousel-btn prev-btn">&lt;</button>
-                                <button class="carousel-btn next-btn">&gt;</button>
-                            </div>
-                            <h3>Apatite Cat's Eye Pair 3.0ct each</h3>
-                            <p class="product-price">$400</p>
-                        </a>
-                    </div>
-                    </div>
-                <a href="shop.html" class="btn back-to-shop">Back to All Gems</a>
             </div>
         </section>
     </main>
@@ -119,6 +141,44 @@
         </div>
     </footer>
 
+    <div id="orderModal" class="modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <h2>Place Your Order</h2>
+            <p>You are about to order: <strong id="modalProductName"></strong></p>
+            <p>Please fill out your details. Our team will contact you shortly to confirm your order and discuss payment.</p>
+
+            <form id="orderForm" action="https://formspree.io/f/your_NEW_form_id_here" method="POST">
+                <div class="form-group">
+                    <label for="orderName" class="sr-only">Your Name</label>
+                    <input type="text" id="orderName" name="Name" placeholder="Your Name" required>
+                </div>
+                <div class="form-group">
+                    <label for="orderEmail" class="sr-only">Your Email</label>
+                    <input type="email" id="orderEmail" name="Email" placeholder="Your Email" required>
+                </div>
+                <div class="form-group">
+                    <label for="orderPhone" class="sr-only">Your Phone Number</label>
+                    <input type="tel" id="orderPhone" name="Phone" placeholder="Your Phone Number" required>
+                </div>
+                <div class="form-group-full">
+                    <label for="orderAddress" class="sr-only">Your Shipping Address</label>
+                    <textarea id="orderAddress" name="Address" placeholder="Your Shipping Address" rows="4" required></textarea>
+                </div>
+
+                <input type="hidden" id="hiddenProductName" name="Product Name">
+                <input type="hidden" id="hiddenProductPrice" name="Product Price">
+
+                <button type="submit" class="btn">Submit Order</button>
+            </form>
+
+            <div id="orderSuccessMessage" class="hidden">
+                <h3>Thank You!</h3>
+                <p>Your order inquiry has been received. Our team will contact you shortly to confirm your order details and discuss payment.</p>
+                <button class="btn close-button">Close</button>
+            </div>
+        </div>
+    </div>
     <script src="js/script.js"></script>
-    <script src="js/carousel.js"></script> </body>
+</body>
 </html>
