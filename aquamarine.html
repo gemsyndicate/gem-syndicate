@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GEM SYNDICATE - Aquamarine Collection</title>
+    <title>Aquamarines - GEM SYNDICATE</title>
     <link rel="stylesheet" href="css/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
 </head>
@@ -12,103 +12,126 @@
     <header>
         <div class="container">
             <div class="logo">
-                <img src="images/logo.png" alt="GEM SYNDICATE Logo">
-            </div>
+                <img src="images/logo.jpg" alt="GEM SYNDICATE Logo"> </div>
             <nav>
                 <ul>
                     <li><a href="index.html">Home</a></li>
                     <li><a href="shop.html">Shop</a></li>
-                    <li><a href="index.html#about">About Us</a></li>
-                    <li><a href="index.html#contact">Contact</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="cart.html">Cart (<span id="cart-item-count">0</span>)</a></li>
+                    <li><a href="#contact">Contact</a></li>
                 </ul>
             </nav>
         </div>
     </header>
 
     <main>
-        <section class="shop-page-hero">
-            <div class="container">
-                <h1>Our Aquamarine Collection</h1>
-                <p>Dive into the serene blue and captivating clarity of our exquisite aquamarine gemstones.</p>
-            </div>
-        </section>
-
         <section class="products-grid">
             <div class="container">
-                <h2>Featured Aquamarines</h2>
+                <h2>Our Aquamarine Collection</h2>
                 <div class="product-grid-items">
+
                     <div class="product-item">
-                        <a href="aquamarine.html#brazilian-aquamarine" class="product-link">
-                            <div class="carousel-container">
-                                <div class="carousel-images">
-                                    <img src="images/aquamarine.png" alt="Brazilian Aquamarine Oval 4.0ct - View 1" class="active">
-                                    <img src="images/aquamarine_2.png" alt="Brazilian Aquamarine Oval 4.0ct - View 2 (Placeholder)">
-                                </div>
-                                <button class="carousel-btn prev-btn">&lt;</button>
-                                <button class="carousel-btn next-btn">&gt;</button>
+                        <div class="carousel-container">
+                            <div class="carousel-images" data-current-index="0">
+                                <img src="images/aquamarine_1.jpg" alt="Aquamarine Image 1">
+                                <img src="images/aquamarine_2.jpg" alt="Aquamarine Image 2">
+                                <img src="images/aquamarine_3.jpg" alt="Aquamarine Image 3">
                             </div>
-                            <h3>Brazilian Aquamarine Oval 4.0ct</h3>
-                            <p class="product-price">$380</p>
-                        </a>
+                            <button class="carousel-btn prev-btn">&lt;</button>
+                            <button class="carousel-btn next-btn">&gt;</button>
+                        </div>
+                        <h3>Aquamarine - Oval Cut</h3>
+                        <p class="product-price" data-price-value="750">$750</p>
+                        <button class="btn buy-now-btn" data-product-name="Aquamarine - Oval Cut" data-product-price="750">Buy Now</button>
+                        <button class="btn add-to-cart-btn"
+                                data-product-id="aquamarine-oval-1"
+                                data-product-name="Aquamarine - Oval Cut"
+                                data-product-price="750"
+                                data-product-image="images/aquamarine_1.jpg">
+                            Add to Cart
+                        </button>
+                        <div class="share-options">
+                            <p>Share this product:</p>
+                            <a href="#" class="share-btn whatsapp-share" target="_blank" title="Share on WhatsApp">
+                                <img src="images/whatsapp-icon.jpg" alt="WhatsApp">
+                            </a>
+                            <a href="#" class="share-btn facebook-share" target="_blank" title="Share on Facebook">
+                                <img src="images/facebook-icon.jpg" alt="Facebook">
+                            </a>
+                            <a href="#" class="share-btn twitter-share" target="_blank" title="Share on X">
+                                <img src="images/twitter-icon.jpg" alt="X (Twitter)">
+                            </a>
+                        </div>
                     </div>
+
                     <div class="product-item">
-                        <a href="aquamarine.html#santa-maria-aquamarine" class="product-link">
-                            <div class="carousel-container">
-                                <div class="carousel-images">
-                                    <img src="images/aquamarine.png" alt="Santa Maria Aquamarine Emerald Cut 2.5ct - View 1" class="active">
-                                    <img src="images/aquamarine_2.png" alt="Santa Maria Aquamarine Emerald Cut 2.5ct - View 2 (Placeholder)">
-                                </div>
-                                <button class="carousel-btn prev-btn">&lt;</button>
-                                <button class="carousel-btn next-btn">&gt;</button>
+                        <div class="carousel-container">
+                            <div class="carousel-images" data-current-index="0">
+                                <img src="images/aquamarine_4.jpg" alt="Aquamarine Image 4">
+                                <img src="images/aquamarine_5.jpg" alt="Aquamarine Image 5">
                             </div>
-                            <h3>Santa Maria Aquamarine 2.5ct</h3>
-                            <p class="product-price">$550</p>
-                        </a>
+                            <button class="carousel-btn prev-btn">&lt;</button>
+                            <button class="carousel-btn next-btn">&gt;</button>
+                        </div>
+                        <h3>Aquamarine - Emerald Cut</h3>
+                        <p class="product-price" data-price-value="880">$880</p>
+                        <button class="btn buy-now-btn" data-product-name="Aquamarine - Emerald Cut" data-product-price="880">Buy Now</button>
+                        <button class="btn add-to-cart-btn"
+                                data-product-id="aquamarine-emerald-2"
+                                data-product-name="Aquamarine - Emerald Cut"
+                                data-product-price="880"
+                                data-product-image="images/aquamarine_4.jpg">
+                            Add to Cart
+                        </button>
+                        <div class="share-options">
+                            <p>Share this product:</p>
+                            <a href="#" class="share-btn whatsapp-share" target="_blank" title="Share on WhatsApp">
+                                <img src="images/whatsapp-icon.jpg" alt="WhatsApp">
+                            </a>
+                            <a href="#" class="share-btn facebook-share" target="_blank" title="Share on Facebook">
+                                <img src="images/facebook-icon.jpg" alt="Facebook">
+                            </a>
+                            <a href="#" class="share-btn twitter-share" target="_blank" title="Share on X">
+                                <img src="images/twitter-icon.jpg" alt="X (Twitter)">
+                            </a>
+                        </div>
                     </div>
+
                     <div class="product-item">
-                        <a href="aquamarine.html#aquamarine-pear" class="product-link">
-                            <div class="carousel-container">
-                                <div class="carousel-images">
-                                    <img src="images/aquamarine.png" alt="Aquamarine Pear Shape 3.0ct - View 1" class="active">
-                                    <img src="images/aquamarine_2.png" alt="Aquamarine Pear Shape 3.0ct - View 2 (Placeholder)">
-                                </div>
-                                <button class="carousel-btn prev-btn">&lt;</button>
-                                <button class="carousel-btn next-btn">&gt;</button>
+                        <div class="carousel-container">
+                            <div class="carousel-images" data-current-index="0">
+                                <img src="images/aquamarine_6.jpg" alt="Aquamarine Image 6">
+                                <img src="images/aquamarine_7.jpg" alt="Aquamarine Image 7">
                             </div>
-                            <h3>Aquamarine Pear Shape 3.0ct</h3>
-                            <p class="product-price">$420</p>
-                        </a>
+                            <button class="carousel-btn prev-btn">&lt;</button>
+                            <button class="carousel-btn next-btn">&gt;</button>
+                        </div>
+                        <h3>Aquamarine - Round Cut</h3>
+                        <p class="product-price" data-price-value="690">$690</p>
+                        <button class="btn buy-now-btn" data-product-name="Aquamarine - Round Cut" data-product-price="690">Buy Now</button>
+                        <button class="btn add-to-cart-btn"
+                                data-product-id="aquamarine-round-3"
+                                data-product-name="Aquamarine - Round Cut"
+                                data-product-price="690"
+                                data-product-image="images/aquamarine_6.jpg">
+                            Add to Cart
+                        </button>
+                        <div class="share-options">
+                            <p>Share this product:</p>
+                            <a href="#" class="share-btn whatsapp-share" target="_blank" title="Share on WhatsApp">
+                                <img src="images/whatsapp-icon.jpg" alt="WhatsApp">
+                            </a>
+                            <a href="#" class="share-btn facebook-share" target="_blank" title="Share on Facebook">
+                                <img src="images/facebook-icon.jpg" alt="Facebook">
+                            </a>
+                            <a href="#" class="share-btn twitter-share" target="_blank" title="Share on X">
+                                <img src="images/twitter-icon.jpg" alt="X (Twitter)">
+                            </a>
+                        </div>
                     </div>
-                    <div class="product-item">
-                        <a href="aquamarine.html#aquamarine-cabochon" class="product-link">
-                            <div class="carousel-container">
-                                <div class="carousel-images">
-                                    <img src="images/aquamarine.png" alt="Aquamarine Cabochon 12x10mm - View 1" class="active">
-                                    <img src="images/aquamarine_2.png" alt="Aquamarine Cabochon 12x10mm - View 2 (Placeholder)">
-                                </div>
-                                <button class="carousel-btn prev-btn">&lt;</button>
-                                <button class="carousel-btn next-btn">&gt;</button>
-                            </div>
-                            <h3>Aquamarine Cabochon 12x10mm</h3>
-                            <p class="product-price">$250</p>
-                        </a>
+
                     </div>
-                    <div class="product-item">
-                        <a href="aquamarine.html#raw-aquamarine" class="product-link">
-                            <div class="carousel-container">
-                                <div class="carousel-images">
-                                    <img src="images/aquamarine.png" alt="Raw Aquamarine Crystal Specimen - View 1" class="active">
-                                    <img src="images/aquamarine_2.png" alt="Raw Aquamarine Crystal Specimen - View 2 (Placeholder)">
-                                </div>
-                                <button class="carousel-btn prev-btn">&lt;</button>
-                                <button class="carousel-btn next-btn">&gt;</button>
-                            </div>
-                            <h3>Raw Aquamarine Crystal Specimen</h3>
-                            <p class="product-price">$180</p>
-                        </a>
-                    </div>
-                    </div>
-                <a href="shop.html" class="btn back-to-shop">Back to All Gems</a>
             </div>
         </section>
     </main>
@@ -119,6 +142,44 @@
         </div>
     </footer>
 
+    <div id="orderModal" class="modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <h2>Place Your Order</h2>
+            <p>You are about to order: <strong id="modalProductName"></strong></p>
+            <p>Please fill out your details. Our team will contact you shortly to confirm your order and discuss payment.</p>
+
+            <form id="orderForm" action="https://formspree.io/f/your_NEW_form_id_here" method="POST">
+                <div class="form-group">
+                    <label for="orderName" class="sr-only">Your Name</label>
+                    <input type="text" id="orderName" name="Name" placeholder="Your Name" required>
+                </div>
+                <div class="form-group">
+                    <label for="orderEmail" class="sr-only">Your Email</label>
+                    <input type="email" id="orderEmail" name="Email" placeholder="Your Email" required>
+                </div>
+                <div class="form-group">
+                    <label for="orderPhone" class="sr-only">Your Phone Number</label>
+                    <input type="tel" id="orderPhone" name="Phone" placeholder="Your Phone Number" required>
+                </div>
+                <div class="form-group-full">
+                    <label for="orderAddress" class="sr-only">Your Shipping Address</label>
+                    <textarea id="orderAddress" name="Address" placeholder="Your Shipping Address" rows="4" required></textarea>
+                </div>
+
+                <input type="hidden" id="hiddenProductName" name="Product Name">
+                <input type="hidden" id="hiddenProductPrice" name="Product Price">
+
+                <button type="submit" class="btn">Submit Order</button>
+            </form>
+
+            <div id="orderSuccessMessage" class="hidden">
+                <h3>Thank You!</h3>
+                <p>Your order inquiry has been received. Our team will contact you shortly to confirm your order details and discuss payment.</p>
+                <button class="btn close-button">Close</button>
+            </div>
+        </div>
+    </div>
     <script src="js/script.js"></script>
-    <script src="js/carousel.js"></script> </body>
+</body>
 </html>
