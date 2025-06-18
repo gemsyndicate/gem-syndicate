@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GEM SYNDICATE - Tourmaline Collection</title>
+    <title>Tourmalines - GEM SYNDICATE</title>
     <link rel="stylesheet" href="css/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
 </head>
@@ -12,103 +12,125 @@
     <header>
         <div class="container">
             <div class="logo">
-                <img src="images/logo.jpg" alt="GEM SYNDICATE Logo">
-            </div>
+                <img src="images/logo.jpg" alt="GEM SYNDICATE Logo"> </div>
             <nav>
                 <ul>
                     <li><a href="index.html">Home</a></li>
                     <li><a href="shop.html">Shop</a></li>
-                    <li><a href="index.html#about">About Us</a></li>
-                    <li><a href="index.html#contact">Contact</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="cart.html">Cart (<span id="cart-item-count">0</span>)</a></li>
+                    <li><a href="#contact">Contact</a></li>
                 </ul>
             </nav>
         </div>
     </header>
 
     <main>
-        <section class="shop-page-hero">
-            <div class="container">
-                <h1>Our Tourmaline Collection</h1>
-                <p>Discover the incredible spectrum of colors and vibrant beauty of our diverse tourmaline gemstones.</p>
-            </div>
-        </section>
-
         <section class="products-grid">
             <div class="container">
-                <h2>Featured Tourmalines</h2>
+                <h2>Our Tourmaline Collection</h2>
                 <div class="product-grid-items">
+
                     <div class="product-item">
-                        <a href="tourmaline.html#green-tourmaline" class="product-link">
-                            <div class="carousel-container">
-                                <div class="carousel-images">
-                                    <img src="images/tourmaline.jpg" alt="Green Tourmaline Emerald Cut 3.0ct - View 1" class="active">
-                                    <img src="images/tourmaline_2.png" alt="Green Tourmaline Emerald Cut 3.0ct - View 2 (Placeholder)">
-                                </div>
-                                <button class="carousel-btn prev-btn">&lt;</button>
-                                <button class="carousel-btn next-btn">&gt;</button>
+                        <div class="carousel-container">
+                            <div class="carousel-images" data-current-index="0">
+                                <img src="images/tourmaline_1.jpg" alt="Pink Tourmaline Image 1">
+                                <img src="images/tourmaline_2.jpg" alt="Pink Tourmaline Image 2">
                             </div>
-                            <h3>Green Tourmaline 3.0ct</h3>
-                            <p class="product-price">$350</p>
-                        </a>
+                            <button class="carousel-btn prev-btn">&lt;</button>
+                            <button class="carousel-btn next-btn">&gt;</button>
+                        </div>
+                        <h3>Pink Tourmaline - Oval Cut</h3>
+                        <p class="product-price" data-price-value="400">$400</p>
+                        <button class="btn buy-now-btn" data-product-name="Pink Tourmaline - Oval Cut" data-product-price="400">Buy Now</button>
+                        <button class="btn add-to-cart-btn"
+                                data-product-id="tourmaline-pink-oval-1"
+                                data-product-name="Pink Tourmaline - Oval Cut"
+                                data-product-price="400"
+                                data-product-image="images/tourmaline_1.jpg">
+                            Add to Cart
+                        </button>
+                        <div class="share-options">
+                            <p>Share this product:</p>
+                            <a href="#" class="share-btn whatsapp-share" target="_blank" title="Share on WhatsApp">
+                                <img src="images/whatsapp-icon.jpg" alt="WhatsApp">
+                            </a>
+                            <a href="#" class="share-btn facebook-share" target="_blank" title="Share on Facebook">
+                                <img src="images/facebook-icon.jpg" alt="Facebook">
+                            </a>
+                            <a href="#" class="share-btn twitter-share" target="_blank" title="Share on X">
+                                <img src="images/twitter-icon.jpg" alt="X (Twitter)">
+                            </a>
+                        </div>
                     </div>
+
                     <div class="product-item">
-                        <a href="tourmaline.html#pink-tourmaline" class="product-link">
-                            <div class="carousel-container">
-                                <div class="carousel-images">
-                                    <img src="images/tourmaline.jpg" alt="Pink Tourmaline Oval 2.5ct - View 1" class="active">
-                                    <img src="images/tourmaline_2.jpg" alt="Pink Tourmaline Oval 2.5ct - View 2 (Placeholder)">
-                                </div>
-                                <button class="carousel-btn prev-btn">&lt;</button>
-                                <button class="carousel-btn next-btn">&gt;</button>
+                        <div class="carousel-container">
+                            <div class="carousel-images" data-current-index="0">
+                                <img src="images/tourmaline_3.jpg" alt="Green Tourmaline Image 3">
+                                <img src="images/tourmaline_4.jpg" alt="Green Tourmaline Image 4">
                             </div>
-                            <h3>Pink Tourmaline Oval 2.5ct</h3>
-                            <p class="product-price">$280</p>
-                        </a>
+                            <button class="carousel-btn prev-btn">&lt;</button>
+                            <button class="carousel-btn next-btn">&gt;</button>
+                        </div>
+                        <h3>Green Tourmaline - Emerald Cut</h3>
+                        <p class="product-price" data-price-value="650">$650</p>
+                        <button class="btn buy-now-btn" data-product-name="Green Tourmaline - Emerald Cut" data-product-price="650">Buy Now</button>
+                        <button class="btn add-to-cart-btn"
+                                data-product-id="tourmaline-green-emerald-2"
+                                data-product-name="Green Tourmaline - Emerald Cut"
+                                data-product-price="650"
+                                data-product-image="images/tourmaline_3.jpg">
+                            Add to Cart
+                        </button>
+                        <div class="share-options">
+                            <p>Share this product:</p>
+                            <a href="#" class="share-btn whatsapp-share" target="_blank" title="Share on WhatsApp">
+                                <img src="images/whatsapp-icon.jpg" alt="WhatsApp">
+                            </a>
+                            <a href="#" class="share-btn facebook-share" target="_blank" title="Share on Facebook">
+                                <img src="images/facebook-icon.jpg" alt="Facebook">
+                            </a>
+                            <a href="#" class="share-btn twitter-share" target="_blank" title="Share on X">
+                                <img src="images/twitter-icon.jpg" alt="X (Twitter)">
+                            </a>
+                        </div>
                     </div>
+
                     <div class="product-item">
-                        <a href="tourmaline.html#watermelon-tourmaline" class="product-link">
-                            <div class="carousel-container">
-                                <div class="carousel-images">
-                                    <img src="images/tourmaline.jpg" alt="Watermelon Tourmaline Slice - View 1" class="active">
-                                    <img src="images/tourmaline_2.jpg" alt="Watermelon Tourmaline Slice - View 2 (Placeholder)">
-                                </div>
-                                <button class="carousel-btn prev-btn">&lt;</button>
-                                <button class="carousel-btn next-btn">&gt;</button>
+                        <div class="carousel-container">
+                            <div class="carousel-images" data-current-index="0">
+                                <img src="images/tourmaline_5.jpg" alt="Watermelon Tourmaline Image 5">
+                                <img src="images/tourmaline_6.jpg" alt="Watermelon Tourmaline Image 6">
                             </div>
-                            <h3>Watermelon Tourmaline Slice</h3>
-                            <p class="product-price">$500</p>
-                        </a>
+                            <button class="carousel-btn prev-btn">&lt;</button>
+                            <button class="carousel-btn next-btn">&gt;</button>
+                        </div>
+                        <h3>Watermelon Tourmaline - Slice</h3>
+                        <p class="product-price" data-price-value="550">$550</p>
+                        <button class="btn buy-now-btn" data-product-name="Watermelon Tourmaline - Slice" data-product-price="550">Buy Now</button>
+                        <button class="btn add-to-cart-btn"
+                                data-product-id="tourmaline-watermelon-slice-3"
+                                data-product-name="Watermelon Tourmaline - Slice"
+                                data-product-price="550"
+                                data-product-image="images/tourmaline_5.jpg">
+                            Add to Cart
+                        </button>
+                        <div class="share-options">
+                            <p>Share this product:</p>
+                            <a href="#" class="share-btn whatsapp-share" target="_blank" title="Share on WhatsApp">
+                                <img src="images/whatsapp-icon.jpg" alt="WhatsApp">
+                            </a>
+                            <a href="#" class="share-btn facebook-share" target="_blank" title="Share on Facebook">
+                                <img src="images/facebook-icon.jpg" alt="Facebook">
+                            </a>
+                            <a href="#" class="share-btn twitter-share" target="_blank" title="Share on X">
+                                <img src="images/twitter-icon.jpg" alt="X (Twitter)">
+                            </a>
+                        </div>
                     </div>
-                    <div class="product-item">
-                        <a href="tourmaline.html#blue-tourmaline" class="product-link">
-                            <div class="carousel-container">
-                                <div class="carousel-images">
-                                    <img src="images/tourmaline.jpg" alt="Blue Tourmaline (Indicolite) Pear 1.8ct - View 1" class="active">
-                                    <img src="images/tourmaline_2.jpg" alt="Blue Tourmaline (Indicolite) Pear 1.8ct - View 2 (Placeholder)">
-                                </div>
-                                <button class="carousel-btn prev-btn">&lt;</button>
-                                <button class="carousel-btn next-btn">&gt;</button>
-                            </div>
-                            <h3>Blue Tourmaline 1.8ct</h3>
-                            <p class="product-price">$400</p>
-                        </a>
+
                     </div>
-                    <div class="product-item">
-                        <a href="tourmaline.html#black-tourmaline" class="product-link">
-                            <div class="carousel-container">
-                                <div class="carousel-images">
-                                    <img src="images/tourmaline.jpg" alt="Black Tourmaline Crystal Specimen - View 1" class="active">
-                                    <img src="images/tourmaline_2.jpg" alt="Black Tourmaline Crystal Specimen - View 2 (Placeholder)">
-                                </div>
-                                <button class="carousel-btn prev-btn">&lt;</button>
-                                <button class="carousel-btn next-btn">&gt;</button>
-                            </div>
-                            <h3>Black Tourmaline Crystal Specimen</h3>
-                            <p class="product-price">$90</p>
-                        </a>
-                    </div>
-                    </div>
-                <a href="shop.html" class="btn back-to-shop">Back to All Gems</a>
             </div>
         </section>
     </main>
@@ -119,6 +141,44 @@
         </div>
     </footer>
 
+    <div id="orderModal" class="modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <h2>Place Your Order</h2>
+            <p>You are about to order: <strong id="modalProductName"></strong></p>
+            <p>Please fill out your details. Our team will contact you shortly to confirm your order and discuss payment.</p>
+
+            <form id="orderForm" action="https://formspree.io/f/your_NEW_form_id_here" method="POST">
+                <div class="form-group">
+                    <label for="orderName" class="sr-only">Your Name</label>
+                    <input type="text" id="orderName" name="Name" placeholder="Your Name" required>
+                </div>
+                <div class="form-group">
+                    <label for="orderEmail" class="sr-only">Your Email</label>
+                    <input type="email" id="orderEmail" name="Email" placeholder="Your Email" required>
+                </div>
+                <div class="form-group">
+                    <label for="orderPhone" class="sr-only">Your Phone Number</label>
+                    <input type="tel" id="orderPhone" name="Phone" placeholder="Your Phone Number" required>
+                </div>
+                <div class="form-group-full">
+                    <label for="orderAddress" class="sr-only">Your Shipping Address</label>
+                    <textarea id="orderAddress" name="Address" placeholder="Your Shipping Address" rows="4" required></textarea>
+                </div>
+
+                <input type="hidden" id="hiddenProductName" name="Product Name">
+                <input type="hidden" id="hiddenProductPrice" name="Product Price">
+
+                <button type="submit" class="btn">Submit Order</button>
+            </form>
+
+            <div id="orderSuccessMessage" class="hidden">
+                <h3>Thank You!</h3>
+                <p>Your order inquiry has been received. Our team will contact you shortly to confirm your order details and discuss payment.</p>
+                <button class="btn close-button">Close</button>
+            </div>
+        </div>
+    </div>
     <script src="js/script.js"></script>
-    <script src="js/carousel.js"></script> </body>
+</body>
 </html>
