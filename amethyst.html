@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GEM SYNDICATE - Amethyst Collection</title>
+    <title>Amethysts - GEM SYNDICATE</title>
     <link rel="stylesheet" href="css/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
 </head>
@@ -12,103 +12,126 @@
     <header>
         <div class="container">
             <div class="logo">
-                <img src="images/logo.png" alt="GEM SYNDICATE Logo">
-            </div>
+                <img src="images/logo.jpg" alt="GEM SYNDICATE Logo"> </div>
             <nav>
                 <ul>
                     <li><a href="index.html">Home</a></li>
                     <li><a href="shop.html">Shop</a></li>
-                    <li><a href="index.html#about">About Us</a></li>
-                    <li><a href="index.html#contact">Contact</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="cart.html">Cart (<span id="cart-item-count">0</span>)</a></li>
+                    <li><a href="#contact">Contact</a></li>
                 </ul>
             </nav>
         </div>
     </header>
 
     <main>
-        <section class="shop-page-hero">
-            <div class="container">
-                <h1>Our Amethyst Collection</h1>
-                <p>Explore the calming hues and regal beauty of our stunning amethyst gemstones.</p>
-            </div>
-        </section>
-
         <section class="products-grid">
             <div class="container">
-                <h2>Featured Amethysts</h2>
+                <h2>Our Amethyst Collection</h2>
                 <div class="product-grid-items">
+
                     <div class="product-item">
-                        <a href="amethyst.html#brazilian-amethyst" class="product-link">
-                            <div class="carousel-container">
-                                <div class="carousel-images">
-                                    <img src="images/amethyst.png" alt="Brazilian Amethyst Oval 5.0ct - View 1" class="active">
-                                    <img src="images/amethyst_2.png" alt="Brazilian Amethyst Oval 5.0ct - View 2 (Placeholder)">
-                                </div>
-                                <button class="carousel-btn prev-btn">&lt;</button>
-                                <button class="carousel-btn next-btn">&gt;</button>
+                        <div class="carousel-container">
+                            <div class="carousel-images" data-current-index="0">
+                                <img src="images/amethyst_1.jpg" alt="Amethyst Image 1">
+                                <img src="images/amethyst_2.jpg" alt="Amethyst Image 2">
+                                <img src="images/amethyst_3.jpg" alt="Amethyst Image 3">
                             </div>
-                            <h3>Brazilian Amethyst Oval 5.0ct</h3>
-                            <p class="product-price">$120</p>
-                        </a>
+                            <button class="carousel-btn prev-btn">&lt;</button>
+                            <button class="carousel-btn next-btn">&gt;</button>
+                        </div>
+                        <h3>Amethyst - Oval Cut</h3>
+                        <p class="product-price" data-price-value="450">$450</p>
+                        <button class="btn buy-now-btn" data-product-name="Amethyst - Oval Cut" data-product-price="450">Buy Now</button>
+                        <button class="btn add-to-cart-btn"
+                                data-product-id="amethyst-oval-1"
+                                data-product-name="Amethyst - Oval Cut"
+                                data-product-price="450"
+                                data-product-image="images/amethyst_1.jpg">
+                            Add to Cart
+                        </button>
+                        <div class="share-options">
+                            <p>Share this product:</p>
+                            <a href="#" class="share-btn whatsapp-share" target="_blank" title="Share on WhatsApp">
+                                <img src="images/whatsapp-icon.jpg" alt="WhatsApp">
+                            </a>
+                            <a href="#" class="share-btn facebook-share" target="_blank" title="Share on Facebook">
+                                <img src="images/facebook-icon.jpg" alt="Facebook">
+                            </a>
+                            <a href="#" class="share-btn twitter-share" target="_blank" title="Share on X">
+                                <img src="images/twitter-icon.jpg" alt="X (Twitter)">
+                            </a>
+                        </div>
                     </div>
+
                     <div class="product-item">
-                        <a href="amethyst.html#uruguayan-amethyst" class="product-link">
-                            <div class="carousel-container">
-                                <div class="carousel-images">
-                                    <img src="images/amethyst.png" alt="Uruguayan Amethyst Round 3.5ct - View 1" class="active">
-                                    <img src="images/amethyst_2.png" alt="Uruguayan Amethyst Round 3.5ct - View 2 (Placeholder)">
-                                </div>
-                                <button class="carousel-btn prev-btn">&lt;</button>
-                                <button class="carousel-btn next-btn">&gt;</button>
+                        <div class="carousel-container">
+                            <div class="carousel-images" data-current-index="0">
+                                <img src="images/amethyst_4.jpg" alt="Amethyst Image 4">
+                                <img src="images/amethyst_5.jpg" alt="Amethyst Image 5">
                             </div>
-                            <h3>Uruguayan Amethyst Round 3.5ct</h3>
-                            <p class="product-price">$90</p>
-                        </a>
+                            <button class="carousel-btn prev-btn">&lt;</button>
+                            <button class="carousel-btn next-btn">&gt;</button>
+                        </div>
+                        <h3>Amethyst - Round Cut</h3>
+                        <p class="product-price" data-price-value="380">$380</p>
+                        <button class="btn buy-now-btn" data-product-name="Amethyst - Round Cut" data-product-price="380">Buy Now</button>
+                        <button class="btn add-to-cart-btn"
+                                data-product-id="amethyst-round-2"
+                                data-product-name="Amethyst - Round Cut"
+                                data-product-price="380"
+                                data-product-image="images/amethyst_4.jpg">
+                            Add to Cart
+                        </button>
+                        <div class="share-options">
+                            <p>Share this product:</p>
+                            <a href="#" class="share-btn whatsapp-share" target="_blank" title="Share on WhatsApp">
+                                <img src="images/whatsapp-icon.jpg" alt="WhatsApp">
+                            </a>
+                            <a href="#" class="share-btn facebook-share" target="_blank" title="Share on Facebook">
+                                <img src="images/facebook-icon.jpg" alt="Facebook">
+                            </a>
+                            <a href="#" class="share-btn twitter-share" target="_blank" title="Share on X">
+                                <img src="images/twitter-icon.jpg" alt="X (Twitter)">
+                            </a>
+                        </div>
                     </div>
+
                     <div class="product-item">
-                        <a href="amethyst.html#amethyst-geode-slice" class="product-link">
-                            <div class="carousel-container">
-                                <div class="carousel-images">
-                                    <img src="images/amethyst.png" alt="Amethyst Geode Slice - View 1" class="active">
-                                    <img src="images/amethyst_2.png" alt="Amethyst Geode Slice - View 2 (Placeholder)">
-                                </div>
-                                <button class="carousel-btn prev-btn">&lt;</button>
-                                <button class="carousel-btn next-btn">&gt;</button>
+                        <div class="carousel-container">
+                            <div class="carousel-images" data-current-index="0">
+                                <img src="images/amethyst_6.jpg" alt="Amethyst Image 6">
+                                <img src="images/amethyst_7.jpg" alt="Amethyst Image 7">
                             </div>
-                            <h3>Amethyst Geode Slice</h3>
-                            <p class="product-price">$250</p>
-                        </a>
+                            <button class="carousel-btn prev-btn">&lt;</button>
+                            <button class="carousel-btn next-btn">&gt;</button>
+                        </div>
+                        <h3>Amethyst - Pear Shape</h3>
+                        <p class="product-price" data-price-value="520">$520</p>
+                        <button class="btn buy-now-btn" data-product-name="Amethyst - Pear Shape" data-product-price="520">Buy Now</button>
+                        <button class="btn add-to-cart-btn"
+                                data-product-id="amethyst-pear-3"
+                                data-product-name="Amethyst - Pear Shape"
+                                data-product-price="520"
+                                data-product-image="images/amethyst_6.jpg">
+                            Add to Cart
+                        </button>
+                        <div class="share-options">
+                            <p>Share this product:</p>
+                            <a href="#" class="share-btn whatsapp-share" target="_blank" title="Share on WhatsApp">
+                                <img src="images/whatsapp-icon.jpg" alt="WhatsApp">
+                            </a>
+                            <a href="#" class="share-btn facebook-share" target="_blank" title="Share on Facebook">
+                                <img src="images/facebook-icon.jpg" alt="Facebook">
+                            </a>
+                            <a href="#" class="share-btn twitter-share" target="_blank" title="Share on X">
+                                <img src="images/twitter-icon.jpg" alt="X (Twitter)">
+                            </a>
+                        </div>
                     </div>
-                    <div class="product-item">
-                        <a href="amethyst.html#amethyst-cabochon" class="product-link">
-                            <div class="carousel-container">
-                                <div class="carousel-images">
-                                    <img src="images/amethyst.png" alt="Amethyst Cabochon 10x8mm - View 1" class="active">
-                                    <img src="images/amethyst_2.png" alt="Amethyst Cabochon 10x8mm - View 2 (Placeholder)">
-                                </div>
-                                <button class="carousel-btn prev-btn">&lt;</button>
-                                <button class="carousel-btn next-btn">&gt;</button>
-                            </div>
-                            <h3>Amethyst Cabochon 10x8mm</h3>
-                            <p class="product-price">$75</p>
-                        </a>
+
                     </div>
-                    <div class="product-item">
-                        <a href="amethyst.html#amethyst-faceted-drop" class="product-link">
-                            <div class="carousel-container">
-                                <div class="carousel-images">
-                                    <img src="images/amethyst.png" alt="Amethyst Faceted Drop - View 1" class="active">
-                                    <img src="images/amethyst_2.png" alt="Amethyst Faceted Drop - View 2 (Placeholder)">
-                                </div>
-                                <button class="carousel-btn prev-btn">&lt;</button>
-                                <button class="carousel-btn next-btn">&gt;</button>
-                            </div>
-                            <h3>Amethyst Faceted Drop</h3>
-                            <p class="product-price">$110</p>
-                        </a>
-                    </div>
-                    </div>
-                <a href="shop.html" class="btn back-to-shop">Back to All Gems</a>
             </div>
         </section>
     </main>
@@ -119,6 +142,44 @@
         </div>
     </footer>
 
+    <div id="orderModal" class="modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <h2>Place Your Order</h2>
+            <p>You are about to order: <strong id="modalProductName"></strong></p>
+            <p>Please fill out your details. Our team will contact you shortly to confirm your order and discuss payment.</p>
+
+            <form id="orderForm" action="https://formspree.io/f/your_NEW_form_id_here" method="POST">
+                <div class="form-group">
+                    <label for="orderName" class="sr-only">Your Name</label>
+                    <input type="text" id="orderName" name="Name" placeholder="Your Name" required>
+                </div>
+                <div class="form-group">
+                    <label for="orderEmail" class="sr-only">Your Email</label>
+                    <input type="email" id="orderEmail" name="Email" placeholder="Your Email" required>
+                </div>
+                <div class="form-group">
+                    <label for="orderPhone" class="sr-only">Your Phone Number</label>
+                    <input type="tel" id="orderPhone" name="Phone" placeholder="Your Phone Number" required>
+                </div>
+                <div class="form-group-full">
+                    <label for="orderAddress" class="sr-only">Your Shipping Address</label>
+                    <textarea id="orderAddress" name="Address" placeholder="Your Shipping Address" rows="4" required></textarea>
+                </div>
+
+                <input type="hidden" id="hiddenProductName" name="Product Name">
+                <input type="hidden" id="hiddenProductPrice" name="Product Price">
+
+                <button type="submit" class="btn">Submit Order</button>
+            </form>
+
+            <div id="orderSuccessMessage" class="hidden">
+                <h3>Thank You!</h3>
+                <p>Your order inquiry has been received. Our team will contact you shortly to confirm your order details and discuss payment.</p>
+                <button class="btn close-button">Close</button>
+            </div>
+        </div>
+    </div>
     <script src="js/script.js"></script>
-    <script src="js/carousel.js"></script> </body>
+</body>
 </html>
