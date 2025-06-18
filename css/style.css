@@ -1,15 +1,11 @@
-/* General Body and HTML Styling */
-html {
-    scroll-behavior: smooth;
-}
-
+/* General Body and Base Styles */
 body {
     font-family: 'Lato', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f8f8f8;
+    box-sizing: border-box;
     color: #333;
-    line-height: 1.6;
+    background-color: #f8f8f8;
 }
 
 .container {
@@ -18,12 +14,24 @@ body {
     padding: 0 20px;
 }
 
-/* Header Styling */
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Playfair Display', serif;
+    color: #222;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* Header */
 header {
-    background-color: #000;
-    color: #fff;
+    background-color: #fff;
     padding: 15px 0;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    position: sticky;
+    top: 0;
+    z-index: 999;
 }
 
 header .container {
@@ -48,57 +56,30 @@ nav ul li {
 }
 
 nav ul li a {
-    color: #fff;
-    text-decoration: none;
     font-weight: 700;
-    font-family: 'Playfair Display', serif;
-    font-size: 1.1em;
+    color: #555;
     transition: color 0.3s ease;
 }
 
-nav ul li a:hover {
-    color: #ffd700; /* Gold color for hover */
+nav ul li a:hover,
+nav ul li a.active {
+    color: #ffd700; /* Gold */
 }
 
-/* Hero Section Styling (Homepage & Shop Page) */
-.hero, .shop-page-hero {
-    background-color: #333;
-    color: #fff;
-    text-align: center;
-    padding: 80px 0;
-    background-size: cover;
-    background-position: center;
-    position: relative;
-    overflow: hidden;
-}
-
-.hero {
-    background-image: url('../images/hero-bg.jpg'); /* Example background image */
-}
-
-.hero h1, .shop-page-hero h1 {
-    font-family: 'Playfair Display', serif;
-    font-size: 3.5em;
-    margin-bottom: 20px;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-}
-
-.hero p, .shop-page-hero p {
-    font-size: 1.2em;
-    max-width: 800px;
-    margin: 0 auto 30px;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
-}
-
+/* Buttons (General Style) */
 .btn {
     display: inline-block;
     background-color: #ffd700; /* Gold */
     color: #333;
     padding: 12px 25px;
-    text-decoration: none;
     border-radius: 5px;
+    text-transform: uppercase;
     font-weight: 700;
     transition: background-color 0.3s ease, color 0.3s ease;
+    border: none;
+    cursor: pointer;
+    font-size: 1em;
+    text-align: center;
 }
 
 .btn:hover {
@@ -106,233 +87,291 @@ nav ul li a:hover {
     color: #000;
 }
 
-/* Section Styling (About Us, Contact, and also general for 'Our Collection' on home) */
-section {
+/* Hero Section */
+.hero {
+    background: url('../images/hero-bg.jpg') no-repeat center center/cover; /* Ensure hero-bg.jpg exists */
+    color: #fff;
+    text-align: center;
+    padding: 100px 20px;
+    height: 60vh; /* Minimum height for hero section */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.4); /* Dark overlay */
+    z-index: 1;
+}
+
+.hero .container {
+    position: relative;
+    z-index: 2;
+}
+
+.hero h1 {
+    font-size: 3.5em;
+    margin-bottom: 20px;
+    color: #fff;
+}
+
+.hero p {
+    font-size: 1.3em;
+    margin-bottom: 40px;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Products Grid (Home Page & Shop Page) */
+.products-grid {
     padding: 60px 0;
     text-align: center;
 }
 
-section h2 {
-    font-family: 'Playfair Display', serif;
+.products-grid h2 {
     font-size: 2.5em;
     margin-bottom: 40px;
     color: #333;
-}
-
-/* Shop Page Specific Styles */
-.controls-bar {
-    background-color: #eee;
-    padding: 15px 0;
-    border-bottom: 1px solid #ddd;
-}
-
-.search-filter-sort {
-    display: flex;
-    justify-content: center; /* Center the search box */
-    align-items: center;
-    gap: 20px; /* Space between items */
-}
-
-.search-box {
-    position: relative;
-    width: 100%;
-    max-width: 400px; /* Limit search box width */
-}
-
-.search-input {
-    width: 100%;
-    padding: 10px 15px;
-    padding-left: 40px; /* Space for icon */
-    border: 1px solid #ccc;
-    border-radius: 25px;
-    font-size: 1em;
-}
-
-.search-icon {
-    position: absolute;
-    left: 15px;
-    top: 50%;
-    transform: translateY(-50%);
-    color: #777;
-}
-
-/* Products Grid (Used for shop pages and 'Our Collection' on home) */
-.products-grid .container {
-    padding-top: 40px;
-    padding-bottom: 40px;
 }
 
 .product-grid-items {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 30px;
-    margin-top: 30px;
+    margin-bottom: 40px;
 }
 
-/* --- Product Item General Styles --- */
-/* This styling applies to both carousel items (on gem pages) and single-image items (on home page) */
 .product-item {
     background-color: #fff;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+    overflow: hidden;
+    padding: 20px;
+    text-align: center;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    padding: 15px; /* Padding around the content inside the card */
-    position: relative; /* Essential for positioning children absolutely like buttons */
-    overflow: hidden; /* Ensures content stays within bounds */
-    display: flex; /* Ensures content flows correctly */
-    flex-direction: column; /* Stacks image/carousel above text */
-    text-align: center; /* Center text content */
+    position: relative; /* For carousel buttons */
 }
 
 .product-item:hover {
     transform: translateY(-5px);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
 }
 
-.product-link {
-    display: flex; /* Make the anchor fill its parent space */
-    flex-direction: column; /* Stack elements within the link */
-    text-decoration: none;
-    color: inherit;
-    height: 100%; /* Ensure link covers the whole product item */
-}
-
-/* Styling for single images within product items (like on index.html) */
-.product-item img {
-    width: 100%;
-    height: auto; /* Maintain aspect ratio */
+.product-item .product-link { /* For home page collection */
     display: block;
-    border-radius: 5px;
-    margin-bottom: 15px; /* Space between image and title */
+    color: inherit;
+    text-decoration: none;
 }
 
-/* --- Carousel Specific Styles (Only applies when .carousel-container is present in HTML) --- */
+.product-item img {
+    max-width: 100%;
+    height: 200px; /* Fixed height for consistency */
+    object-fit: cover; /* Cover area without distorting */
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+.product-item h3 {
+    font-size: 1.5em;
+    margin: 10px 0;
+    color: #444;
+}
+
+.product-item .product-price {
+    font-size: 1.2em;
+    font-weight: 700;
+    color: #666;
+    margin-bottom: 15px;
+}
+
+/* Carousel specific styles (for product detail pages) */
 .carousel-container {
-    width: 100%;
     position: relative;
-    overflow: hidden; /* Hides images that are not currently active */
-    padding-top: 100%; /* Creates a square aspect ratio for the image container (1:1 aspect ratio) */
-    flex-shrink: 0; /* Prevent container from shrinking */
+    width: 100%;
+    max-width: 300px; /* Limit carousel width inside product item */
+    margin: 0 auto 15px;
+    overflow: hidden;
+    border-radius: 8px;
 }
 
 .carousel-images {
-    display: flex; /* Arrange images in a row */
-    position: absolute; /* Position relative to carousel-container */
-    top: 0;
-    left: 0;
+    display: flex;
+    transition: transform 0.5s ease-in-out;
     width: 100%;
-    height: 100%; /* Fill the square container */
-    transition: transform 0.5s ease-in-out; /* Smooth sliding transition */
+    height: 200px; /* Match product-item img height */
 }
 
 .carousel-images img {
-    width: 100%; /* Make each image fill the container */
-    height: 100%; /* Make each image fill the container */
-    display: block; /* Remove extra space below image */
-    flex-shrink: 0; /* Prevent images from shrinking */
-    object-fit: cover; /* Cover the area without distortion */
+    flex-shrink: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    margin-bottom: 0; /* Override general img margin */
 }
 
 .carousel-btn {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black */
-    color: white;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: #fff;
     border: none;
-    padding: 8px 12px; /* Adjust padding for button size */
+    padding: 8px 12px;
     cursor: pointer;
-    font-size: 1.2em; /* Adjust font size for arrows */
-    z-index: 10; /* Ensure buttons are above images */
-    border-radius: 50%; /* Make buttons circular */
-    opacity: 0; /* Hidden by default, shown on hover */
-    transition: opacity 0.3s ease;
-    display: flex; /* Use flex for centering arrow */
-    align-items: center;
-    justify-content: center;
-    height: 30px; /* Fixed height for consistent circle */
-    width: 30px; /* Fixed width for consistent circle */
-    text-shadow: 0 0 5px rgba(0,0,0,0.7); /* Adds slight shadow for better visibility */
+    border-radius: 5px;
+    font-size: 1.2em;
+    z-index: 10;
 }
 
-.prev-btn {
+.carousel-btn.prev-btn {
     left: 10px;
 }
 
-.next-btn {
+.carousel-btn.next-btn {
     right: 10px;
 }
 
-/* Show buttons on hover for product item (desktop) */
-.product-item:hover .carousel-btn {
-    opacity: 1; /* Fully visible on hover */
-    pointer-events: auto; /* Enable clicks */
+/* Buttons on Product Detail Pages (Buy Now & Add to Cart) */
+.product-item .btn {
+    width: calc(50% - 10px); /* Adjust width to fit two buttons side-by-side with space */
+    margin-top: 10px;
+    padding: 10px 15px;
+    font-size: 0.95em;
+    display: inline-block; /* Allows them to sit next to each other */
 }
 
-/* Force buttons visible on mobile and smaller */
-@media (max-width: 768px) {
-    .product-item .carousel-btn {
-        opacity: 0.8; /* Always visible on mobile for tap interaction */
-        pointer-events: auto;
-        padding: 6px 10px; /* Adjust padding for smaller touch targets */
-        font-size: 1.1em;
-        height: 28px;
-        width: 28px;
-    }
-}
-
-/* Adjust the placement of product title and price below the carousel/image */
-.product-item h3 {
-    margin-top: 0; /* Adjusted from 15px since single img has its own margin */
-    margin-bottom: 5px;
-    font-family: 'Playfair Display', serif;
-    font-size: 1.3em;
+.product-item .buy-now-btn {
+    background-color: #ffd700; /* Gold */
     color: #333;
+    margin-right: 5px; /* Space between buttons */
 }
 
-.product-item .product-price {
-    font-size: 1.1em;
-    font-weight: 700;
+.product-item .buy-now-btn:hover {
+    background-color: #e0b800; /* Darker gold */
+}
+
+.product-item .add-to-cart-btn {
+    background-color: #555; /* Dark grey */
+    color: #fff;
+    margin-left: 5px; /* Space between buttons */
+}
+
+.product-item .add-to-cart-btn:hover {
+    background-color: #333; /* Even darker grey */
+}
+
+/* Share Options */
+.share-options {
+    margin-top: 20px;
+    padding-top: 15px;
+    border-top: 1px solid #eee; /* Separator line */
+    text-align: center;
+}
+
+.share-options p {
+    font-size: 0.9em;
     color: #666;
     margin-bottom: 10px;
 }
 
-/* Footer Styling */
-footer {
-    background-color: #000;
-    color: #fff;
+.share-options .share-btn {
+    display: inline-block;
+    margin: 0 8px;
+    text-decoration: none;
+    transition: transform 0.2s ease;
+}
+
+.share-options .share-btn img {
+    width: 32px; /* Size of share icons */
+    height: 32px;
+    vertical-align: middle; /* Align icon with text if any */
+    border-radius: 4px; /* Slightly rounded corners for icons */
+}
+
+.share-options .share-btn:hover {
+    transform: translateY(-2px); /* Slight lift on hover */
+}
+
+
+/* About Us Section */
+#about {
+    background-color: #f0f0f0;
+    padding: 60px 0;
     text-align: center;
-    padding: 20px 0;
-    margin-top: 40px;
 }
 
-footer p {
-    margin: 0;
-    font-size: 0.9em;
+#about h2 {
+    font-size: 2.5em;
+    margin-bottom: 30px;
+    color: #333;
 }
 
-/* Contact Form Styling - NEWLY ADDED */
+#about p {
+    font-size: 1.1em;
+    line-height: 1.6;
+    max-width: 800px;
+    margin: 0 auto 15px auto;
+    color: #555;
+}
+
+/* Contact Us Section */
+#contact {
+    padding: 60px 0;
+    text-align: center;
+}
+
+#contact h2 {
+    font-size: 2.5em;
+    margin-bottom: 30px;
+    color: #333;
+}
+
+#contact p {
+    font-size: 1.1em;
+    line-height: 1.6;
+    margin-bottom: 25px;
+    color: #555;
+}
+
 .contact-form {
-    max-width: 600px; /* Max width for the form itself */
-    margin: 40px auto 0; /* Center the form below the text */
-    padding: 25px;
-    background-color: #fff; /* White background for the form area */
-    border-radius: 8px;
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 10px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    margin: 0 auto;
     display: flex;
-    flex-wrap: wrap; /* Allows items to wrap to the next line */
+    flex-wrap: wrap; /* Allow form groups to wrap */
     gap: 20px; /* Space between form groups */
     justify-content: space-between; /* Distribute items */
 }
 
-.contact-form .form-group {
-    flex: 1 1 calc(50% - 10px); /* Two columns: takes about 50% width minus half of the gap */
-    min-width: 250px; /* Ensures fields don't get too narrow on smaller screens */
+.form-group {
+    flex: 1 1 calc(50% - 10px); /* Two columns on larger screens */
+    min-width: 250px; /* Minimum width before wrapping */
 }
 
-.contact-form .form-group-full {
-    flex: 1 1 100%; /* Takes full width for the textarea */
+.form-group-full {
+    flex: 1 1 100%; /* Full width for textarea */
+}
+
+.contact-form label.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0,0,0,0);
+    border: 0;
 }
 
 .contact-form input[type="text"],
@@ -343,17 +382,12 @@ footer p {
     border: 1px solid #ddd;
     border-radius: 5px;
     font-size: 1em;
-    font-family: 'Lato', sans-serif; /* Keep consistent font */
-    box-sizing: border-box; /* Include padding and border in the element's total width and height */
-    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    box-sizing: border-box; /* Include padding in width */
 }
 
-.contact-form input[type="text"]:focus,
-.contact-form input[type="email"]:focus,
-.contact-form textarea:focus {
-    border-color: #ffd700; /* Gold border on focus */
-    outline: none;
-    box-shadow: 0 0 8px rgba(255, 215, 0, 0.4);
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+    color: #999;
 }
 
 .contact-form textarea {
@@ -361,90 +395,396 @@ footer p {
 }
 
 .contact-form .btn {
-    width: 100%; /* Make the button full width within the form */
-    margin-top: 10px; /* Space above the button */
-    padding: 15px 25px; /* Larger button padding */
+    width: 100%;
+    margin-top: 10px;
+    padding: 15px 25px;
     font-size: 1.1em;
+}
+
+/* Modal Specific Styles (Popup forms like Buy Now, Order) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1000; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgba(0,0,0,0.6); /* Black w/ opacity */
+    display: flex; /* Use flexbox for centering */
+    align-items: center; /* Center vertically */
+    justify-content: center; /* Center horizontally */
+    -webkit-animation: fadeIn 0.3s;
+    animation: fadeIn 0.3s;
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 30px;
+    border: 1px solid #888;
+    width: 90%; /* Smaller width for modal */
+    max-width: 500px; /* Max width */
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    position: relative;
+    text-align: center; /* Center text within modal */
+    -webkit-animation: slideIn 0.3s;
+    animation: slideIn 0.3s;
+}
+
+/* Animations for modal */
+@-webkit-keyframes fadeIn {
+    from {opacity: 0}
+    to {opacity: 1}
+}
+
+@keyframes fadeIn {
+    from {opacity: 0}
+    to {opacity: 1}
+}
+
+@-webkit-keyframes slideIn {
+    from {top: -300px; opacity: 0}
+    to {top: 0; opacity: 1}
+}
+
+@keyframes slideIn {
+    from {top: -300px; opacity: 0}
+    to {top: 0; opacity: 1}
+}
+
+.close-button {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    cursor: pointer;
+    line-height: 1; /* For better vertical alignment of 'x' */
+}
+
+.close-button:hover,
+.close-button:focus {
+    color: #000;
+    text-decoration: none;
     cursor: pointer;
 }
 
-/* Visually hide labels but keep them for screen readers */
-.sr-only {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    padding: 0;
-    margin: -1px;
-    overflow: hidden;
-    clip: rect(0, 0, 0, 0);
-    white-space: nowrap;
-    border-width: 0;
+/* Modal Form Specific Styling - reusing contact form styles */
+.modal-content .form-group,
+.modal-content .form-group-full {
+    margin-bottom: 15px;
+    flex: 1 1 100%; /* Make inputs stack vertically in modal */
+    text-align: left;
 }
 
+.modal-content input[type="text"],
+.modal-content input[type="email"],
+.modal-content input[type="tel"],
+.modal-content textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 0.95em;
+    box-sizing: border-box;
+}
 
-/* Media Queries for Responsiveness */
+.modal-content .btn {
+    width: 100%;
+    margin-top: 10px;
+    padding: 12px 20px;
+    font-size: 1em;
+}
+
+#orderSuccessMessage {
+    margin-top: 20px;
+    padding: 15px;
+    background-color: #d4edda; /* Light green */
+    color: #155724; /* Dark green text */
+    border: 1px solid #c3e6cb;
+    border-radius: 5px;
+}
+
+#orderSuccessMessage h3 {
+    color: #155724;
+    margin-top: 0;
+}
+
+/* Cart Page Styling (cart.html) */
+.cart-section {
+    padding: 60px 0;
+    text-align: center;
+}
+
+.cart-section h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5em;
+    margin-bottom: 40px;
+    color: #333;
+}
+
+#cart-items-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Space between cart items */
+    max-width: 800px; /* Limit width of cart items list */
+    margin: 0 auto 30px; /* Center and add margin below */
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+}
+
+.cart-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Distribute items across the row */
+    padding: 15px;
+    border-bottom: 1px solid #eee;
+    position: relative; /* For absolute positioning of remove button on mobile */
+}
+
+.cart-item:last-child {
+    border-bottom: none; /* No border for the last item */
+}
+
+.cart-item img {
+    width: 80px; /* Size of product image in cart */
+    height: 80px;
+    object-fit: cover;
+    border-radius: 5px;
+    margin-right: 15px;
+}
+
+.cart-item-details {
+    flex-grow: 1; /* Allows details to take up available space */
+    text-align: left;
+}
+
+.cart-item-details h4 {
+    margin: 0 0 5px 0;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2em;
+    color: #333;
+}
+
+.cart-item-details p {
+    margin: 0;
+    color: #666;
+}
+
+.cart-item-price {
+    font-weight: 700;
+    font-size: 1.1em;
+    color: #333;
+    width: 100px; /* Fixed width for price column */
+    text-align: right;
+}
+
+.remove-item-btn {
+    background: none;
+    border: none;
+    color: #f00; /* Red for remove button */
+    font-size: 1.8em;
+    cursor: pointer;
+    transition: color 0.3s ease;
+    padding: 5px; /* Added padding for easier clicking */
+    line-height: 1; /* Align 'x' properly */
+}
+
+.remove-item-btn:hover {
+    color: #c00;
+}
+
+#cart-summary {
+    max-width: 800px; /* Match cart items container width */
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+    text-align: right;
+}
+
+.cart-total {
+    font-size: 1.5em;
+    margin-bottom: 20px;
+    color: #000;
+}
+
+.cart-total span {
+    font-weight: 700;
+    color: #222;
+}
+
+#cart-summary .btn {
+    width: auto; /* Buttons within summary don't need full width */
+    margin-left: 10px; /* Space between buttons */
+    display: inline-block;
+}
+
+.proceed-to-buy-btn {
+    background-color: #ffd700;
+    color: #333;
+}
+
+.proceed-to-buy-btn:hover {
+    background-color: #e0b800;
+}
+
+.clear-cart-btn {
+    background-color: #dc3545; /* Red */
+    color: #fff;
+}
+
+.clear-cart-btn:hover {
+    background-color: #c82333; /* Darker red */
+}
+
+#empty-cart-message {
+    padding: 20px;
+    font-size: 1.1em;
+    color: #555;
+    text-align: center;
+}
+
+#empty-cart-message a {
+    color: #ffd700;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* Footer */
+footer {
+    background-color: #222;
+    color: #f8f8f8;
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 40px;
+}
+
+footer p {
+    margin: 0;
+    font-size: 0.9em;
+}
+
+/* Utility Classes */
+.hidden {
+    display: none !important;
+}
+
+/* Responsive Adjustments */
 @media (max-width: 768px) {
     header .container {
         flex-direction: column;
-        text-align: center;
     }
 
     nav ul {
         margin-top: 15px;
+        flex-wrap: wrap;
+        justify-content: center;
     }
 
     nav ul li {
-        margin: 0 15px;
+        margin: 5px 15px;
     }
 
-    .hero h1, .shop-page-hero h1 {
+    .hero {
+        padding: 60px 20px;
+        height: auto;
+    }
+
+    .hero h1 {
         font-size: 2.5em;
     }
 
-    .hero p, .shop-page-hero p {
+    .hero p {
         font-size: 1em;
     }
 
-    section h2 {
+    .products-grid h2,
+    #about h2,
+    #contact h2,
+    .cart-section h2 {
         font-size: 2em;
     }
 
     .product-grid-items {
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        grid-template-columns: 1fr; /* Single column on small screens */
     }
 
-    /* Adjust button visibility for carousels on smaller screens */
-    .product-item .carousel-btn {
-        opacity: 0.8; /* Always visible on mobile for tap interaction */
-        pointer-events: auto;
-        padding: 6px 10px; /* Adjust padding for smaller touch targets */
-        font-size: 1.1em;
-        height: 28px;
-        width: 28px;
-    }
-}
-
-@media (max-width: 650px) {
-    .contact-form .form-group {
-        flex: 1 1 100%; /* Stack inputs vertically on smaller screens */
-        min-width: unset; /* Remove min-width constraint */
-    }
-}
-
-@media (max-width: 480px) {
-    .logo img {
-        height: 40px;
+    .product-item .btn {
+        width: 100%; /* Stack buttons on smaller screens */
+        margin-left: 0;
+        margin-right: 0;
+        margin-bottom: 10px; /* Space between stacked buttons */
     }
 
-    nav ul li {
-        margin: 0 10px;
+    .product-item .btn:last-of-type { /* Adjust for the last button in a group */
+        margin-bottom: 0;
     }
 
-    .hero h1, .shop-page-hero h1 {
-        font-size: 2em;
+    .share-options {
+        padding-top: 10px;
+        margin-top: 15px;
     }
 
-    .product-grid-items {
-        grid-template-columns: 1fr; /* Single column on very small screens */
+    .contact-form {
+        gap: 15px; /* Smaller gap on mobile */
+    }
+
+    .form-group, .form-group-full {
+        flex: 1 1 100%; /* Stack all form fields */
+    }
+
+    .modal-content {
+        padding: 20px;
+    }
+
+    .modal-content h2 {
+        font-size: 1.8em;
+    }
+
+    .cart-item {
+        flex-direction: column; /* Stack details vertically */
+        align-items: flex-start;
+        text-align: left;
+        padding-bottom: 20px; /* Add space below item */
+    }
+
+    .cart-item img {
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
+
+    .cart-item-details {
+        width: 100%; /* Take full width */
+    }
+
+    .cart-item-price {
+        width: 100%; /* Take full width */
+        text-align: left; /* Align price with other details */
+        margin-top: 10px;
+    }
+
+    .remove-item-btn {
+        position: absolute; /* Position top-right */
+        top: 10px;
+        right: 10px;
+    }
+
+    #cart-summary {
+        text-align: center; /* Center summary buttons */
+    }
+
+    #cart-summary .btn {
+        width: 100%;
+        margin-left: 0;
+        margin-bottom: 10px;
     }
 }
