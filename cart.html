@@ -1,1 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Shopping Cart - GEM SYNDICATE</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <div class="logo">
+                <img src="images/logo.jpg" alt="GEM SYNDICATE Logo">
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="shop.html">Shop</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="cart.html" class="active">Cart (<span id="cart-item-count">0</span>)</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="cart-section">
+            <div class="container">
+                <h2>Your Shopping Cart</h2>
+                <div id="cart-items-container">
+                    <p id="empty-cart-message" class="hidden">Your cart is empty. <a href="shop.html">Start shopping!</a></p>
+                </div>
+
+                <div id="cart-summary" class="hidden">
+                    <div class="cart-total">
+                        <strong>Total:</strong> <span id="cart-total-amount">Rs. 0</span>
+                    </div>
+                    <button class="btn proceed-to-buy-btn">Proceed to Buy All</button>
+                    <button class="btn clear-cart-btn">Clear Cart</button>
+                </div>
+            </div>
+        </section>
+
+        <div id="orderModal" class="modal">
+            <div class="modal-content">
+                <span class="close-button">&times;</span>
+                <h2>Place Your Order</h2>
+                <p>You are about to order: <strong id="modalProductName"></strong></p>
+                <p>Please fill out your details. Our team will contact you shortly to confirm your order and discuss payment.</p>
+
+                <form id="orderForm" action="https://formspree.io/f/your_NEW_form_id_here" method="POST">
+                    <div class="form-group">
+                        <label for="orderName" class="sr-only">Your Name</label>
+                        <input type="text" id="orderName" name="Name" placeholder="Your Name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="orderEmail" class="sr-only">Your Email</label>
+                        <input type="email" id="orderEmail" name="Email" placeholder="Your Email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="orderPhone" class="sr-only">Your Phone Number</label>
+                        <input type="tel" id="orderPhone" name="Phone" placeholder="Your Phone Number" required>
+                    </div>
+                    <div class="form-group-full">
+                        <label for="orderAddress" class="sr-only">Your Shipping Address</label>
+                        <textarea id="orderAddress" name="Address" placeholder="Your Shipping Address" rows="4" required></textarea>
+                    </div>
+
+                    <input type="hidden" id="hiddenProductName" name="Product Name">
+                    <input type="hidden" id="hiddenProductPrice" name="Product Price">
+
+                    <button type="submit" class="btn">Submit Order</button>
+                </form>
+
+                <div id="orderSuccessMessage" class="hidden">
+                    <h3>Thank You!</h3>
+                    <p>Your order inquiry has been received. Our team will contact you shortly to confirm your order details and discuss payment.</p>
+                    <button class="btn close-button">Close</button>
+                </div>
+            </div>
+        </div>
+        </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 GEM SYNDICATE. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
 
