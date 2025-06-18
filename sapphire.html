@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GEM SYNDICATE - Sapphire Collection</title>
+    <title>Sapphires - GEM SYNDICATE</title>
     <link rel="stylesheet" href="css/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
 </head>
@@ -12,103 +12,126 @@
     <header>
         <div class="container">
             <div class="logo">
-                <img src="images/logo.png" alt="GEM SYNDICATE Logo">
-            </div>
+                <img src="images/logo.jpg" alt="GEM SYNDICATE Logo"> </div>
             <nav>
                 <ul>
                     <li><a href="index.html">Home</a></li>
                     <li><a href="shop.html">Shop</a></li>
-                    <li><a href="index.html#about">About Us</a></li>
-                    <li><a href="index.html#contact">Contact</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="cart.html">Cart (<span id="cart-item-count">0</span>)</a></li>
+                    <li><a href="#contact">Contact</a></li>
                 </ul>
             </nav>
         </div>
     </header>
 
     <main>
-        <section class="shop-page-hero">
-            <div class="container">
-                <h1>Our Sapphire Collection</h1>
-                <p>Discover the captivating blues and diverse colors of our stunning sapphire gemstones.</p>
-            </div>
-        </section>
-
         <section class="products-grid">
             <div class="container">
-                <h2>Featured Sapphires</h2>
+                <h2>Our Sapphire Collection</h2>
                 <div class="product-grid-items">
+
                     <div class="product-item">
-                        <a href="sapphire.html#blue-sapphire" class="product-link">
-                            <div class="carousel-container">
-                                <div class="carousel-images">
-                                    <img src="images/sapphire.jpg" alt="Blue Sapphire Oval 2.0ct - View 1" class="active">
-                                    <img src="images/sapphire_2.jpg" alt="Blue Sapphire Oval 2.0ct - View 2 (Placeholder)">
-                                </div>
-                                <button class="carousel-btn prev-btn">&lt;</button>
-                                <button class="carousel-btn next-btn">&gt;</button>
+                        <div class="carousel-container">
+                            <div class="carousel-images" data-current-index="0">
+                                <img src="images/sapphire_1.jpg" alt="Sapphire Image 1">
+                                <img src="images/sapphire_2.jpg" alt="Sapphire Image 2">
+                                <img src="images/sapphire_3.jpg" alt="Sapphire Image 3">
                             </div>
-                            <h3>Blue Sapphire Oval 2.0ct</h3>
-                            <p class="product-price">$1,500</p>
-                        </a>
+                            <button class="carousel-btn prev-btn">&lt;</button>
+                            <button class="carousel-btn next-btn">&gt;</button>
+                        </div>
+                        <h3>Sapphire - Oval Cut</h3>
+                        <p class="product-price" data-price-value="1800">$1800</p>
+                        <button class="btn buy-now-btn" data-product-name="Sapphire - Oval Cut" data-product-price="1800">Buy Now</button>
+                        <button class="btn add-to-cart-btn"
+                                data-product-id="sapphire-oval-1"
+                                data-product-name="Sapphire - Oval Cut"
+                                data-product-price="1800"
+                                data-product-image="images/sapphire_1.jpg">
+                            Add to Cart
+                        </button>
+                        <div class="share-options">
+                            <p>Share this product:</p>
+                            <a href="#" class="share-btn whatsapp-share" target="_blank" title="Share on WhatsApp">
+                                <img src="images/whatsapp-icon.jpg" alt="WhatsApp">
+                            </a>
+                            <a href="#" class="share-btn facebook-share" target="_blank" title="Share on Facebook">
+                                <img src="images/facebook-icon.jpg" alt="Facebook">
+                            </a>
+                            <a href="#" class="share-btn twitter-share" target="_blank" title="Share on X">
+                                <img src="images/twitter-icon.jpg" alt="X (Twitter)">
+                            </a>
+                        </div>
                     </div>
+
                     <div class="product-item">
-                        <a href="sapphire.html#pink-sapphire" class="product-link">
-                            <div class="carousel-container">
-                                <div class="carousel-images">
-                                    <img src="images/sapphire.jpg" alt="Pink Sapphire Cushion 1.5ct - View 1" class="active">
-                                    <img src="images/sapphire_2.jpg" alt="Pink Sapphire Cushion 1.5ct - View 2 (Placeholder)">
-                                </div>
-                                <button class="carousel-btn prev-btn">&lt;</button>
-                                <button class="carousel-btn next-btn">&gt;</button>
+                        <div class="carousel-container">
+                            <div class="carousel-images" data-current-index="0">
+                                <img src="images/sapphire_4.jpg" alt="Sapphire Image 4">
+                                <img src="images/sapphire_5.jpg" alt="Sapphire Image 5">
                             </div>
-                            <h3>Pink Sapphire Cushion 1.5ct</h3>
-                            <p class="product-price">$1,200</p>
-                        </a>
+                            <button class="carousel-btn prev-btn">&lt;</button>
+                            <button class="carousel-btn next-btn">&gt;</button>
+                        </div>
+                        <h3>Sapphire - Princess Cut</h3>
+                        <p class="product-price" data-price-value="2000">$2000</p>
+                        <button class="btn buy-now-btn" data-product-name="Sapphire - Princess Cut" data-product-price="2000">Buy Now</button>
+                        <button class="btn add-to-cart-btn"
+                                data-product-id="sapphire-princess-2"
+                                data-product-name="Sapphire - Princess Cut"
+                                data-product-price="2000"
+                                data-product-image="images/sapphire_4.jpg">
+                            Add to Cart
+                        </button>
+                        <div class="share-options">
+                            <p>Share this product:</p>
+                            <a href="#" class="share-btn whatsapp-share" target="_blank" title="Share on WhatsApp">
+                                <img src="images/whatsapp-icon.jpg" alt="WhatsApp">
+                            </a>
+                            <a href="#" class="share-btn facebook-share" target="_blank" title="Share on Facebook">
+                                <img src="images/facebook-icon.jpg" alt="Facebook">
+                            </a>
+                            <a href="#" class="share-btn twitter-share" target="_blank" title="Share on X">
+                                <img src="images/twitter-icon.jpg" alt="X (Twitter)">
+                            </a>
+                        </div>
                     </div>
+
                     <div class="product-item">
-                        <a href="sapphire.html#yellow-sapphire" class="product-link">
-                            <div class="carousel-container">
-                                <div class="carousel-images">
-                                    <img src="images/sapphire.jpg" alt="Yellow Sapphire Round 1.8ct - View 1" class="active">
-                                    <img src="images/sapphire_2.jpg" alt="Yellow Sapphire Round 1.8ct - View 2 (Placeholder)">
-                                </div>
-                                <button class="carousel-btn prev-btn">&lt;</button>
-                                <button class="carousel-btn next-btn">&gt;</button>
+                        <div class="carousel-container">
+                            <div class="carousel-images" data-current-index="0">
+                                <img src="images/sapphire_6.jpg" alt="Sapphire Image 6">
+                                <img src="images/sapphire_7.jpg" alt="Sapphire Image 7">
                             </div>
-                            <h3>Yellow Sapphire Round 1.8ct</h3>
-                            <p class="product-price">$1,000</p>
-                        </a>
+                            <button class="carousel-btn prev-btn">&lt;</button>
+                            <button class="carousel-btn next-btn">&gt;</button>
+                        </div>
+                        <h3>Sapphire - Emerald Cut</h3>
+                        <p class="product-price" data-price-value="1700">$1700</p>
+                        <button class="btn buy-now-btn" data-product-name="Sapphire - Emerald Cut" data-product-price="1700">Buy Now</button>
+                        <button class="btn add-to-cart-btn"
+                                data-product-id="sapphire-emerald-3"
+                                data-product-name="Sapphire - Emerald Cut"
+                                data-product-price="1700"
+                                data-product-image="images/sapphire_6.jpg">
+                            Add to Cart
+                        </button>
+                        <div class="share-options">
+                            <p>Share this product:</p>
+                            <a href="#" class="share-btn whatsapp-share" target="_blank" title="Share on WhatsApp">
+                                <img src="images/whatsapp-icon.jpg" alt="WhatsApp">
+                            </a>
+                            <a href="#" class="share-btn facebook-share" target="_blank" title="Share on Facebook">
+                                <img src="images/facebook-icon.jpg" alt="Facebook">
+                            </a>
+                            <a href="#" class="share-btn twitter-share" target="_blank" title="Share on X">
+                                <img src="images/twitter-icon.jpg" alt="X (Twitter)">
+                            </a>
+                        </div>
                     </div>
-                    <div class="product-item">
-                        <a href="sapphire.html#green-sapphire" class="product-link">
-                            <div class="carousel-container">
-                                <div class="carousel-images">
-                                    <img src="images/sapphire.jpg" alt="Green Sapphire Emerald Cut 2.2ct - View 1" class="active">
-                                    <img src="images/sapphire_2.jpg" alt="Green Sapphire Emerald Cut 2.2ct - View 2 (Placeholder)">
-                                </div>
-                                <button class="carousel-btn prev-btn">&lt;</button>
-                                <button class="carousel-btn next-btn">&gt;</button>
-                            </div>
-                            <h3>Green Sapphire Emerald Cut 2.2ct</h3>
-                            <p class="product-price">$800</p>
-                        </a>
+
                     </div>
-                    <div class="product-item">
-                        <a href="sapphire.html#white-sapphire" class="product-link">
-                            <div class="carousel-container">
-                                <div class="carousel-images">
-                                    <img src="images/sapphire.jpg" alt="White Sapphire Pear 1.0ct - View 1" class="active">
-                                    <img src="images/sapphire_2.jpg" alt="White Sapphire Pear 1.0ct - View 2 (Placeholder)">
-                                </div>
-                                <button class="carousel-btn prev-btn">&lt;</button>
-                                <button class="carousel-btn next-btn">&gt;</button>
-                            </div>
-                            <h3>White Sapphire Pear 1.0ct</h3>
-                            <p class="product-price">$600</p>
-                        </a>
-                    </div>
-                    </div>
-                <a href="shop.html" class="btn back-to-shop">Back to All Gems</a>
             </div>
         </section>
     </main>
@@ -119,6 +142,44 @@
         </div>
     </footer>
 
+    <div id="orderModal" class="modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <h2>Place Your Order</h2>
+            <p>You are about to order: <strong id="modalProductName"></strong></p>
+            <p>Please fill out your details. Our team will contact you shortly to confirm your order and discuss payment.</p>
+
+            <form id="orderForm" action="https://formspree.io/f/your_NEW_form_id_here" method="POST">
+                <div class="form-group">
+                    <label for="orderName" class="sr-only">Your Name</label>
+                    <input type="text" id="orderName" name="Name" placeholder="Your Name" required>
+                </div>
+                <div class="form-group">
+                    <label for="orderEmail" class="sr-only">Your Email</label>
+                    <input type="email" id="orderEmail" name="Email" placeholder="Your Email" required>
+                </div>
+                <div class="form-group">
+                    <label for="orderPhone" class="sr-only">Your Phone Number</label>
+                    <input type="tel" id="orderPhone" name="Phone" placeholder="Your Phone Number" required>
+                </div>
+                <div class="form-group-full">
+                    <label for="orderAddress" class="sr-only">Your Shipping Address</label>
+                    <textarea id="orderAddress" name="Address" placeholder="Your Shipping Address" rows="4" required></textarea>
+                </div>
+
+                <input type="hidden" id="hiddenProductName" name="Product Name">
+                <input type="hidden" id="hiddenProductPrice" name="Product Price">
+
+                <button type="submit" class="btn">Submit Order</button>
+            </form>
+
+            <div id="orderSuccessMessage" class="hidden">
+                <h3>Thank You!</h3>
+                <p>Your order inquiry has been received. Our team will contact you shortly to confirm your order details and discuss payment.</p>
+                <button class="btn close-button">Close</button>
+            </div>
+        </div>
+    </div>
     <script src="js/script.js"></script>
-    <script src="js/carousel.js"></script> </body>
+</body>
 </html>
