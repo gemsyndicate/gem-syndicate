@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GEM SYNDICATE - Opal Collection</title>
+    <title>Opals - GEM SYNDICATE</title>
     <link rel="stylesheet" href="css/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
 </head>
@@ -12,103 +12,126 @@
     <header>
         <div class="container">
             <div class="logo">
-                <img src="images/logo.png" alt="GEM SYNDICATE Logo">
-            </div>
+                <img src="images/logo.jpg" alt="GEM SYNDICATE Logo"> </div>
             <nav>
                 <ul>
                     <li><a href="index.html">Home</a></li>
                     <li><a href="shop.html">Shop</a></li>
-                    <li><a href="index.html#about">About Us</a></li>
-                    <li><a href="index.html#contact">Contact</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="cart.html">Cart (<span id="cart-item-count">0</span>)</a></li>
+                    <li><a href="#contact">Contact</a></li>
                 </ul>
             </nav>
         </div>
     </header>
 
     <main>
-        <section class="shop-page-hero">
-            <div class="container">
-                <h1>Our Opal Collection</h1>
-                <p>Witness the captivating play-of-color and unique beauty of our extraordinary opal gemstones.</p>
-            </div>
-        </section>
-
         <section class="products-grid">
             <div class="container">
-                <h2>Featured Opals</h2>
+                <h2>Our Opal Collection</h2>
                 <div class="product-grid-items">
+
                     <div class="product-item">
-                        <a href="opal.html#ethiopian-welo-opal" class="product-link">
-                            <div class="carousel-container">
-                                <div class="carousel-images">
-                                    <img src="images/opal.png" alt="Ethiopian Welo Opal Oval 3.0ct - View 1" class="active">
-                                    <img src="images/opal_2.png" alt="Ethiopian Welo Opal Oval 3.0ct - View 2 (Placeholder)">
-                                </div>
-                                <button class="carousel-btn prev-btn">&lt;</button>
-                                <button class="carousel-btn next-btn">&gt;</button>
+                        <div class="carousel-container">
+                            <div class="carousel-images" data-current-index="0">
+                                <img src="images/opal_1.jpg" alt="Ethiopian Opal Image 1">
+                                <img src="images/opal_2.jpg" alt="Ethiopian Opal Image 2">
+                                <img src="images/opal_3.jpg" alt="Ethiopian Opal Image 3">
                             </div>
-                            <h3>Ethiopian Welo Opal Oval 3.0ct</h3>
-                            <p class="product-price">$280</p>
-                        </a>
+                            <button class="carousel-btn prev-btn">&lt;</button>
+                            <button class="carousel-btn next-btn">&gt;</button>
+                        </div>
+                        <h3>Ethiopian Opal - Oval</h3>
+                        <p class="product-price" data-price-value="450">$450</p>
+                        <button class="btn buy-now-btn" data-product-name="Ethiopian Opal - Oval" data-product-price="450">Buy Now</button>
+                        <button class="btn add-to-cart-btn"
+                                data-product-id="opal-ethiopian-oval-1"
+                                data-product-name="Ethiopian Opal - Oval"
+                                data-product-price="450"
+                                data-product-image="images/opal_1.jpg">
+                            Add to Cart
+                        </button>
+                        <div class="share-options">
+                            <p>Share this product:</p>
+                            <a href="#" class="share-btn whatsapp-share" target="_blank" title="Share on WhatsApp">
+                                <img src="images/whatsapp-icon.jpg" alt="WhatsApp">
+                            </a>
+                            <a href="#" class="share-btn facebook-share" target="_blank" title="Share on Facebook">
+                                <img src="images/facebook-icon.jpg" alt="Facebook">
+                            </a>
+                            <a href="#" class="share-btn twitter-share" target="_blank" title="Share on X">
+                                <img src="images/twitter-icon.jpg" alt="X (Twitter)">
+                            </a>
+                        </div>
                     </div>
+
                     <div class="product-item">
-                        <a href="opal.html#australian-black-opal" class="product-link">
-                            <div class="carousel-container">
-                                <div class="carousel-images">
-                                    <img src="images/opal.png" alt="Australian Black Opal Freeform 1.5ct - View 1" class="active">
-                                    <img src="images/opal_2.png" alt="Australian Black Opal Freeform 1.5ct - View 2 (Placeholder)">
-                                </div>
-                                <button class="carousel-btn prev-btn">&lt;</button>
-                                <button class="carousel-btn next-btn">&gt;</button>
+                        <div class="carousel-container">
+                            <div class="carousel-images" data-current-index="0">
+                                <img src="images/opal_4.jpg" alt="Australian Black Opal Image 4">
+                                <img src="images/opal_5.jpg" alt="Australian Black Opal Image 5">
                             </div>
-                            <h3>Australian Black Opal 1.5ct</h3>
-                            <p class="product-price">$1,200</p>
-                        </a>
+                            <button class="carousel-btn prev-btn">&lt;</button>
+                            <button class="carousel-btn next-btn">&gt;</button>
+                        </div>
+                        <h3>Australian Black Opal - Cabochon</h3>
+                        <p class="product-price" data-price-value="850">$850</p>
+                        <button class="btn buy-now-btn" data-product-name="Australian Black Opal - Cabochon" data-product-price="850">Buy Now</button>
+                        <button class="btn add-to-cart-btn"
+                                data-product-id="opal-australian-cabochon-2"
+                                data-product-name="Australian Black Opal - Cabochon"
+                                data-product-price="850"
+                                data-product-image="images/opal_4.jpg">
+                            Add to Cart
+                        </button>
+                        <div class="share-options">
+                            <p>Share this product:</p>
+                            <a href="#" class="share-btn whatsapp-share" target="_blank" title="Share on WhatsApp">
+                                <img src="images/whatsapp-icon.jpg" alt="WhatsApp">
+                            </a>
+                            <a href="#" class="share-btn facebook-share" target="_blank" title="Share on Facebook">
+                                <img src="images/facebook-icon.jpg" alt="Facebook">
+                            </a>
+                            <a href="#" class="share-btn twitter-share" target="_blank" title="Share on X">
+                                <img src="images/twitter-icon.jpg" alt="X (Twitter)">
+                            </a>
+                        </div>
                     </div>
+
                     <div class="product-item">
-                        <a href="opal.html#fire-opal" class="product-link">
-                            <div class="carousel-container">
-                                <div class="carousel-images">
-                                    <img src="images/opal.png" alt="Mexican Fire Opal Oval 2.0ct - View 1" class="active">
-                                    <img src="images/opal_2.png" alt="Mexican Fire Opal Oval 2.0ct - View 2 (Placeholder)">
-                                </div>
-                                <button class="carousel-btn prev-btn">&lt;</button>
-                                <button class="carousel-btn next-btn">&gt;</button>
+                        <div class="carousel-container">
+                            <div class="carousel-images" data-current-index="0">
+                                <img src="images/opal_6.jpg" alt="Fire Opal Image 6">
+                                <img src="images/opal_7.jpg" alt="Fire Opal Image 7">
                             </div>
-                            <h3>Mexican Fire Opal Oval 2.0ct</h3>
-                            <p class="product-price">$450</p>
-                        </a>
+                            <button class="carousel-btn prev-btn">&lt;</button>
+                            <button class="carousel-btn next-btn">&gt;</button>
+                        </div>
+                        <h3>Fire Opal - Pear Shape</h3>
+                        <p class="product-price" data-price-value="580">$580</p>
+                        <button class="btn buy-now-btn" data-product-name="Fire Opal - Pear Shape" data-product-price="580">Buy Now</button>
+                        <button class="btn add-to-cart-btn"
+                                data-product-id="opal-fire-pear-3"
+                                data-product-name="Fire Opal - Pear Shape"
+                                data-product-price="580"
+                                data-product-image="images/opal_6.jpg">
+                            Add to Cart
+                        </button>
+                        <div class="share-options">
+                            <p>Share this product:</p>
+                            <a href="#" class="share-btn whatsapp-share" target="_blank" title="Share on WhatsApp">
+                                <img src="images/whatsapp-icon.jpg" alt="WhatsApp">
+                            </a>
+                            <a href="#" class="share-btn facebook-share" target="_blank" title="Share on Facebook">
+                                <img src="images/facebook-icon.jpg" alt="Facebook">
+                            </a>
+                            <a href="#" class="share-btn twitter-share" target="_blank" title="Share on X">
+                                <img src="images/twitter-icon.jpg" alt="X (Twitter)">
+                            </a>
+                        </div>
                     </div>
-                    <div class="product-item">
-                        <a href="opal.html#boulder-opal" class="product-link">
-                            <div class="carousel-container">
-                                <div class="carousel-images">
-                                    <img src="images/opal.png" alt="Boulder Opal Freeform Cabochon - View 1" class="active">
-                                    <img src="images/opal_2.png" alt="Boulder Opal Freeform Cabochon - View 2 (Placeholder)">
-                                </div>
-                                <button class="carousel-btn prev-btn">&lt;</button>
-                                <button class="carousel-btn next-btn">&gt;</button>
-                            </div>
-                            <h3>Boulder Opal Freeform Cabochon</h3>
-                            <p class="product-price">$600</p>
-                        </a>
+
                     </div>
-                    <div class="product-item">
-                        <a href="opal.html#white-opal" class="product-link">
-                            <div class="carousel-container">
-                                <div class="carousel-images">
-                                    <img src="images/opal.png" alt="White Opal Round Cabochon 1.8ct - View 1" class="active">
-                                    <img src="images/opal_2.png" alt="White Opal Round Cabochon 1.8ct - View 2 (Placeholder)">
-                                </div>
-                                <button class="carousel-btn prev-btn">&lt;</button>
-                                <button class="carousel-btn next-btn">&gt;</button>
-                            </div>
-                            <h3>White Opal Round Cabochon 1.8ct</h3>
-                            <p class="product-price">$150</p>
-                        </a>
-                    </div>
-                    </div>
-                <a href="shop.html" class="btn back-to-shop">Back to All Gems</a>
             </div>
         </section>
     </main>
@@ -119,6 +142,44 @@
         </div>
     </footer>
 
+    <div id="orderModal" class="modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <h2>Place Your Order</h2>
+            <p>You are about to order: <strong id="modalProductName"></strong></p>
+            <p>Please fill out your details. Our team will contact you shortly to confirm your order and discuss payment.</p>
+
+            <form id="orderForm" action="https://formspree.io/f/your_NEW_form_id_here" method="POST">
+                <div class="form-group">
+                    <label for="orderName" class="sr-only">Your Name</label>
+                    <input type="text" id="orderName" name="Name" placeholder="Your Name" required>
+                </div>
+                <div class="form-group">
+                    <label for="orderEmail" class="sr-only">Your Email</label>
+                    <input type="email" id="orderEmail" name="Email" placeholder="Your Email" required>
+                </div>
+                <div class="form-group">
+                    <label for="orderPhone" class="sr-only">Your Phone Number</label>
+                    <input type="tel" id="orderPhone" name="Phone" placeholder="Your Phone Number" required>
+                </div>
+                <div class="form-group-full">
+                    <label for="orderAddress" class="sr-only">Your Shipping Address</label>
+                    <textarea id="orderAddress" name="Address" placeholder="Your Shipping Address" rows="4" required></textarea>
+                </div>
+
+                <input type="hidden" id="hiddenProductName" name="Product Name">
+                <input type="hidden" id="hiddenProductPrice" name="Product Price">
+
+                <button type="submit" class="btn">Submit Order</button>
+            </form>
+
+            <div id="orderSuccessMessage" class="hidden">
+                <h3>Thank You!</h3>
+                <p>Your order inquiry has been received. Our team will contact you shortly to confirm your order details and discuss payment.</p>
+                <button class="btn close-button">Close</button>
+            </div>
+        </div>
+    </div>
     <script src="js/script.js"></script>
-    <script src="js/carousel.js"></script> </body>
+</body>
 </html>
