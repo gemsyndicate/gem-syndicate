@@ -41,7 +41,7 @@ header .container {
 }
 
 .logo img {
-    height: 50px; /* Adjust as needed */
+    height: 50px;
 }
 
 nav ul {
@@ -63,13 +63,13 @@ nav ul li a {
 
 nav ul li a:hover,
 nav ul li a.active {
-    color: #ffd700; /* Gold */
+    color: #ffd700;
 }
 
 /* Buttons (General Style) */
 .btn {
     display: inline-block;
-    background-color: #ffd700; /* Gold */
+    background-color: #ffd700;
     color: #333;
     padding: 12px 25px;
     border-radius: 5px;
@@ -83,17 +83,17 @@ nav ul li a.active {
 }
 
 .btn:hover {
-    background-color: #e0b800; /* Darker gold */
+    background-color: #e0b800;
     color: #000;
 }
 
 /* Hero Section */
 .hero {
-    background: url('../images/hero-bg.jpg') no-repeat center center/cover; /* Ensure hero-bg.jpg exists */
+    background: url('../images/hero-bg.jpg') no-repeat center center/cover;
     color: #fff;
     text-align: center;
     padding: 100px 20px;
-    height: 60vh; /* Minimum height for hero section */
+    height: 60vh;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -107,7 +107,7 @@ nav ul li a.active {
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: rgba(0, 0, 0, 0.4); /* Dark overlay */
+    background-color: rgba(0, 0, 0, 0.4);
     z-index: 1;
 }
 
@@ -157,7 +157,7 @@ nav ul li a.active {
     padding: 20px;
     text-align: center;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    position: relative; /* For carousel buttons */
+    position: relative;
 }
 
 .product-item:hover {
@@ -165,7 +165,7 @@ nav ul li a.active {
     box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
 }
 
-.product-item .product-link { /* For home page collection */
+.product-item .product-link {
     display: block;
     color: inherit;
     text-decoration: none;
@@ -173,8 +173,8 @@ nav ul li a.active {
 
 .product-item img {
     max-width: 100%;
-    height: 200px; /* Fixed height for consistency */
-    object-fit: cover; /* Cover area without distorting */
+    height: 200px;
+    object-fit: cover;
     border-radius: 8px;
     margin-bottom: 15px;
 }
@@ -196,7 +196,7 @@ nav ul li a.active {
 .carousel-container {
     position: relative;
     width: 100%;
-    max-width: 300px; /* Limit carousel width inside product item */
+    max-width: 300px;
     margin: 0 auto 15px;
     overflow: hidden;
     border-radius: 8px;
@@ -206,7 +206,7 @@ nav ul li a.active {
     display: flex;
     transition: transform 0.5s ease-in-out;
     width: 100%;
-    height: 200px; /* Match product-item img height */
+    height: 200px;
 }
 
 .carousel-images img {
@@ -214,7 +214,7 @@ nav ul li a.active {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    margin-bottom: 0; /* Override general img margin */
+    margin-bottom: 0;
 }
 
 .carousel-btn {
@@ -241,38 +241,38 @@ nav ul li a.active {
 
 /* Buttons on Product Detail Pages (Buy Now & Add to Cart) */
 .product-item .btn {
-    width: calc(50% - 10px); /* Adjust width to fit two buttons side-by-side with space */
+    width: calc(50% - 10px);
     margin-top: 10px;
     padding: 10px 15px;
     font-size: 0.95em;
-    display: inline-block; /* Allows them to sit next to each other */
+    display: inline-block;
 }
 
 .product-item .buy-now-btn {
-    background-color: #ffd700; /* Gold */
+    background-color: #ffd700;
     color: #333;
-    margin-right: 5px; /* Space between buttons */
+    margin-right: 5px;
 }
 
 .product-item .buy-now-btn:hover {
-    background-color: #e0b800; /* Darker gold */
+    background-color: #e0b800;
 }
 
 .product-item .add-to-cart-btn {
-    background-color: #555; /* Dark grey */
+    background-color: #555;
     color: #fff;
-    margin-left: 5px; /* Space between buttons */
+    margin-left: 5px;
 }
 
 .product-item .add-to-cart-btn:hover {
-    background-color: #333; /* Even darker grey */
+    background-color: #333;
 }
 
 /* Share Options */
 .share-options {
     margin-top: 20px;
     padding-top: 15px;
-    border-top: 1px solid #eee; /* Separator line */
+    border-top: 1px solid #eee;
     text-align: center;
 }
 
@@ -290,14 +290,14 @@ nav ul li a.active {
 }
 
 .share-options .share-btn img {
-    width: 32px; /* Size of share icons */
+    width: 32px;
     height: 32px;
-    vertical-align: middle; /* Align icon with text if any */
-    border-radius: 4px; /* Slightly rounded corners for icons */
+    vertical-align: middle;
+    border-radius: 4px;
 }
 
 .share-options .share-btn:hover {
-    transform: translateY(-2px); /* Slight lift on hover */
+    transform: translateY(-2px);
 }
 
 /* About Us Section */
@@ -348,18 +348,18 @@ nav ul li a.active {
     max-width: 600px;
     margin: 0 auto;
     display: flex;
-    flex-wrap: wrap; /* Allow form groups to wrap */
-    gap: 20px; /* Space between form groups */
-    justify-content: space-between; /* Distribute items */
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: space-between;
 }
 
 .form-group {
-    flex: 1 1 calc(50% - 10px); /* Two columns on larger screens */
-    min-width: 250px; /* Minimum width before wrapping */
+    flex: 1 1 calc(50% - 10px);
+    min-width: 250px;
 }
 
 .form-group-full {
-    flex: 1 1 100%; /* Full width for textarea */
+    flex: 1 1 100%;
 }
 
 .contact-form label.sr-only {
@@ -381,7 +381,7 @@ nav ul li a.active {
     border: 1px solid #ddd;
     border-radius: 5px;
     font-size: 1em;
-    box-sizing: border-box; /* Include padding in width */
+    box-sizing: border-box;
 }
 
 .contact-form input::placeholder,
@@ -390,7 +390,7 @@ nav ul li a.active {
 }
 
 .contact-form textarea {
-    resize: vertical; /* Allow vertical resizing */
+    resize: vertical;
 }
 
 .contact-form .btn {
@@ -402,17 +402,17 @@ nav ul li a.active {
 
 /* Modal Specific Styles (Popup forms like Buy Now, Order) */
 .modal {
-    display: none; /* Hidden by default */
-    position: fixed; /* Stay in place */
-    z-index: 1000; /* Sit on top */
+    display: none;
+    position: fixed;
+    z-index: 1000;
     left: 0;
     top: 0;
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
-    overflow: auto; /* Enable scroll if needed */
-    background-color: rgba(0,0,0,0.6); /* Black w/ opacity */
-    align-items: center; /* Center vertically */
-    justify-content: center; /* Center horizontally */
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.6);
+    align-items: center;
+    justify-content: center;
     -webkit-animation: fadeIn 0.3s;
     animation: fadeIn 0.3s;
 }
@@ -426,17 +426,16 @@ nav ul li a.active {
     margin: auto;
     padding: 30px;
     border: 1px solid #888;
-    width: 90%; /* Smaller width for modal */
-    max-width: 500px; /* Max width */
+    width: 90%;
+    max-width: 500px;
     border-radius: 10px;
     box-shadow: 0 5px 15px rgba(0,0,0,0.3);
     position: relative;
-    text-align: center; /* Center text within modal */
+    text-align: center;
     -webkit-animation: slideIn 0.3s;
     animation: slideIn 0.3s;
 }
 
-/* Animations for modal */
 @-webkit-keyframes fadeIn {
     from {opacity: 0}
     to {opacity: 1}
@@ -466,7 +465,7 @@ nav ul li a.active {
     top: 10px;
     right: 15px;
     cursor: pointer;
-    line-height: 1; /* For better vertical alignment of 'x' */
+    line-height: 1;
 }
 
 .close-button:hover,
@@ -476,11 +475,10 @@ nav ul li a.active {
     cursor: pointer;
 }
 
-/* Modal Form Specific Styling - reusing contact form styles */
 .modal-content .form-group,
 .modal-content .form-group-full {
     margin-bottom: 15px;
-    flex: 1 1 100%; /* Make inputs stack vertically in modal */
+    flex: 1 1 100%;
     text-align: left;
 }
 
@@ -506,8 +504,8 @@ nav ul li a.active {
 #orderSuccessMessage {
     margin-top: 20px;
     padding: 15px;
-    background-color: #d4edda; /* Light green */
-    color: #155724; /* Dark green text */
+    background-color: #d4edda;
+    color: #155724;
     border: 1px solid #c3e6cb;
     border-radius: 5px;
 }
@@ -533,9 +531,9 @@ nav ul li a.active {
 #cart-items-container {
     display: flex;
     flex-direction: column;
-    gap: 20px; /* Space between cart items */
-    max-width: 800px; /* Limit width of cart items list */
-    margin: 0 auto 30px; /* Center and add margin below */
+    gap: 20px;
+    max-width: 800px;
+    margin: 0 auto 30px;
     padding: 20px;
     background-color: #fff;
     border-radius: 8px;
@@ -545,18 +543,18 @@ nav ul li a.active {
 .cart-item {
     display: flex;
     align-items: center;
-    justify-content: space-between; /* Distribute items across the row */
+    justify-content: space-between;
     padding: 15px;
     border-bottom: 1px solid #eee;
-    position: relative; /* For absolute positioning of remove button on mobile */
+    position: relative;
 }
 
 .cart-item:last-child {
-    border-bottom: none; /* No border for the last item */
+    border-bottom: none;
 }
 
 .cart-item img {
-    width: 80px; /* Size of product image in cart */
+    width: 80px;
     height: 80px;
     object-fit: cover;
     border-radius: 5px;
@@ -564,7 +562,7 @@ nav ul li a.active {
 }
 
 .cart-item-details {
-    flex-grow: 1; /* Allows details to take up available space */
+    flex-grow: 1;
     text-align: left;
 }
 
@@ -584,19 +582,19 @@ nav ul li a.active {
     font-weight: 700;
     font-size: 1.1em;
     color: #333;
-    width: 100px; /* Fixed width for price column */
+    width: 100px;
     text-align: right;
 }
 
 .remove-item-btn {
     background: none;
     border: none;
-    color: #f00; /* Red for remove button */
+    color: #f00;
     font-size: 1.8em;
     cursor: pointer;
     transition: color 0.3s ease;
-    padding: 5px; /* Added padding for easier clicking */
-    line-height: 1; /* Align 'x' properly */
+    padding: 5px;
+    line-height: 1;
 }
 
 .remove-item-btn:hover {
@@ -604,7 +602,7 @@ nav ul li a.active {
 }
 
 #cart-summary {
-    max-width: 800px; /* Match cart items container width */
+    max-width: 800px;
     margin: 20px auto;
     padding: 20px;
     background-color: #fff;
@@ -625,8 +623,8 @@ nav ul li a.active {
 }
 
 #cart-summary .btn {
-    width: auto; /* Buttons within summary don't need full width */
-    margin-left: 10px; /* Space between buttons */
+    width: auto;
+    margin-left: 10px;
     display: inline-block;
 }
 
@@ -640,12 +638,12 @@ nav ul li a.active {
 }
 
 .clear-cart-btn {
-    background-color: #dc3545; /* Red */
+    background-color: #dc3545;
     color: #fff;
 }
 
 .clear-cart-btn:hover {
-    background-color: #c82333; /* Darker red */
+    background-color: #c82333;
 }
 
 #empty-cart-message {
@@ -673,6 +671,31 @@ footer {
 footer p {
     margin: 0;
     font-size: 0.9em;
+}
+
+/* Follow Us Section */
+.follow-us {
+    background-color: #fffbe6;
+    padding: 40px 0 30px 0;
+    text-align: center;
+    margin-bottom: 16px;
+}
+.follow-us h2 {
+    color: #222;
+    margin-bottom: 10px;
+}
+.follow-us .social-icons a {
+    display: inline-block;
+    margin: 0 12px;
+    transition: transform 0.2s;
+}
+.follow-us .social-icons a:hover {
+    transform: scale(1.15);
+}
+.follow-us .social-icons img {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
 }
 
 /* Utility Classes */
@@ -717,17 +740,17 @@ footer p {
     }
 
     .product-grid-items {
-        grid-template-columns: 1fr; /* Single column on small screens */
+        grid-template-columns: 1fr;
     }
 
     .product-item .btn {
-        width: 100%; /* Stack buttons on smaller screens */
+        width: 100%;
         margin-left: 0;
         margin-right: 0;
-        margin-bottom: 10px; /* Space between stacked buttons */
+        margin-bottom: 10px;
     }
 
-    .product-item .btn:last-of-type { /* Adjust for the last button in a group */
+    .product-item .btn:last-of-type {
         margin-bottom: 0;
     }
 
@@ -737,11 +760,11 @@ footer p {
     }
 
     .contact-form {
-        gap: 15px; /* Smaller gap on mobile */
+        gap: 15px;
     }
 
     .form-group, .form-group-full {
-        flex: 1 1 100%; /* Stack all form fields */
+        flex: 1 1 100%;
     }
 
     .modal-content {
@@ -753,10 +776,10 @@ footer p {
     }
 
     .cart-item {
-        flex-direction: column; /* Stack details vertically */
+        flex-direction: column;
         align-items: flex-start;
         text-align: left;
-        padding-bottom: 20px; /* Add space below item */
+        padding-bottom: 20px;
     }
 
     .cart-item img {
@@ -765,23 +788,23 @@ footer p {
     }
 
     .cart-item-details {
-        width: 100%; /* Take full width */
+        width: 100%;
     }
 
     .cart-item-price {
-        width: 100%; /* Take full width */
-        text-align: left; /* Align price with other details */
+        width: 100%;
+        text-align: left;
         margin-top: 10px;
     }
 
     .remove-item-btn {
-        position: absolute; /* Position top-right */
+        position: absolute;
         top: 10px;
         right: 10px;
     }
 
     #cart-summary {
-        text-align: center; /* Center summary buttons */
+        text-align: center;
     }
 
     #cart-summary .btn {
