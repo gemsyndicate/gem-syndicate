@@ -1,16 +1,19 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Get modal elements
+    // Select the modal and its core elements
     const orderModal = document.getElementById('orderModal');
-    const closeButtons = document.querySelectorAll('.modal .close-button'); // Select all close buttons within modals
+    const closeButton = document.querySelector('#orderModal .close-button');
     const orderForm = document.getElementById('orderForm');
     const orderSuccessMessage = document.getElementById('orderSuccessMessage');
     const modalProductName = document.getElementById('modalProductName');
     const hiddenProductName = document.getElementById('hiddenProductName');
     const hiddenProductPrice = document.getElementById('hiddenProductPrice');
 
-    // Select all buttons that should trigger the modal
-    // IMPORTANT: Ensure your "Order Now" buttons on individual gemstone pages have the class 'order-button'
-    const orderButtons = document.querySelectorAll('.order-button');
+    // Select the "Buy Now" button.
+    // IMPORTANT: This version assumes your "Buy Now" button might have an ID 'buyNowBtn'
+    // OR a general class like 'buy-now-btn'. If your button has a different ID/class,
+    // you'll need to update this line accordingly.
+    const buyNowBtn = document.getElementById('buyNowBtn') || document.querySelector('.buy-now-btn');
+
 
     // --- Modal Functions ---
 
@@ -35,27 +38,33 @@ document.addEventListener('DOMContentLoaded', () => {
             document.body.classList.remove('no-scroll'); // Remove no-scroll class
         }
         if (orderForm) orderForm.reset(); // Reset form fields
+        if (orderSuccessMessage) orderSuccessMessage.classList.add('hidden'); // Ensure success message is hidden
+        if (orderForm) orderForm.style.display = 'block'; // Show form again for next use
     }
+
 
     // --- Event Listeners ---
 
-    // Event listeners for opening modal from buttons (on individual gemstone pages)
-    if (orderButtons.length > 0) {
-        orderButtons.forEach(button => {
-            button.addEventListener('click', (event) => {
-                event.preventDefault(); // Stop default action (e.g., link navigation)
-                const productName = button.dataset.productName || 'Unknown Product';
-                const productPrice = button.dataset.productPrice || '$0';
-                openModal(productName, productPrice);
-            });
+    // Event listener for opening modal from the "Buy Now" button
+    if (buyNowBtn) { // Check if the button exists on the page
+        buyNowBtn.addEventListener('click', (event) => {
+            event.preventDefault(); // Stop default action (e.g., link navigation)
+
+            // This part assumes product name and price might be found in other elements on the page,
+            // or need to be hardcoded if your buttons don't use data-attributes.
+            const productNameElement = document.querySelector('.product-detail h2'); // Adjust selector if needed
+            const productPriceElement = document.querySelector('.product-detail .price'); // Adjust selector if needed
+
+            const productName = productNameElement ? productNameElement.textContent.trim() : 'Unknown Product';
+            const productPrice = productPriceElement ? productPriceElement.textContent.trim() : '$0';
+
+            openModal(productName, productPrice);
         });
     }
 
-    // Event listeners for closing modal (all close buttons)
-    if (closeButtons.length > 0) {
-        closeButtons.forEach(button => {
-            button.addEventListener('click', closeModal);
-        });
+    // Event listener for closing modal via close button
+    if (closeButton) {
+        closeButton.addEventListener('click', closeModal);
     }
 
     // Close modal if clicking directly on the modal background
@@ -66,6 +75,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }
+
 
     // --- Formspree Submission Handling ---
     if (orderForm) {
@@ -79,9 +89,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 const response = await fetch(form.action, {
                     method: form.method,
                     body: formData,
-                    headers: {
-                        'Accept': 'application/json' // Important for Formspree AJAX
-                    }
+                    headers: { 'Accept': 'application/json' }
                 });
 
                 if (response.ok) {
@@ -97,12 +105,12 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // --- Cart Item Count (if you have this functionality) ---
-    // Example: Update cart item count on load
-    // const cartItemCountSpan = document.getElementById('cart-item-count');
-    // if (cartItemCountSpan) {
-    //     // You'll need logic here to get the actual cart item count
-    //     // For now, let's assume it's set elsewhere or always 0 unless implemented
-    //     cartItemCountSpan.textContent = localStorage.getItem('cartCount') || '0';
-    // }
+    // --- Cart Item Count (Placeholder) ---
+    // This part should generally be handled separately from modal logic.
+    const cartItemCountSpan = document.getElementById('cart-item-count');
+    if (cartItemCountSpan) {
+        // You'll need your actual cart item count logic here.
+        // For now, it's just a placeholder.
+        cartItemCountSpan.textContent = '0';
+    }
 });
