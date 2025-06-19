@@ -300,7 +300,6 @@ nav ul li a.active {
     transform: translateY(-2px); /* Slight lift on hover */
 }
 
-
 /* About Us Section */
 #about {
     background-color: #f0f0f0;
@@ -412,11 +411,14 @@ nav ul li a.active {
     height: 100%; /* Full height */
     overflow: auto; /* Enable scroll if needed */
     background-color: rgba(0,0,0,0.6); /* Black w/ opacity */
-    display: flex; /* Use flexbox for centering */
     align-items: center; /* Center vertically */
     justify-content: center; /* Center horizontally */
     -webkit-animation: fadeIn 0.3s;
     animation: fadeIn 0.3s;
+}
+
+.modal.active {
+    display: flex;
 }
 
 .modal-content {
