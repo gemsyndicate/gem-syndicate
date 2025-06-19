@@ -1,51 +1,48 @@
 document.addEventListener('DOMContentLoaded', () => {
     // Get modal elements
     const orderModal = document.getElementById('orderModal');
-    const closeButtons = document.querySelectorAll('.modal .close-button'); // Select all close buttons within modals
+    const closeButtons = document.querySelectorAll('.modal .close-button');
     const orderForm = document.getElementById('orderForm');
     const orderSuccessMessage = document.getElementById('orderSuccessMessage');
     const modalProductName = document.getElementById('modalProductName');
     const hiddenProductName = document.getElementById('hiddenProductName');
     const hiddenProductPrice = document.getElementById('hiddenProductPrice');
 
-    // Select all buttons that should trigger the modal
-    // IMPORTANT: These buttons MUST have the class 'order-button' in your HTML
-    const orderButtons = document.querySelectorAll('.order-button');
+    // Select all "Buy Now" and "Add to Cart" buttons
+    const buyNowButtons = document.querySelectorAll('.buy-now-btn');
+    const addToCartButtons = document.querySelectorAll('.add-to-cart-btn');
 
     // --- Modal Functions ---
 
-    // Function to open the modal
     function openModal(productName = '', productPrice = '') {
         if (modalProductName) modalProductName.textContent = productName;
         if (hiddenProductName) hiddenProductName.value = productName;
         if (hiddenProductPrice) hiddenProductPrice.value = productPrice;
 
         if (orderModal) {
-            orderModal.style.display = 'block'; // Show the modal
-            document.body.classList.add('no-scroll'); // Add class to prevent body scrolling
+            orderModal.style.display = 'block';
+            document.body.classList.add('no-scroll');
         }
-        if (orderForm) orderForm.style.display = 'block'; // Ensure form is visible
-        if (orderSuccessMessage) orderSuccessMessage.classList.add('hidden'); // Ensure success message is hidden
+        if (orderForm) orderForm.style.display = 'block';
+        if (orderSuccessMessage) orderSuccessMessage.classList.add('hidden');
     }
 
-    // Function to close the modal
     function closeModal() {
         if (orderModal) {
-            orderModal.style.display = 'none'; // Hide the modal
-            document.body.classList.remove('no-scroll'); // Remove no-scroll class
+            orderModal.style.display = 'none';
+            document.body.classList.remove('no-scroll');
         }
-        if (orderForm) orderForm.reset(); // Reset form fields
-        if (orderSuccessMessage) orderSuccessMessage.classList.add('hidden'); // Ensure success message is hidden
+        if (orderForm) orderForm.reset();
+        if (orderSuccessMessage) orderSuccessMessage.classList.add('hidden');
     }
 
-    // --- Event Listeners ---
+    // --- Event Listeners for Modal ---
 
-    // Event listeners for opening modal from buttons (on individual gemstone pages)
-    if (orderButtons.length > 0) {
-        orderButtons.forEach(button => {
+    // "Buy Now" buttons open the modal with product info
+    if (buyNowButtons.length > 0) {
+        buyNowButtons.forEach(button => {
             button.addEventListener('click', (event) => {
-                event.preventDefault(); // Stop default action (e.g., link navigation)
-                // Get product name and price from data attributes on the button
+                event.preventDefault();
                 const productName = button.dataset.productName || 'Unknown Product';
                 const productPrice = button.dataset.productPrice || '$0';
                 openModal(productName, productPrice);
@@ -53,14 +50,14 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Event listeners for closing modal (all close buttons)
+    // Close modal when clicking any close button
     if (closeButtons.length > 0) {
         closeButtons.forEach(button => {
             button.addEventListener('click', closeModal);
         });
     }
 
-    // Close modal if clicking directly on the modal background
+    // Close modal if clicking on the modal background
     if (orderModal) {
         orderModal.addEventListener('click', (event) => {
             if (event.target === orderModal) {
@@ -72,7 +69,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- Formspree Submission Handling ---
     if (orderForm) {
         orderForm.addEventListener('submit', async (event) => {
-            event.preventDefault(); // Prevent default browser form submission
+            event.preventDefault();
 
             const form = event.target;
             const formData = new FormData(form);
@@ -82,13 +79,13 @@ document.addEventListener('DOMContentLoaded', () => {
                     method: form.method,
                     body: formData,
                     headers: {
-                        'Accept': 'application/json' // Important for Formspree AJAX
+                        'Accept': 'application/json'
                     }
                 });
 
                 if (response.ok) {
-                    if (orderForm) orderForm.style.display = 'none'; // Hide form
-                    if (orderSuccessMessage) orderSuccessMessage.classList.remove('hidden'); // Show success message
+                    if (orderForm) orderForm.style.display = 'none';
+                    if (orderSuccessMessage) orderSuccessMessage.classList.remove('hidden');
                 } else {
                     alert('There was an issue submitting your order. Please try again.');
                 }
@@ -99,11 +96,54 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // --- Cart Item Count (if you have this functionality) ---
-    // Example: Update cart item count on load
+    // --- "Add to Cart" Button Logic ---
+    if (addToCartButtons.length > 0) {
+        addToCartButtons.forEach(button => {
+            button.addEventListener('click', (event) => {
+                event.preventDefault();
+                let count = parseInt(localStorage.getItem('cartCount') || '0', 10);
+                localStorage.setItem('cartCount', count + 1);
+                const cartItemCountSpan = document.getElementById('cart-item-count');
+                if (cartItemCountSpan) {
+                    cartItemCountSpan.textContent = (count + 1).toString();
+                }
+                alert('Added to cart!');
+            });
+        });
+    }
+
+    // --- Update cart count on page load ---
     const cartItemCountSpan = document.getElementById('cart-item-count');
     if (cartItemCountSpan) {
-        // You'll need actual logic here to get the cart item count (e.g., from localStorage)
         cartItemCountSpan.textContent = localStorage.getItem('cartCount') || '0';
     }
+
+    // --- Carousel Functionality (Optional, if present in your HTML) ---
+    const carousels = document.querySelectorAll('.carousel-container');
+    carousels.forEach(carousel => {
+        const images = carousel.querySelectorAll('.carousel-images img');
+        let currentIndex = 0;
+        const prevBtn = carousel.querySelector('.prev-btn');
+        const nextBtn = carousel.querySelector('.next-btn');
+
+        function showImage(index) {
+            images.forEach((img, i) => {
+                img.style.display = i === index ? 'block' : 'none';
+            });
+        }
+        showImage(currentIndex);
+
+        if (prevBtn) {
+            prevBtn.addEventListener('click', () => {
+                currentIndex = (currentIndex - 1 + images.length) % images.length;
+                showImage(currentIndex);
+            });
+        }
+        if (nextBtn) {
+            nextBtn.addEventListener('click', () => {
+                currentIndex = (currentIndex + 1) % images.length;
+                showImage(currentIndex);
+            });
+        }
+    });
 });
