@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Get modal elements
+    // --- Modal Elements ---
     const orderModal = document.getElementById('orderModal');
     const closeButtons = document.querySelectorAll('.modal .close-button');
     const orderForm = document.getElementById('orderForm');
@@ -8,17 +8,15 @@ document.addEventListener('DOMContentLoaded', () => {
     const hiddenProductName = document.getElementById('hiddenProductName');
     const hiddenProductPrice = document.getElementById('hiddenProductPrice');
 
-    // Select all "Buy Now" and "Add to Cart" buttons
+    // --- Product Buttons ---
     const buyNowButtons = document.querySelectorAll('.buy-now-btn');
     const addToCartButtons = document.querySelectorAll('.add-to-cart-btn');
 
     // --- Modal Functions ---
-
     function openModal(productName = '', productPrice = '') {
         if (modalProductName) modalProductName.textContent = productName;
         if (hiddenProductName) hiddenProductName.value = productName;
         if (hiddenProductPrice) hiddenProductPrice.value = productPrice;
-
         if (orderModal) {
             orderModal.style.display = 'block';
             document.body.classList.add('no-scroll');
@@ -26,7 +24,6 @@ document.addEventListener('DOMContentLoaded', () => {
         if (orderForm) orderForm.style.display = 'block';
         if (orderSuccessMessage) orderSuccessMessage.classList.add('hidden');
     }
-
     function closeModal() {
         if (orderModal) {
             orderModal.style.display = 'none';
@@ -36,9 +33,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (orderSuccessMessage) orderSuccessMessage.classList.add('hidden');
     }
 
-    // --- Event Listeners for Modal ---
-
-    // "Buy Now" buttons open the modal with product info
+    // --- Buy Now Button Modal Trigger ---
     if (buyNowButtons.length > 0) {
         buyNowButtons.forEach(button => {
             button.addEventListener('click', (event) => {
@@ -50,14 +45,12 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Close modal when clicking any close button
+    // --- Modal Close Buttons ---
     if (closeButtons.length > 0) {
         closeButtons.forEach(button => {
             button.addEventListener('click', closeModal);
         });
     }
-
-    // Close modal if clicking on the modal background
     if (orderModal) {
         orderModal.addEventListener('click', (event) => {
             if (event.target === orderModal) {
@@ -70,22 +63,17 @@ document.addEventListener('DOMContentLoaded', () => {
     if (orderForm) {
         orderForm.addEventListener('submit', async (event) => {
             event.preventDefault();
-
             const form = event.target;
             const formData = new FormData(form);
-
             try {
                 const response = await fetch(form.action, {
                     method: form.method,
                     body: formData,
-                    headers: {
-                        'Accept': 'application/json'
-                    }
+                    headers: { 'Accept': 'application/json' }
                 });
-
                 if (response.ok) {
-                    if (orderForm) orderForm.style.display = 'none';
-                    if (orderSuccessMessage) orderSuccessMessage.classList.remove('hidden');
+                    orderForm.style.display = 'none';
+                    orderSuccessMessage.classList.remove('hidden');
                 } else {
                     alert('There was an issue submitting your order. Please try again.');
                 }
@@ -96,29 +84,41 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // --- "Add to Cart" Button Logic ---
+    // --- Add to Cart Functionality ---
     if (addToCartButtons.length > 0) {
         addToCartButtons.forEach(button => {
             button.addEventListener('click', (event) => {
                 event.preventDefault();
-                let count = parseInt(localStorage.getItem('cartCount') || '0', 10);
-                localStorage.setItem('cartCount', count + 1);
+                // Gather product info
+                const productId = button.dataset.productId;
+                const productName = button.dataset.productName;
+                const productPrice = button.dataset.productPrice;
+                const productImage = button.dataset.productImage;
+
+                // Read and update cart from localStorage
+                let cart = JSON.parse(localStorage.getItem('cart')) || [];
+                cart.push({ productId, productName, productPrice, productImage });
+                localStorage.setItem('cart', JSON.stringify(cart));
+                localStorage.setItem('cartCount', cart.length);
+
+                // Update cart count in header
                 const cartItemCountSpan = document.getElementById('cart-item-count');
                 if (cartItemCountSpan) {
-                    cartItemCountSpan.textContent = (count + 1).toString();
+                    cartItemCountSpan.textContent = cart.length.toString();
                 }
                 alert('Added to cart!');
             });
         });
     }
 
-    // --- Update cart count on page load ---
+    // --- Update Cart Count on Page Load ---
     const cartItemCountSpan = document.getElementById('cart-item-count');
     if (cartItemCountSpan) {
-        cartItemCountSpan.textContent = localStorage.getItem('cartCount') || '0';
+        const cart = JSON.parse(localStorage.getItem('cart')) || [];
+        cartItemCountSpan.textContent = cart.length.toString();
     }
 
-    // --- Carousel Functionality (Optional, if present in your HTML) ---
+    // --- Carousel Functionality (Optional) ---
     const carousels = document.querySelectorAll('.carousel-container');
     carousels.forEach(carousel => {
         const images = carousel.querySelectorAll('.carousel-images img');
