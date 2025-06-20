@@ -32,6 +32,10 @@
                 <h2>Your Cart</h2>
                 <div id="cart-items"></div>
                 <div id="cart-total"></div>
+                <!-- Buy Now button added below total -->
+                <div id="cart-actions" style="margin-top: 20px; display:none;">
+                    <button class="btn proceed-to-buy-btn" id="cart-buy-now-btn">Buy Now</button>
+                </div>
                 <div id="empty-cart-message" style="display:none;">
                     <p>Your cart is empty.</p>
                 </div>
@@ -41,6 +45,24 @@
 
     <footer>
         <div class="container">
+            <section class="follow-us">
+                <h2>Follow Us</h2>
+                <p>Stay connected! Follow us on social media:</p>
+                <div class="social-icons">
+                    <a href="https://instagram.com/yourprofile" target="_blank" title="Instagram">
+                        <img src="icons/instagram.jpg" alt="Instagram">
+                    </a>
+                    <a href="https://facebook.com/yourprofile" target="_blank" title="Facebook">
+                        <img src="icons/facebook.jpg" alt="Facebook">
+                    </a>
+                    <a href="https://linkedin.com/in/yourprofile" target="_blank" title="LinkedIn">
+                        <img src="icons/linkedin.jpg" alt="LinkedIn">
+                    </a>
+                    <a href="https://x.com/yourprofile" target="_blank" title="X">
+                        <img src="icons/x.jpg" alt="X">
+                    </a>
+                </div>
+            </section>
             <p>&copy; 2025 GEM SYNDICATE. All rights reserved.</p>
         </div>
     </footer>
@@ -53,6 +75,7 @@
             const cartContainer = document.getElementById('cart-items');
             const emptyMessage = document.getElementById('empty-cart-message');
             const cartTotalDiv = document.getElementById('cart-total');
+            const cartActions = document.getElementById('cart-actions');
 
             if (!cartContainer || !cartTotalDiv) return;
 
@@ -60,6 +83,7 @@
                 cartContainer.innerHTML = '';
                 cartTotalDiv.innerHTML = '';
                 emptyMessage.style.display = 'block';
+                if (cartActions) cartActions.style.display = 'none';
             } else {
                 emptyMessage.style.display = 'none';
                 let total = 0;
@@ -77,6 +101,7 @@
                     `;
                 }).join('');
                 cartTotalDiv.innerHTML = `<h3>Total: $${total.toFixed(2)}</h3>`;
+                if (cartActions) cartActions.style.display = 'block';
             }
 
             // Update cart count in header
@@ -97,6 +122,20 @@
                 renderCart();
             }
         });
+
+        // Buy Now button handler
+        const cartBuyNowBtn = document.getElementById('cart-buy-now-btn');
+        if (cartBuyNowBtn) {
+            cartBuyNowBtn.addEventListener('click', function() {
+                const cart = JSON.parse(localStorage.getItem('cart')) || [];
+                if (cart.length === 0) {
+                    alert('Your cart is empty!');
+                    return;
+                }
+                // Insert your checkout logic here (open modal, go to payment, etc.)
+                alert('Proceeding to buy your items!');
+            });
+        }
 
         renderCart();
     });
