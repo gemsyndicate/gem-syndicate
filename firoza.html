@@ -4,14 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Firoza - GEM SYNDICATE</title>
-    <link rel="stylesheet" href="400;700&display=swap" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Main Site CSS -->
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
     <header>
         <div class="container">
             <div class="logo">
-                <img src="images/logo.jpg" alt="GEM SYNDICATE Logo"> </div>
+                <img src="images/logo.jpg" alt="GEM SYNDICATE Logo">
+            </div>
             <nav>
                 <ul>
                     <li><a href="index.html">Home</a></li>
@@ -90,8 +94,7 @@
                             <a href="#" class="share-btn facebook-share" target="_blank" title="Share on Facebook">
                                 <img src="icon/facebook.jpg" alt="Facebook">
                             </a>
-                            <a href="#" class="share-btn twitter-share" target="_blank" title="Share on X">
-                                <img src="icon/x.jpg" alt="X (Twitter)">
+="icon/x.jpg" alt="X (Twitter)">
                             </a>
                         </div>
                     </div>
@@ -129,7 +132,7 @@
                         </div>
                     </div>
 
-                    </div>
+                </div>
             </div>
         </section>
     </main>
@@ -140,13 +143,13 @@
         </div>
     </footer>
 
+    <!-- Order Modal -->
     <div id="orderModal" class="modal">
         <div class="modal-content">
             <span class="close-button">&times;</span>
             <h2>Place Your Order</h2>
             <p>You are about to order: <strong id="modalProductName"></strong></p>
             <p>Please fill out your details. Our team will contact you shortly to confirm your order and discuss payment.</p>
-
             <form id="orderForm" action="https://formspree.io/f/mjkrojde" method="POST">
                 <div class="form-group">
                     <label for="orderName" class="sr-only">Your Name</label>
@@ -164,13 +167,10 @@
                     <label for="orderAddress" class="sr-only">Your Shipping Address</label>
                     <textarea id="orderAddress" name="Address" placeholder="Your Shipping Address" rows="4" required></textarea>
                 </div>
-
                 <input type="hidden" id="hiddenProductName" name="Product Name">
                 <input type="hidden" id="hiddenProductPrice" name="Product Price">
-
                 <button type="submit" class="btn">Submit Order</button>
             </form>
-
             <div id="orderSuccessMessage" class="hidden">
                 <h3>Thank You!</h3>
                 <p>Your order inquiry has been received. Our team will contact you shortly to confirm your order details and discuss payment.</p>
