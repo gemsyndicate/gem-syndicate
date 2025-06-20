@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Cart - GEM SYNDICATE</title>
+    <title>Cart - GEM SYNDICATE</title>
     <link rel="stylesheet" href="css/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
 </head>
@@ -19,7 +19,7 @@
                     <li><a href="index.html">Home</a></li>
                     <li><a href="shop.html">Shop</a></li>
                     <li><a href="#about">About Us</a></li>
-                    <li><a href="cart.html">Cart (<span id="cart-item-count">0</span>)</a></li>
+                    <li><a href="cart.html" class="active">Cart (<span id="cart-item-count">0</span>)</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
             </nav>
@@ -29,14 +29,19 @@
     <main>
         <section class="cart-section">
             <div class="container">
-                <h2>Your Cart</h2>
-                <div id="cart-items"></div>
-                <div id="cart-total"></div>
-                <div id="cart-actions" style="margin-top: 20px; display:none;">
-                    <button class="btn proceed-to-buy-btn" id="cart-buy-now-btn">Buy Now</button>
+                <h2>Your Shopping Cart</h2>
+                <div id="cart-items-container">
+                    <!-- Cart items will be dynamically inserted here -->
                 </div>
-                <div id="empty-cart-message" style="display:none;">
-                    <p>Your cart is empty.</p>
+                <div id="cart-summary">
+                    <div class="cart-total">
+                        Total: $<span id="cart-total-price">0</span>
+                    </div>
+                    <button class="btn proceed-to-buy-btn">Proceed to Buy</button>
+                    <button class="btn clear-cart-btn">Clear Cart</button>
+                </div>
+                <div id="empty-cart-message" class="hidden">
+                    Your cart is currently empty. <a href="shop.html">Shop now</a> to add items!
                 </div>
             </div>
         </section>
@@ -48,17 +53,17 @@
                 <h2>Follow Us</h2>
                 <p>Stay connected! Follow us on social media:</p>
                 <div class="social-icons">
-                    <a href="https://instagram.com/yourprofile" target="_blank" title="Instagram">
-                        <img src="icons/instagram.jpg" alt="Instagram">
+                    <a href="https://www.instagram.com/_gem_syndicate_?igsh=cDNycm1oeG5pYWp4" target="_blank" title="Instagram">
+                        <img src="icon/instagram.jpg" alt="Instagram">
                     </a>
-                    <a href="https://facebook.com/yourprofile" target="_blank" title="Facebook">
-                        <img src="icons/facebook.jpg" alt="Facebook">
+                    <a href="https://www.facebook.com/share/1A2tNQs7eg/" target="_blank" title="Facebook">
+                        <img src="icon/facebook.jpg" alt="Facebook">
                     </a>
-                    <a href="https://linkedin.com/in/yourprofile" target="_blank" title="LinkedIn">
-                        <img src="icons/linkedin.jpg" alt="LinkedIn">
+                    <a href="https://www.linkedin.com/company/gem-syndicate" target="_blank" title="LinkedIn">
+                        <img src="icon/linkedin.jpg" alt="LinkedIn">
                     </a>
                     <a href="https://x.com/yourprofile" target="_blank" title="X">
-                        <img src="icons/x.jpg" alt="X">
+                        <img src="icon/x.jpg" alt="X">
                     </a>
                 </div>
             </section>
@@ -66,165 +71,6 @@
         </div>
     </footer>
 
-    <!-- Order Modal (Place your order) -->
-    <div id="orderModal" class="modal">
-      <div class="modal-content">
-        <span class="close-button">&times;</span>
-        <h2>Place Your Order</h2>
-        <form id="orderForm" action="https://formspree.io/f/mjkrojde" method="POST">
-          <div class="form-group">
-            <label for="customerName">Name</label>
-            <input type="text" name="name" id="customerName" required>
-          </div>
-          <div class="form-group">
-            <label for="customerEmail">Email</label>
-            <input type="email" name="email" id="customerEmail" required>
-          </div>
-          <div class="form-group-full">
-            <label for="orderDetails">Order Details</label>
-            <textarea name="order" id="orderDetails" rows="5" readonly></textarea>
-          </div>
-          <button type="submit" class="btn">Submit Order</button>
-        </form>
-        <div id="orderSuccessMessage" class="hidden">
-          <h3>Thank you for your order!</h3>
-          <p>We will contact you soon.</p>
-        </div>
-      </div>
-    </div>
-
-    <!-- Cart rendering and modal script -->
-    <script>
-    document.addEventListener('DOMContentLoaded', () => {
-        function renderCart() {
-            const cart = JSON.parse(localStorage.getItem('cart')) || [];
-            const cartContainer = document.getElementById('cart-items');
-            const emptyMessage = document.getElementById('empty-cart-message');
-            const cartTotalDiv = document.getElementById('cart-total');
-            const cartActions = document.getElementById('cart-actions');
-
-            if (!cartContainer || !cartTotalDiv) return;
-
-            if (cart.length === 0) {
-                cartContainer.innerHTML = '';
-                cartTotalDiv.innerHTML = '';
-                emptyMessage.style.display = 'block';
-                if (cartActions) cartActions.style.display = 'none';
-            } else {
-                emptyMessage.style.display = 'none';
-                let total = 0;
-                cartContainer.innerHTML = cart.map((item, idx) => {
-                    total += parseFloat(item.productPrice);
-                    return `
-                        <div class="cart-item" style="display: flex; align-items: center; margin-bottom: 1em; padding: 10px; border-bottom: 1px solid #eee;">
-                            <img src="${item.productImage}" alt="${item.productName}" width="80" style="margin-right: 20px;">
-                            <div style="flex:1;">
-                                <h4 style="margin:0 0 10px 0;">${item.productName}</h4>
-                                <p style="margin:0;">Price: $${item.productPrice}</p>
-                            </div>
-                            <button class="remove-btn" data-index="${idx}" style="background:#b33; color:#fff; border:none; padding:6px 14px; border-radius:4px; cursor:pointer;">Remove</button>
-                        </div>
-                    `;
-                }).join('');
-                cartTotalDiv.innerHTML = `<h3>Total: $${total.toFixed(2)}</h3>`;
-                if (cartActions) cartActions.style.display = 'block';
-            }
-
-            // Update cart count in header
-            const cartItemCountSpan = document.getElementById('cart-item-count');
-            if (cartItemCountSpan) {
-                cartItemCountSpan.textContent = cart.length.toString();
-            }
-        }
-
-        // Remove item from cart
-        document.getElementById('cart-items').addEventListener('click', function(event) {
-            if (event.target.classList.contains('remove-btn')) {
-                const index = parseInt(event.target.dataset.index, 10);
-                let cart = JSON.parse(localStorage.getItem('cart')) || [];
-                cart.splice(index, 1);
-                localStorage.setItem('cart', JSON.stringify(cart));
-                localStorage.setItem('cartCount', cart.length);
-                renderCart();
-            }
-        });
-
-        // Modal logic
-        const orderModal = document.getElementById('orderModal');
-        const closeButton = document.querySelector('.close-button');
-        const orderForm = document.getElementById('orderForm');
-        const orderSuccessMessage = document.getElementById('orderSuccessMessage');
-        const orderDetailsTextarea = document.getElementById('orderDetails');
-
-        function openModal(orderDetails = '') {
-            orderModal.style.display = 'block';
-            document.body.classList.add('no-scroll');
-            if(orderDetailsTextarea) orderDetailsTextarea.value = orderDetails;
-            if(orderForm) orderForm.style.display = 'block';
-            if(orderSuccessMessage) orderSuccessMessage.classList.add('hidden');
-        }
-        function closeModal() {
-            orderModal.style.display = 'none';
-            document.body.classList.remove('no-scroll');
-            if(orderForm) orderForm.reset();
-            if(orderSuccessMessage) orderSuccessMessage.classList.add('hidden');
-        }
-        if (closeButton) {
-            closeButton.addEventListener('click', closeModal);
-        }
-        if (orderModal) {
-            orderModal.addEventListener('click', (event) => {
-                if (event.target === orderModal) closeModal();
-            });
-        }
-
-        // Buy Now button handler
-        const cartBuyNowBtn = document.getElementById('cart-buy-now-btn');
-        if (cartBuyNowBtn) {
-            cartBuyNowBtn.addEventListener('click', function() {
-                const cart = JSON.parse(localStorage.getItem('cart')) || [];
-                if (cart.length === 0) {
-                    alert('Your cart is empty!');
-                    return;
-                }
-                // Fill order details with cart summary
-                const orderDetails = cart.map(item =>
-                    `${item.productName} ($${item.productPrice})`
-                ).join('\n');
-                openModal(orderDetails);
-            });
-        }
-
-        // Handle order form submission
-        if (orderForm) {
-            orderForm.addEventListener('submit', async (event) => {
-                event.preventDefault();
-                const form = event.target;
-                const formData = new FormData(form);
-                try {
-                    const response = await fetch(form.action, {
-                        method: form.method,
-                        body: formData,
-                        headers: { 'Accept': 'application/json' }
-                    });
-                    if (response.ok) {
-                        orderForm.style.display = 'none';
-                        orderSuccessMessage.classList.remove('hidden');
-                        // Clear the cart after successful order
-                        localStorage.removeItem('cart');
-                        localStorage.setItem('cartCount', '0');
-                        renderCart();
-                    } else {
-                        alert('There was an issue submitting your order. Please try again.');
-                    }
-                } catch (error) {
-                    alert('An error occurred. Please check your internet connection and try again.');
-                }
-            });
-        }
-
-        renderCart();
-    });
-    </script>
+    <script src="js/script.js"></script>
 </body>
 </html>
