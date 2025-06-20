@@ -32,7 +32,6 @@
                 <h2>Your Cart</h2>
                 <div id="cart-items"></div>
                 <div id="cart-total"></div>
-                <!-- Buy Now button added below total -->
                 <div id="cart-actions" style="margin-top: 20px; display:none;">
                     <button class="btn proceed-to-buy-btn" id="cart-buy-now-btn">Buy Now</button>
                 </div>
@@ -67,7 +66,34 @@
         </div>
     </footer>
 
-    <!-- Cart rendering script -->
+    <!-- Order Modal (Place your order) -->
+    <div id="orderModal" class="modal">
+      <div class="modal-content">
+        <span class="close-button">&times;</span>
+        <h2>Place Your Order</h2>
+        <form id="orderForm" action="https://formspree.io/f/mjkrojde" method="POST">
+          <div class="form-group">
+            <label for="customerName">Name</label>
+            <input type="text" name="name" id="customerName" required>
+          </div>
+          <div class="form-group">
+            <label for="customerEmail">Email</label>
+            <input type="email" name="email" id="customerEmail" required>
+          </div>
+          <div class="form-group-full">
+            <label for="orderDetails">Order Details</label>
+            <textarea name="order" id="orderDetails" rows="5" readonly></textarea>
+          </div>
+          <button type="submit" class="btn">Submit Order</button>
+        </form>
+        <div id="orderSuccessMessage" class="hidden">
+          <h3>Thank you for your order!</h3>
+          <p>We will contact you soon.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Cart rendering and modal script -->
     <script>
     document.addEventListener('DOMContentLoaded', () => {
         function renderCart() {
@@ -123,6 +149,35 @@
             }
         });
 
+        // Modal logic
+        const orderModal = document.getElementById('orderModal');
+        const closeButton = document.querySelector('.close-button');
+        const orderForm = document.getElementById('orderForm');
+        const orderSuccessMessage = document.getElementById('orderSuccessMessage');
+        const orderDetailsTextarea = document.getElementById('orderDetails');
+
+        function openModal(orderDetails = '') {
+            orderModal.style.display = 'block';
+            document.body.classList.add('no-scroll');
+            if(orderDetailsTextarea) orderDetailsTextarea.value = orderDetails;
+            if(orderForm) orderForm.style.display = 'block';
+            if(orderSuccessMessage) orderSuccessMessage.classList.add('hidden');
+        }
+        function closeModal() {
+            orderModal.style.display = 'none';
+            document.body.classList.remove('no-scroll');
+            if(orderForm) orderForm.reset();
+            if(orderSuccessMessage) orderSuccessMessage.classList.add('hidden');
+        }
+        if (closeButton) {
+            closeButton.addEventListener('click', closeModal);
+        }
+        if (orderModal) {
+            orderModal.addEventListener('click', (event) => {
+                if (event.target === orderModal) closeModal();
+            });
+        }
+
         // Buy Now button handler
         const cartBuyNowBtn = document.getElementById('cart-buy-now-btn');
         if (cartBuyNowBtn) {
@@ -132,8 +187,39 @@
                     alert('Your cart is empty!');
                     return;
                 }
-                // Insert your checkout logic here (open modal, go to payment, etc.)
-                alert('Proceeding to buy your items!');
+                // Fill order details with cart summary
+                const orderDetails = cart.map(item =>
+                    `${item.productName} ($${item.productPrice})`
+                ).join('\n');
+                openModal(orderDetails);
+            });
+        }
+
+        // Handle order form submission
+        if (orderForm) {
+            orderForm.addEventListener('submit', async (event) => {
+                event.preventDefault();
+                const form = event.target;
+                const formData = new FormData(form);
+                try {
+                    const response = await fetch(form.action, {
+                        method: form.method,
+                        body: formData,
+                        headers: { 'Accept': 'application/json' }
+                    });
+                    if (response.ok) {
+                        orderForm.style.display = 'none';
+                        orderSuccessMessage.classList.remove('hidden');
+                        // Clear the cart after successful order
+                        localStorage.removeItem('cart');
+                        localStorage.setItem('cartCount', '0');
+                        renderCart();
+                    } else {
+                        alert('There was an issue submitting your order. Please try again.');
+                    }
+                } catch (error) {
+                    alert('An error occurred. Please check your internet connection and try again.');
+                }
             });
         }
 
