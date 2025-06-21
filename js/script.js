@@ -39,7 +39,7 @@ document.addEventListener('DOMContentLoaded', () => {
             button.addEventListener('click', (event) => {
                 event.preventDefault();
                 const productName = button.dataset.productName || 'Unknown Product';
-                const productPrice = button.dataset.productPrice || '$0';
+                const productPrice = button.dataset.productPrice || '0';
                 openModal(productName, productPrice);
             });
         });
@@ -90,10 +90,13 @@ document.addEventListener('DOMContentLoaded', () => {
             button.addEventListener('click', (event) => {
                 event.preventDefault();
                 // Gather product info
-                const productId = button.dataset.productId;
-                const productName = button.dataset.productName;
-                const productPrice = button.dataset.productPrice;
-                const productImage = button.dataset.productImage;
+                const productId = button.dataset.productId || Date.now().toString();
+                const productName = button.dataset.productName || 'Unknown Product';
+                let productPrice = button.dataset.productPrice || '0';
+                // Always store as a plain number (strip $ if present)
+                productPrice = productPrice.replace(/[^0-9.]/g, '');
+
+                const productImage = button.dataset.productImage || 'images/placeholder.jpg';
 
                 // Read and update cart from localStorage
                 let cart = JSON.parse(localStorage.getItem('cart')) || [];
