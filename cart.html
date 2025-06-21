@@ -4,7 +4,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cart - GEM SYNDICATE</title>
-    <link="cart.html" class="active">Cart (<span id="cart-item-count">0</span>)</a></li>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+      body.no-scroll { overflow: hidden; }
+      /* If your CSS file already handles modal/.no-scroll, you can remove this. */
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <img src="images/logo.jpg" alt="GEM SYNDICATE Logo">
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="shop.html">Shop</a></li>
+                    <li><a href="index.html#about">About Us</a></li>
+                    <li><a href="cart.html" class="active">Cart (<span id="cart-item-count">0</span>)</a></li>
                     <li><a href="index.html#contact">Contact</a></li>
                 </ul>
             </nav>
@@ -54,7 +71,8 @@
     </footer>
 
     <!-- Buy Now Modal -->
-    <div id=" <div class="modal-content">
+    <div id="orderModal" class="modal">
+      <div class="modal-content">
         <span class="close-button">&times;</span>
         <h2>Buy Now</h2>
         <form id="orderForm" action="https://formspree.io/f/xayrjzjr" method="POST">
@@ -84,7 +102,25 @@
             <label for="buyerAddress">Address</label>
             <textarea id="buyerAddress" name="Address" required></textarea>
           </div>
-          <button class="btn" type="submit">PlaceStorage.getItem('cart')) || [];
+          <button class="btn" type="submit">Place Order</button>
+        </form>
+        <div id="orderSuccessMessage" class="hidden">
+          <h3>Order Placed!</h3>
+          <p>Thank you for your order. We will contact you soon.</p>
+        </div>
+      </div>
+    </div>
+
+    <script>
+    // Utility to update cart count in header
+    function updateCartCount() {
+        const cart = JSON.parse(localStorage.getItem('cart')) || [];
+        document.getElementById('cart-item-count').textContent = cart.length;
+    }
+
+    // Render cart items and total
+    function renderCart() {
+        const cartItems = JSON.parse(localStorage.getItem('cart')) || [];
         const container = document.getElementById('cart-items-container');
         const totalSpan = document.getElementById('cart-total-price');
         const emptyMsg = document.getElementById('empty-cart-message');
@@ -101,7 +137,10 @@
         }
 
         cartItems.forEach((item, idx) => {
-            = 0;
+            const name = item.productName || 'Unnamed Product';
+            let price = item.productPrice || 0;
+            let numericPrice = typeof price === "string" ? Number(price.replace(/[^0-9.]/g, "")) : Number(price);
+            if (!numericPrice) numericPrice = 0;
             const image = item.productImage || 'images/placeholder.jpg';
             const div = document.createElement('div');
             div.className = 'cart-item';
@@ -138,7 +177,8 @@
         document.getElementById('modalProductName').value = productName;
         document.getElementById('modalProductPrice').value = productPrice;
         document.getElementById('hiddenProductName').value = productName;
-        document.getElementBy.display = 'block';
+        document.getElementById('hiddenProductPrice').value = productPrice;
+        document.getElementById('orderModal').style.display = 'flex';
         document.body.classList.add('no-scroll');
         document.getElementById('orderForm').style.display = 'block';
         document.getElementById('orderSuccessMessage').classList.add('hidden');
