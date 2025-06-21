@@ -5,15 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cart - GEM SYNDICATE</title>
     <link rel="stylesheet" href="css/style.css">
-    <style>
-        .cart-item { display: flex; align-items: center; margin-bottom: 1em; border-bottom: 1px solid #eee; padding-bottom: 1em;}
-        .cart-item img { width: 60px; height: 60px; object-fit: cover; margin-right: 1em; }
-        .cart-item-details { flex: 1; }
-        .cart-item-price { font-weight: bold; }
-        #empty-cart-message { margin-top: 2em; font-size: 1.2em; }
-        #cart-summary { margin-top: 2em; }
-        .btn { padding: .5em 1.5em; margin-top: 1em; }
-    </style>
 </head>
 <body>
     <header>
@@ -26,9 +17,7 @@
                     <li><a href="index.html">Home</a></li>
                     <li><a href="shop.html">Shop</a></li>
                     <li><a href="index.html#about">About Us</a></li>
-                    <li><a href="cart.html" class="active">Cart (<span id="cart-item-count">0</span>)</a></li>
-                    <li><a href="index.html#contact">Contact</a></li>
-                </ul>
+                    <li><a href="cart.html>
             </nav>
         </div>
     </header>
@@ -40,7 +29,7 @@
                 <div id="cart-items-container"></div>
                 <div id="cart-summary">
                     <div class="cart-total">
-                        Total: $<span id="cart-total-price">0</span>
+                        Total: $<span id="cart-total-price">0</>
                     </div>
                     <button class="btn clear-cart-btn">Clear Cart</button>
                 </div>
@@ -76,11 +65,13 @@
     </footer>
 
     <script>
+    // Utility to update cart count in header
     function updateCartCount() {
         const cart = JSON.parse(localStorage.getItem('cart')) || [];
         document.getElementById('cart-item-count').textContent = cart.length;
     }
 
+    // Render cart items and total
     function renderCart() {
         const cartItems = JSON.parse(localStorage.getItem('cart')) || [];
         const container = document.getElementById('cart-items-container');
@@ -99,23 +90,29 @@
         }
 
         cartItems.forEach(item => {
-            // Use the keys from your script.js!
             const name = item.productName || 'Unnamed Product';
-            const price = item.productPrice || 0;
-            const <img src="${image}" alt="${name}">
+            let price = item.productPrice || 0;
+            let numericPrice = typeof price === "string" ? Number(price.replace(/[^0-9.]/g, "")) : Number(price);
+            if (!numericPrice) numericPrice = 0;
+            const image = item.productImage || 'images/placeholder.jpg';
+            const div = document.createElement('div');
+            div.className = 'cart-item';
+            div.innerHTML = `
+                <img src="${image}" alt="${name}">
                 <div class="cart-item-details">
                     <h4>${name}</h4>
-                    <p>Price: $${price}</p>
+                    <p>Price: $${numericPrice}</p>
                 </div>
-                <div class="cart-item-price">$${price}</div>
+                <div class="cart-item-price">$${numericPrice}</div>
             `;
             container.appendChild(div);
-            total += Number(price);
+            total += numericPrice;
         });
         totalSpan.textContent = total;
         updateCartCount();
     }
 
+    // Clear cart functionality
     document.addEventListener('DOMContentLoaded', function() {
         document.querySelector('.clear-cart-btn').addEventListener('click', function() {
             localStorage.removeItem('cart');
