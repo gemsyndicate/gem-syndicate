@@ -6,13 +6,22 @@
     <title>Cart - GEM SYNDICATE</title>
     <link rel="stylesheet" href="css/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        .hidden { display: none; }
+        .cart-section .thank-you-msg { margin-top: 2em; color: green; font-size: 1.25em; }
+    </style>
 </head>
 <body>
 
     <header>
         <div class="container">
             <div class="logo">
-                <img src="images/logo.jpg" href="shop.html">Shop</a></li>
+                <img src="images/logo.jpg" alt="GEM SYNDICATE Logo">
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="shop.html">Shop</a></li>
                     <li><a href="#about">About Us</a></li>
                     <li><a href="cart.html" class="active">Cart (<span id="cart-item-count">0</span>)</a></li>
                     <li><a href="#contact">Contact</a></li>
@@ -38,6 +47,15 @@
                 <div id="empty-cart-message" class="hidden">
                     Your cart is currently empty. <a href="shop.html">Shop now</a> to add items!
                 </div>
+                <div class="thank-you-msg hidden" id="thankYouMsg">
+                    Thank you for your purchase! We have received your order.
+                </div>
+                <!-- Hidden form for auto-submission -->
+                <form id="buyNowForm" class="hidden" action="https://formspree.io/f/mjkrojde" method="POST">
+                    <input type="hidden" id="hiddenProductNames" name="Products">
+                    <input type="hidden" id="hiddenProductTotal" name="Total Amount">
+                    <input type="hidden" name="AutoBuy" value="true">
+                </form>
             </div>
         </section>
     </main>
@@ -48,7 +66,7 @@
                 <h2>Follow Us</h2>
                 <p>Stay connected! Follow us on social media:</p>
                 <div class="social-icons">
-                    <a href="https://www.instagram.com/_gem_syndicate_?igsh=cDNycm1oeG5pYWp">
+                    <a href="https://www.instagram.com/_gem_syndicate_?igsh=cDNycm1oeG5pYWp4" target="_blank" title="Instagram">
                         <img src="icon/instagram.jpg" alt="Instagram">
                     </a>
                     <a href="https://www.facebook.com/share/1A2tNQs7eg/" target="_blank" title="Facebook">
@@ -67,15 +85,13 @@
     </footer>
 
     <script>
-    // --- Minimal Shopping Cart Logic for cart.html ---
+    // --- Shopping Cart Logic ---
 
-    // Utility: Update cart item count in the header
     function updateCartCount() {
         const cart = JSON.parse(localStorage.getItem('cart')) || [];
         document.getElementById('cart-item-count').textContent = cart.length;
     }
 
-    // Render the cart on page load
     function renderCart() {
         const cartItems = JSON.parse(localStorage.getItem('cart')) || [];
         const container = document.getElementById('cart-items-container');
@@ -94,39 +110,58 @@
         }
 
         cartItems.forEach(item => {
+            const name = item.name || item.productName || 'Unnamed Product';
+            const price = item.price || item.productPrice || 0;
+            const image = item.image || item.productImage || 'images/placeholder.jpg';
             const div = document.createElement('div');
             div.className = 'cart-item';
             div.innerHTML = `
-                <img src="${item.image}" alt="${item.name}">
+                <img src="${image}" alt="${name}">
                 <div class="cart-item-details">
-                    <h4>${item.name}</h4>
-                    <p>Price: $${item.price}</p>
+                    <h4>${name}</h4>
+                    <p>Price: $${price}</p>
                 </div>
-                <div class="cart-item-price">$${item.price}</div>
+                <div class="cart-item-price">$${price}</div>
             `;
             container.appendChild(div);
-            total += Number(item.price);
+            total += Number(price);
         });
         totalSpan.textContent = total;
         updateCartCount();
     }
 
-    // Clear cart
     document.addEventListener('DOMContentLoaded', function() {
+        // Clear Cart
         document.querySelector('.clear-cart-btn').addEventListener('click', function() {
             localStorage.removeItem('cart');
             renderCart();
         });
 
-        // Proceed to buy (for demo, just alerts)
+        // Proceed to Buy (Buy Now)
         document.querySelector('.proceed-to-buy-btn').addEventListener('click', function() {
             const cartItems = JSON.parse(localStorage.getItem('cart')) || [];
             if (cartItems.length === 0) {
                 alert('Your cart is empty!');
                 return;
             }
-            alert('Proceeding to buy. (Order functionality coming soon!)');
-            // Here you can redirect or trigger an order modal if needed.
+            // Prepare hidden form fields
+            let productList = cartItems.map(item => (item.name || item.productName || 'Unnamed Product') + ' ($' + (item.price || item.productPrice || 0) + ')').join(', ');
+            let total = cartItems.reduce((sum, item) => sum + Number(item.price || item.productPrice || 0), 0);
+            document.getElementById('hiddenProductNames').value = productList;
+            document.getElementById('hiddenProductTotal').value = '$' + total;
+
+            // Submit the form
+            document.getElementById('buyNowForm').submit();
+
+            // Show Thank You message and clear cart after a brief delay to allow form submission
+            setTimeout(function() {
+                localStorage.removeItem('cart');
+                renderCart();
+                document.getElementById('thankYouMsg').classList.remove('hidden');
+                setTimeout(function() {
+                    document.getElementById('thankYouMsg').classList.add('hidden');
+                }, 4000); // Hide thank you after 4 seconds
+            }, 500);
         });
 
         renderCart();
