@@ -7,8 +7,40 @@
     <link rel="stylesheet" href="css/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
     <style>
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100vw;
+            height: 100vh;
+            overflow: auto;
+            background: rgba(0,0,0,0.5);
+        }
+        .modal-content {
+            background: #fff;
+            margin: 5% auto;
+            padding: 2em;
+            border-radius: 8px;
+            width: 90%;
+            max-width: 400px;
+            position: relative;
+        }
+        .modal .close-button {
+            position: absolute;
+            top: 1em;
+            right: 1em;
+            font-size: 1.5em;
+            cursor: pointer;
+            border: none;
+            background: none;
+        }
         .hidden { display: none; }
-        .cart-section .thank-you-msg { margin-top: 2em; color: green; font-size: 1.25em; }
+        .form-group, .form-group-full { margin-bottom: 1em; }
+        .form-group-full textarea { width: 100%; }
+        .btn { margin-top: 1em; }
+        .thank-you-msg { color: green; font-size: 1.1em; text-align: center; margin-top: 2em; }
     </style>
 </head>
 <body>
@@ -41,24 +73,44 @@
                     <div class="cart-total">
                         Total: $<span id="cart-total-price">0</span>
                     </div>
-                    <button class="btn proceed-to-buy-btn">Proceed to Buy</button>
-                    <button class="btn clear-cart-btn">Clear Cart</button>
-                </div>
-                <div id="empty-cart-message" class="hidden">
-                    Your cart is currently empty. <a href="shop.html">Shop now</a> to add items!
-                </div>
-                <div class="thank-you-msg hidden" id="thankYouMsg">
-                    Thank you for your purchase! We have received your order.
-                </div>
-                <!-- Hidden form for auto-submission -->
-                <form id="buyNowForm" class="hidden" action="https://formspree.io/f/mjkrojde" method="POST">
-                    <input type="hidden" id="hiddenProductNames" name="Products">
-                    <input type="hidden" id="hiddenProductTotal" name="Total Amount">
-                    <input type="hidden" name="AutoBuy" value="true">
-                </form>
+                    <button class="btn proceed-to-buy-btn">Proceed </div>
             </div>
         </section>
     </main>
+
+    <!-- Modal Form for Order -->
+    <div id="orderModal" class="modal">
+        <div class="modal-content">
+            <button class="close-button" id="closeModal">&times;</button>
+            <h2>Place Your Order</h2>
+            <form id="orderForm" action="https://formspree.io/f/mjkrojde" method="POST">
+                <div class="form-group">
+                    <label for="orderName">Name</label>
+                    <input type="text" id="orderName" name="Name" placeholder="Your Name" required>
+                </div>
+                <div class="form-group">
+                    <label for="orderPhone">Phone Number</label>
+                    <input type="tel" id="orderPhone" name="Phone" placeholder="Your Phone Number" required pattern="[0-9+\s()-]{7,}">
+                </div>
+                <div class="form-group">
+                    <label for="orderEmail">Email ID</label>
+                    <input type="email" id="orderEmail" name="Email" placeholder="Your Email" required>
+                </div>
+                <div class="form-group-full">
+                    <label for="orderAddress">Address</label>
+                    <textarea id="orderAddress" name="Address" placeholder="Your Shipping Address" rows="3" required></textarea>
+                </div>
+                <input type="hidden" id="hiddenProductNames" name="Products">
+                <input type="hidden" id="hiddenProductTotal" name="Total Amount">
+                <button type="submit" class="btn">Submit Order</button>
+            </form>
+            <div id="orderSuccessMessage" class="thank-you-msg hidden">
+                <h3>Thank You!</h3>
+                <p>Your order has been received. Our team will contact you shortly to confirm your order and discuss payment.</p>
+                <button class="btn" id="closeSuccessBtn">Close</button>
+            </div>
+        </div>
+    </div>
 
     <footer>
         <div class="container">
@@ -89,14 +141,7 @@
 
     function updateCartCount() {
         const cart = JSON.parse(localStorage.getItem('cart')) || [];
-        document.getElementById('cart-item-count').textContent = cart.length;
-    }
-
-    function renderCart() {
-        const cartItems = JSON.parse(localStorage.getItem('cart')) || [];
-        const container = document.getElementById('cart-items-container');
-        const totalSpan = document.getElementById('cart-total-price');
-        const emptyMsg = document.getElementById('empty-cart-message');
+        document.getElementById('cart-item');
         container.innerHTML = '';
         let total = 0;
 
@@ -130,6 +175,22 @@
         updateCartCount();
     }
 
+    function openModal() {
+        const cartItems = JSON.parse(localStorage.getItem('cart')) || [];
+        let productList = cartItems.map(item => (item.name || item.productName || 'Unnamed Product') + ' ($' + (item.price || item.productPrice || 0) + ')').join(', ');
+        let total = cartItems.reduce((sum, item) => sum + Number(item.price || item.productPrice || 0), 0);
+        document.getElementById('hiddenProductNames').value = productList;
+        document.getElementById('hiddenProductTotal').value = '$' + total;
+        document.getElementById('orderModal').style.display = 'block';
+    }
+
+    function closeModal() {
+        document.getElementById('orderModal').style.display = 'none';
+        document.getElementById('orderForm').classList.remove('hidden');
+        document.getElementById('orderSuccessMessage').classList.add('hidden');
+        document.getElementById('orderForm').reset();
+    }
+
     document.addEventListener('DOMContentLoaded', function() {
         // Clear Cart
         document.querySelector('.clear-cart-btn').addEventListener('click', function() {
@@ -137,32 +198,40 @@
             renderCart();
         });
 
-        // Proceed to Buy (Buy Now)
+        // Proceed to Buy (open modal form)
         document.querySelector('.proceed-to-buy-btn').addEventListener('click', function() {
             const cartItems = JSON.parse(localStorage.getItem('cart')) || [];
             if (cartItems.length === 0) {
                 alert('Your cart is empty!');
                 return;
             }
-            // Prepare hidden form fields
-            let productList = cartItems.map(item => (item.name || item.productName || 'Unnamed Product') + ' ($' + (item.price || item.productPrice || 0) + ')').join(', ');
-            let total = cartItems.reduce((sum, item) => sum + Number(item.price || item.productPrice || 0), 0);
-            document.getElementById('hiddenProductNames').value = productList;
-            document.getElementById('hiddenProductTotal').value = '$' + total;
-
-            // Submit the form
-            document.getElementById('buyNowForm').submit();
-
-            // Show Thank You message and clear cart after a brief delay to allow form submission
-            setTimeout(function() {
-                localStorage.removeItem('cart');
-                renderCart();
-                document.getElementById('thankYouMsg').classList.remove('hidden');
-                setTimeout(function() {
-                    document.getElementById('thankYouMsg').classList.add('hidden');
-                }, 4000); // Hide thank you after 4 seconds
-            }, 500);
+            openModal();
         });
+
+        // Modal close (X button and success close)
+        document.getElementById('closeModal').addEventListener('click', closeModal);
+        document.getElementById('closeSuccessBtn').addEventListener('click', closeModal);
+
+        // Order form submit logic
+        document.getElementById('orderForm').addEventListener('submit', function(e) {
+            e.preventDefault(); // Prevent default form submission
+            // For production, remove preventDefault to allow actual submission to Formspree!
+            // e.g. remove e.preventDefault(); if you want real email sending
+
+            // Show Thank You message, hide form, clear cart
+            document.getElementById('orderForm').classList.add('hidden');
+            document.getElementById('orderSuccessMessage').classList.remove('hidden');
+            localStorage.removeItem('cart');
+            renderCart();
+        });
+
+        // Click outside modal closes it
+        window.onclick = function(event) {
+            const modal = document.getElementById('orderModal');
+            if (event.target == modal) {
+                closeModal();
+            }
+        };
 
         renderCart();
     });
