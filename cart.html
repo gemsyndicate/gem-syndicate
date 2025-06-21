@@ -4,20 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cart - GEM SYNDICATE</title>
-    <link rel="stylesheet" href="css/style.css">
-</head>
-<body>
-    <header>
-        <div class="container">
-            <div class="logo">
-                <img src="images/logo.jpg" alt="GEM SYNDICATE Logo">
-            </div>
-            <nav>
-                <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="shop.html">Shop</a></li>
-                    <li><a href="index.html#about">About Us</a></li>
-                    <li><a href="cart.html>
+    <link="cart.html" class="active">Cart (<span id="cart-item-count">0</span>)</a></li>
+                    <li><a href="index.html#contact">Contact</a></li>
+                </ul>
             </nav>
         </div>
     </header>
@@ -29,7 +18,7 @@
                 <div id="cart-items-container"></div>
                 <div id="cart-summary">
                     <div class="cart-total">
-                        Total: $<span id="cart-total-price">0</>
+                        Total: $<span id="cart-total-price">0</span>
                     </div>
                     <button class="btn clear-cart-btn">Clear Cart</button>
                 </div>
@@ -64,16 +53,38 @@
         </div>
     </footer>
 
-    <script>
-    // Utility to update cart count in header
-    function updateCartCount() {
-        const cart = JSON.parse(localStorage.getItem('cart')) || [];
-        document.getElementById('cart-item-count').textContent = cart.length;
-    }
-
-    // Render cart items and total
-    function renderCart() {
-        const cartItems = JSON.parse(localStorage.getItem('cart')) || [];
+    <!-- Buy Now Modal -->
+    <div id=" <div class="modal-content">
+        <span class="close-button">&times;</span>
+        <h2>Buy Now</h2>
+        <form id="orderForm" action="https://formspree.io/f/xayrjzjr" method="POST">
+          <div class="form-group-full">
+            <label for="modalProductName">Product</label>
+            <input type="text" id="modalProductName" name="Product" readonly>
+            <input type="hidden" id="hiddenProductName" name="Product">
+            <input type="hidden" id="hiddenProductPrice" name="Price">
+          </div>
+          <div class="form-group-full">
+            <label for="modalProductPrice">Price</label>
+            <input type="text" id="modalProductPrice" readonly>
+          </div>
+          <div class="form-group-full">
+            <label for="buyerName">Your Name</label>
+            <input type="text" id="buyerName" name="Name" required>
+          </div>
+          <div class="form-group-full">
+            <label for="buyerEmail">Email</label>
+            <input type="email" id="buyerEmail" name="Email" required>
+          </div>
+          <div class="form-group-full">
+            <label for="buyerPhone">Phone</label>
+            <input type="tel" id="buyerPhone" name="Phone" required>
+          </div>
+          <div class="form-group-full">
+            <label for="buyerAddress">Address</label>
+            <textarea id="buyerAddress" name="Address" required></textarea>
+          </div>
+          <button class="btn" type="submit">PlaceStorage.getItem('cart')) || [];
         const container = document.getElementById('cart-items-container');
         const totalSpan = document.getElementById('cart-total-price');
         const emptyMsg = document.getElementById('empty-cart-message');
@@ -89,11 +100,8 @@
             emptyMsg.classList.add('hidden');
         }
 
-        cartItems.forEach(item => {
-            const name = item.productName || 'Unnamed Product';
-            let price = item.productPrice || 0;
-            let numericPrice = typeof price === "string" ? Number(price.replace(/[^0-9.]/g, "")) : Number(price);
-            if (!numericPrice) numericPrice = 0;
+        cartItems.forEach((item, idx) => {
+            = 0;
             const image = item.productImage || 'images/placeholder.jpg';
             const div = document.createElement('div');
             div.className = 'cart-item';
@@ -104,6 +112,10 @@
                     <p>Price: $${numericPrice}</p>
                 </div>
                 <div class="cart-item-price">$${numericPrice}</div>
+                <button class="btn buy-now-btn" 
+                        data-product-name="${name}" 
+                        data-product-price="${numericPrice}"
+                        style="margin-left:10px;">Buy Now</button>
             `;
             container.appendChild(div);
             total += numericPrice;
@@ -119,6 +131,55 @@
             renderCart();
         });
         renderCart();
+    });
+
+    // --- Buy Now Popup Logic ---
+    function openModal(productName = '', productPrice = '') {
+        document.getElementById('modalProductName').value = productName;
+        document.getElementById('modalProductPrice').value = productPrice;
+        document.getElementById('hiddenProductName').value = productName;
+        document.getElementBy.display = 'block';
+        document.body.classList.add('no-scroll');
+        document.getElementById('orderForm').style.display = 'block';
+        document.getElementById('orderSuccessMessage').classList.add('hidden');
+    }
+    function closeModal() {
+        document.getElementById('orderModal').style.display = 'none';
+        document.body.classList.remove('no-scroll');
+        document.getElementById('orderForm').reset();
+        document.getElementById('orderSuccessMessage').classList.add('hidden');
+    }
+    document.addEventListener('click', function(e) {
+        if (e.target.classList.contains('buy-now-btn')) {
+            openModal(
+                e.target.getAttribute('data-product-name'),
+                e.target.getAttribute('data-product-price')
+            );
+        }
+        if (e.target.classList.contains('close-button') || e.target === document.getElementById('orderModal')) {
+            closeModal();
+        }
+    });
+    // Formspree AJAX submit
+    document.getElementById('orderForm').addEventListener('submit', async function(event) {
+        event.preventDefault();
+        const form = event.target;
+        const formData = new FormData(form);
+        try {
+            const response = await fetch(form.action, {
+                method: form.method,
+                body: formData,
+                headers: { 'Accept': 'application/json' }
+            });
+            if (response.ok) {
+                form.style.display = 'none';
+                document.getElementById('orderSuccessMessage').classList.remove('hidden');
+            } else {
+                alert('There was an issue submitting your order. Please try again.');
+            }
+        } catch (error) {
+            alert('An error occurred. Please try again.');
+        }
     });
     </script>
 </body>
