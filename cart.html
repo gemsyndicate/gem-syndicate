@@ -7,7 +7,17 @@
     <link rel="stylesheet" href="css/style.css">
     <style>
       body.no-scroll { overflow: hidden; }
-      /* If your CSS file already handles modal/.no-scroll, you can remove this. */
+      .modal {
+        display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100vw; height: 100vh;
+        background: rgba(0,0,0,0.4); justify-content: center; align-items: center;
+      }
+      .modal-content {
+        background: #fff; padding: 2em; border-radius: 8px; max-width: 400px; width: 100%; position: relative;
+      }
+      .close-button {
+        position: absolute; right: 20px; top: 20px; font-size: 2em; cursor: pointer;
+      }
+      .hidden { display: none !important; }
     </style>
 </head>
 <body>
@@ -37,6 +47,7 @@
                     <div class="cart-total">
                         Total: $<span id="cart-total-price">0</span>
                     </div>
+                    <button class="btn proceed-to-buy-btn" id="proceedToCheckoutBtn">Proceed to Checkout</button>
                     <button class="btn clear-cart-btn">Clear Cart</button>
                 </div>
                 <div id="empty-cart-message" class="hidden">
@@ -70,21 +81,20 @@
         </div>
     </footer>
 
-    <!-- Buy Now Modal -->
+    <!-- Checkout Modal -->
     <div id="orderModal" class="modal">
       <div class="modal-content">
         <span class="close-button">&times;</span>
-        <h2>Buy Now</h2>
+        <h2>Checkout</h2>
         <form id="orderForm" action="https://formspree.io/f/xayrjzjr" method="POST">
           <div class="form-group-full">
-            <label for="modalProductName">Product</label>
-            <input type="text" id="modalProductName" name="Product" readonly>
-            <input type="hidden" id="hiddenProductName" name="Product">
-            <input type="hidden" id="hiddenProductPrice" name="Price">
+            <label for="modalProductList">Products</label>
+            <textarea id="modalProductList" name="Products" readonly style="height:80px"></textarea>
           </div>
           <div class="form-group-full">
-            <label for="modalProductPrice">Price</label>
-            <input type="text" id="modalProductPrice" readonly>
+            <label for="modalTotalPrice">Total Price</label>
+            <input type="text" id="modalTotalPrice" readonly>
+            <input type="hidden" id="hiddenTotalPrice" name="Total Price">
           </div>
           <div class="form-group-full">
             <label for="buyerName">Your Name</label>
@@ -131,12 +141,14 @@
             emptyMsg.classList.remove('hidden');
             totalSpan.textContent = '0';
             updateCartCount();
+            document.getElementById('proceedToCheckoutBtn').style.display = 'none';
             return;
         } else {
             emptyMsg.classList.add('hidden');
+            document.getElementById('proceedToCheckoutBtn').style.display = 'inline-block';
         }
 
-        cartItems.forEach((item, idx) => {
+        cartItems.forEach(item => {
             const name = item.productName || 'Unnamed Product';
             let price = item.productPrice || 0;
             let numericPrice = typeof price === "string" ? Number(price.replace(/[^0-9.]/g, "")) : Number(price);
@@ -151,10 +163,6 @@
                     <p>Price: $${numericPrice}</p>
                 </div>
                 <div class="cart-item-price">$${numericPrice}</div>
-                <button class="btn buy-now-btn" 
-                        data-product-name="${name}" 
-                        data-product-price="${numericPrice}"
-                        style="margin-left:10px;">Buy Now</button>
             `;
             container.appendChild(div);
             total += numericPrice;
@@ -172,12 +180,11 @@
         renderCart();
     });
 
-    // --- Buy Now Popup Logic ---
-    function openModal(productName = '', productPrice = '') {
-        document.getElementById('modalProductName').value = productName;
-        document.getElementById('modalProductPrice').value = productPrice;
-        document.getElementById('hiddenProductName').value = productName;
-        document.getElementById('hiddenProductPrice').value = productPrice;
+    // --- Proceed to Checkout Modal Logic ---
+    function openCheckoutModal(productList, totalPrice) {
+        document.getElementById('modalProductList').value = productList;
+        document.getElementById('modalTotalPrice').value = totalPrice;
+        document.getElementById('hiddenTotalPrice').value = totalPrice;
         document.getElementById('orderModal').style.display = 'flex';
         document.body.classList.add('no-scroll');
         document.getElementById('orderForm').style.display = 'block';
@@ -190,11 +197,24 @@
         document.getElementById('orderSuccessMessage').classList.add('hidden');
     }
     document.addEventListener('click', function(e) {
-        if (e.target.classList.contains('buy-now-btn')) {
-            openModal(
-                e.target.getAttribute('data-product-name'),
-                e.target.getAttribute('data-product-price')
-            );
+        if (e.target.id === 'proceedToCheckoutBtn') {
+            // Prepare product list and total price for modal
+            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+            if (cart.length === 0) return;
+            let productList = cart.map(item => {
+                const name = item.productName || 'Unnamed Product';
+                let price = item.productPrice || 0;
+                let numericPrice = typeof price === "string" ? Number(price.replace(/[^0-9.]/g, "")) : Number(price);
+                if (!numericPrice) numericPrice = 0;
+                return `${name} ($${numericPrice})`;
+            }).join('\n');
+            let totalPrice = cart.reduce((sum, item) => {
+                let price = item.productPrice || 0;
+                let numericPrice = typeof price === "string" ? Number(price.replace(/[^0-9.]/g, "")) : Number(price);
+                if (!numericPrice) numericPrice = 0;
+                return sum + numericPrice;
+            }, 0);
+            openCheckoutModal(productList, `$${totalPrice}`);
         }
         if (e.target.classList.contains('close-button') || e.target === document.getElementById('orderModal')) {
             closeModal();
