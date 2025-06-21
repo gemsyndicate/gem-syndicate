@@ -11,11 +11,8 @@
             display: none;
             position: fixed;
             z-index: 1000;
-            left: 0;
-            top: 0;
-            width: 100vw;
-            height: 100vh;
-            overflow: auto;
+            left: 0; top: 0;
+            width: 100vw; height: 100vh;
             background: rgba(0,0,0,0.5);
         }
         .modal-content {
@@ -29,8 +26,7 @@
         }
         .modal .close-button {
             position: absolute;
-            top: 1em;
-            right: 1em;
+            top: 1em; right: 1em;
             font-size: 1.5em;
             cursor: pointer;
             border: none;
@@ -41,6 +37,12 @@
         .form-group-full textarea { width: 100%; }
         .btn { margin-top: 1em; }
         .thank-you-msg { color: green; font-size: 1.1em; text-align: center; margin-top: 2em; }
+        .cart-item { display: flex; align-items: center; margin-bottom: 1em; border-bottom: 1px solid #eee; padding-bottom: 1em;}
+        .cart-item img { width: 60px; height: 60px; object-fit: cover; margin-right: 1em; }
+        .cart-item-details { flex: 1; }
+        .cart-item-price { font-weight: bold; }
+        #empty-cart-message { margin-top: 2em; font-size: 1.2em; }
+        #cart-summary { margin-top: 2em; }
     </style>
 </head>
 <body>
@@ -73,7 +75,12 @@
                     <div class="cart-total">
                         Total: $<span id="cart-total-price">0</span>
                     </div>
-                    <button class="btn proceed-to-buy-btn">Proceed </div>
+                    <button class="btn proceed-to-buy-btn">Proceed to Buy</button>
+                    <button class="btn clear-cart-btn">Clear Cart</button>
+                </div>
+                <div id="empty-cart-message" class="hidden">
+                    Your cart is currently empty. <a href="shop.html">Shop now</a> to add items!
+                </div>
             </div>
         </section>
     </main>
@@ -94,19 +101,7 @@
                 </div>
                 <div class="form-group">
                     <label for="orderEmail">Email ID</label>
-                    <input type="email" id="orderEmail" name="Email" placeholder="Your Email" required>
-                </div>
-                <div class="form-group-full">
-                    <label for="orderAddress">Address</label>
-                    <textarea id="orderAddress" name="Address" placeholder="Your Shipping Address" rows="3" required></textarea>
-                </div>
-                <input type="hidden" id="hiddenProductNames" name="Products">
-                <input type="hidden" id="hiddenProductTotal" name="Total Amount">
-                <button type="submit" class="btn">Submit Order</button>
-            </form>
-            <div id="orderSuccessMessage" class="thank-you-msg hidden">
-                <h3>Thank You!</h3>
-                <p>Your order has been received. Our team will contact you shortly to confirm your order and discuss payment.</p>
+                    <input type="email" id="orderEmail" name="Email" placeholder=" discuss payment.</p>
                 <button class="btn" id="closeSuccessBtn">Close</button>
             </div>
         </div>
@@ -137,11 +132,7 @@
     </footer>
 
     <script>
-    // --- Shopping Cart Logic ---
-
-    function updateCartCount() {
-        const cart = JSON.parse(localStorage.getItem('cart')) || [];
-        document.getElementById('cart-item');
+    // --- Shopping Cart Logic const emptyMsg = document.getElementById('empty-cart-message');
         container.innerHTML = '';
         let total = 0;
 
@@ -192,13 +183,11 @@
     }
 
     document.addEventListener('DOMContentLoaded', function() {
-        // Clear Cart
         document.querySelector('.clear-cart-btn').addEventListener('click', function() {
             localStorage.removeItem('cart');
             renderCart();
         });
 
-        // Proceed to Buy (open modal form)
         document.querySelector('.proceed-to-buy-btn').addEventListener('click', function() {
             const cartItems = JSON.parse(localStorage.getItem('cart')) || [];
             if (cartItems.length === 0) {
@@ -208,24 +197,17 @@
             openModal();
         });
 
-        // Modal close (X button and success close)
         document.getElementById('closeModal').addEventListener('click', closeModal);
         document.getElementById('closeSuccessBtn').addEventListener('click', closeModal);
 
-        // Order form submit logic
         document.getElementById('orderForm').addEventListener('submit', function(e) {
-            e.preventDefault(); // Prevent default form submission
-            // For production, remove preventDefault to allow actual submission to Formspree!
-            // e.g. remove e.preventDefault(); if you want real email sending
-
-            // Show Thank You message, hide form, clear cart
+            e.preventDefault(); // Remove this line if you want to actually submit to Formspree
             document.getElementById('orderForm').classList.add('hidden');
             document.getElementById('orderSuccessMessage').classList.remove('hidden');
             localStorage.removeItem('cart');
             renderCart();
         });
 
-        // Click outside modal closes it
         window.onclick = function(event) {
             const modal = document.getElementById('orderModal');
             if (event.target == modal) {
